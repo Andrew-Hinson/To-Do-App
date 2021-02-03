@@ -1,6 +1,7 @@
 import './style.css';
 import Todo from './creation';
-console.log('this is no longer an error')
-let myTodo = new Todo()
+import { landing } from './landingModule.js';
 
-console.log(myTodo.readOut)
+const content = document.querySelector('#content');
+
+content.appendChild(landing())
