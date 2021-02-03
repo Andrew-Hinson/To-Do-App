@@ -1,10 +1,10 @@
 const landing = () => {
     const mainDiv = document.createElement('div')
-
+          mainDiv.setAttribute('class', 'parentDiv')
     const checkArea = () => {
         const checkDiv = document.createElement('div')    
         checkDiv.setAttribute('id', 'checkDiv')
-        checkDiv.setAttribute('class', 'standardview')
+        checkDiv.setAttribute('class', 'childDiv')
         return checkDiv;
     }
     const generateTitle = () => {
@@ -29,6 +29,7 @@ const landing = () => {
     const addItem = () => {
         const newButton = document.createElement('button')
         newButton.setAttribute('id', 'addItem')
+        newButton.setAttribute('class', 'bottomOptions')
         newButton.innerText = '+'
         return newButton;
     }
