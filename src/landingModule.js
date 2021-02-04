@@ -1,6 +1,8 @@
 const landing = () => {
     const mainDiv = document.createElement('div')
-          mainDiv.setAttribute('class', 'parentDiv')
+        mainDiv.setAttribute('class', 'parentDiv')
+    const buttonContainer = document.createElement('div')
+        buttonContainer.setAttribute('id', 'buttonContainer')
     const checkArea = () => {
         const checkDiv = document.createElement('div')    
         checkDiv.setAttribute('id', 'checkDiv')
@@ -16,29 +18,29 @@ const landing = () => {
         const deleteButton = document.createElement('button')
         deleteButton.setAttribute('id', 'delete')
         deleteButton.setAttribute('class', 'bottomOptions')
-        deleteButton.innerText = 'Deleted Items'
+        deleteButton.innerText = 'Deleted'
         return deleteButton;
     }
     const completedBtn = () => {
         const completedButton = document.createElement('button')
         completedButton.setAttribute('id', 'completed')
         completedButton.setAttribute('class', 'bottomOptions')
-        completedButton.innerText = 'Completed Items'
+        completedButton.innerText = 'Completed'
         return completedButton;
     }
     const addItem = () => {
         const newButton = document.createElement('button')
         newButton.setAttribute('id', 'addItem')
-        newButton.setAttribute('class', 'bottomOptions')
         newButton.innerText = '+'
         return newButton;
     }
 
     mainDiv.appendChild(generateTitle())
     mainDiv.appendChild(checkArea())
-    mainDiv.appendChild(deletedBtn())
-    mainDiv.appendChild(addItem())
-    mainDiv.appendChild(completedBtn())
+    buttonContainer.appendChild(deletedBtn())
+    buttonContainer.appendChild(addItem())
+    buttonContainer.appendChild(completedBtn())
+    mainDiv.appendChild(buttonContainer)
     return mainDiv;
 }
 export { landing }
