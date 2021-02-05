@@ -7,6 +7,18 @@ const landing = () => {
         const checkDiv = document.createElement('div')    
         checkDiv.setAttribute('id', 'checkDiv')
         checkDiv.setAttribute('class', 'childDiv')
+        checkDiv.classList = 'childDiv flip-card'
+            const flipCardInner = document.createElement('div')
+            flipCardInner.classList = 'flip-card-inner'
+                const flipCardFront = document.createElement('div')
+                flipCardFront.classList = 'flip-card-front'
+                flipCardFront.innerText = 'check it out'
+            const flipCardBack = document.createElement('div')
+            flipCardBack.classList = 'flip-card-back'
+            flipCardBack.innerText = 'yo straight up this is cool'
+        flipCardInner.appendChild(flipCardFront)
+        flipCardInner.appendChild(flipCardBack)
+        checkDiv.appendChild(flipCardInner)
         return checkDiv;
     }
     const generateTitle = () => {
@@ -43,4 +55,9 @@ const landing = () => {
     mainDiv.appendChild(buttonContainer)
     return mainDiv;
 }
+
+
+
+
+
 export { landing }
