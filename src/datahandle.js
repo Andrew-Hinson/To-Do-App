@@ -1,0 +1,8 @@
+class ToDo {
+    constructor(title, priority, checked, notes){
+        this.title = title;
+        this.priority = priority;
+        this.checked = checked;
+        this.notes = notes;
+    }
+}
