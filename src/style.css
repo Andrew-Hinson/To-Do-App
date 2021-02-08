@@ -109,3 +109,7 @@ label {
 textarea:focus, input:focus {
   border: 2px solid #900;
 }
+#flipForm {
+  display: flex;
+  flex-direction: column;
+}

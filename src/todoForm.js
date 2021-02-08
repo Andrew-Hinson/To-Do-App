@@ -1,6 +1,7 @@
 const createForm = () => {
     
     const flipForm = document.createElement('form')
+    flipForm.setAttribute('id', 'flipForm')
 
     const setTitleLabel = () => {
         const label = document.createElement('label')
@@ -14,6 +15,8 @@ const createForm = () => {
         title.setAttribute('type', 'text')
         title.setAttribute('id', 'formTitle')
         title.setAttribute('name', 'titleLabel')
+        title.setAttribute('minlength', '4')
+        title.setAttribute('maxlength', '10')
         return title;
     }
     
@@ -57,13 +60,16 @@ const createForm = () => {
         return label;
     }
     const notes = () => { 
-        const input = document.createElement('input')
-        input.setAttribute('type', 'textarea')
-        input.setAttribute('id', 'formNotes')
-        return input;
+        const noteInput = document.createElement('textarea')
+        noteInput.setAttribute('id', 'formNotes')
+        noteInput.setAttribute('rows', '4')
+        noteInput.setAttribute('cols', '30')
+        noteInput.setAttribute('placeholder', 'Enter a description of your task!') 
+        return noteInput;
     }
     const submitBtn = () => {
-        const submit = document.createElement('button')
+        const submit = document.createElement('input')
+        submit.setAttribute('type', 'submit')
         submit.setAttribute('id', 'formSubmit')
         submit.innerText = 'Add Task!'
         return submit;
