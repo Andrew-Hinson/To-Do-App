@@ -5,4 +5,5 @@ class ToDo {
         this.checked = checked;
         this.notes = notes;
     }
+    //static method to check and uncheck? And what to do with the checked part
 }

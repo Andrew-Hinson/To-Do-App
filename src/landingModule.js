@@ -1,3 +1,4 @@
+import { createForm } from './todoForm.js'
 const landing = () => {
     const mainDiv = document.createElement('div')
         mainDiv.setAttribute('class', 'parentDiv')
@@ -15,7 +16,7 @@ const landing = () => {
                 flipCardFront.innerText = 'check it out'
             const flipCardBack = document.createElement('div')
             flipCardBack.classList = 'flip-card-back'
-            flipCardBack.innerText = 'yo straight up this is cool'
+            flipCardBack.appendChild(createForm())
         flipCardInner.appendChild(flipCardFront)
         flipCardInner.appendChild(flipCardBack)
         checkDiv.appendChild(flipCardInner)

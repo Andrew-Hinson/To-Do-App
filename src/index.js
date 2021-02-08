@@ -1,6 +1,6 @@
 import './style.css';
 import { landing } from './landingModule.js';
-import { buttonEvent } from './createtodo.js';
+import { buttonEvent } from './bottombtns.js';
 
 const content = document.querySelector('#content');
 
