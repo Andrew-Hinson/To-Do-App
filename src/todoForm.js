@@ -6,7 +6,7 @@ const createForm = () => {
     const setTitleLabel = () => {
         const label = document.createElement('label')
         label.setAttribute('id', 'titleLabel')
-        label.setAttribute('name', 'titleLabel')
+        label.setAttribute('for', 'title')
         label.classList.add('formItem')
         label.innerText = 'Task Title:'
         return label;
@@ -14,67 +14,28 @@ const createForm = () => {
     const setTitle = () => {
         const title = document.createElement('input')
         title.setAttribute('type', 'text')
-        title.setAttribute('id', 'formTitle')
-        title.setAttribute('name', 'titleLabel')
+        title.setAttribute('id', 'title')
+        title.setAttribute('name', 'title')
         title.classList.add('formItem')
         title.setAttribute('minlength', '4')
         title.setAttribute('maxlength', '10')
         return title;
     }
-    
-    const setRadioLabel = () => {
-        const label = document.createElement('label')
-        label.setAttribute('id', 'radioLabel')
-        label.setAttribute('name', 'radioLabel')
-        label.setAttribute('for', 'radioLabel')
-        label.classList.add('formItem')
-        label.innerText = 'Priority:'
-        return label;
-    }
-    
-    const greenBtn = () => { 
-        const input = document.createElement('input')
-        input.setAttribute('type', 'radio')
-        input.setAttribute('id', 'greenRadio')
-        input.setAttribute('value', 'greenRadio')
-        input.setAttribute('name', 'green')
-        input.setAttribute('checked', '')
-        input.classList.add('formItem', 'formRadios')
-        return input;
-    }
-    const yellowBtn = () => { 
-        const input = document.createElement('input')
-        input.setAttribute('type', 'radio')
-        input.setAttribute('id', 'yellowRadio')
-        input.setAttribute('value', 'yellowRadio')
-        input.setAttribute('name', 'yellow')
-        input.classList.add('formItem', 'formRadios')
-        return input;
-    }
-    const redBtn = () => { 
-        const input = document.createElement('input')
-        input.setAttribute('type', 'radio')
-        input.setAttribute('id', 'greenRadio')
-        input.setAttribute('value', 'redRadio')
-        input.setAttribute('name', 'red')
-        input.classList.add('formItem', 'formRadios')
-        return input;
-    }
     const setNotesLabel = () => {
         const label = document.createElement('label')
-        label.setAttribute('id', 'notesLabel')
-        label.setAttribute('name', 'notesLabel')
-        label.classList.add('formItem', 'formRadios')
+        label.setAttribute('for', 'formNotes')
+        label.classList.add('formItem')
         label.innerText = 'Notes:'
         return label;
     }
     const notes = () => { 
         const noteInput = document.createElement('textarea')
-        noteInput.setAttribute('id', 'formNotes')
+        noteInput.setAttribute('id', 'notes')
+        noteInput.setAttribute('name', 'notes')
         noteInput.setAttribute('rows', '4')
         noteInput.setAttribute('cols', '30')
         noteInput.setAttribute('placeholder', 'Enter a description of your task!') 
-        noteInput.classList.add('formItem', 'formRadios')
+        noteInput.classList.add('formItem')
         return noteInput;
     }
     const discardBtn = () => {
@@ -96,10 +57,6 @@ const createForm = () => {
     }
     flipForm.appendChild(setTitleLabel())
     flipForm.appendChild(setTitle())
-    flipForm.appendChild(setRadioLabel())
-    flipForm.appendChild(greenBtn())
-    flipForm.appendChild(yellowBtn())
-    flipForm.appendChild(redBtn())
     flipForm.appendChild(setNotesLabel())
     flipForm.appendChild(notes())
     flipForm.appendChild(discardBtn())

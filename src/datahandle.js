@@ -1,8 +1,8 @@
 class Task {
     constructor(title, priority, notes, checked){
         this.title = title;
-        this.priority = priority;
         this.notes = notes;
+        this.priority = priority;
         this.checked = checked;
     }
 
