@@ -26,6 +26,7 @@ const createForm = () => {
         const label = document.createElement('label')
         label.setAttribute('id', 'radioLabel')
         label.setAttribute('name', 'radioLabel')
+        label.setAttribute('for', 'radioLabel')
         label.classList.add('formItem')
         label.innerText = 'Priority:'
         return label;
@@ -35,7 +36,9 @@ const createForm = () => {
         const input = document.createElement('input')
         input.setAttribute('type', 'radio')
         input.setAttribute('id', 'greenRadio')
-        input.setAttribute('name', 'priority')
+        input.setAttribute('value', 'greenRadio')
+        input.setAttribute('name', 'green')
+        input.setAttribute('checked', '')
         input.classList.add('formItem', 'formRadios')
         return input;
     }
@@ -43,7 +46,8 @@ const createForm = () => {
         const input = document.createElement('input')
         input.setAttribute('type', 'radio')
         input.setAttribute('id', 'yellowRadio')
-        input.setAttribute('name', 'priority')
+        input.setAttribute('value', 'yellowRadio')
+        input.setAttribute('name', 'yellow')
         input.classList.add('formItem', 'formRadios')
         return input;
     }
@@ -51,7 +55,8 @@ const createForm = () => {
         const input = document.createElement('input')
         input.setAttribute('type', 'radio')
         input.setAttribute('id', 'greenRadio')
-        input.setAttribute('name', 'priority')
+        input.setAttribute('value', 'redRadio')
+        input.setAttribute('name', 'red')
         input.classList.add('formItem', 'formRadios')
         return input;
     }

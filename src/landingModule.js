@@ -57,8 +57,4 @@ const landing = () => {
     return mainDiv;
 }
 
-
-
-
-
 export { landing }

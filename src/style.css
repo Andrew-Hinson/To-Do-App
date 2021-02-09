@@ -20,15 +20,6 @@ html {
     border: 2px solid #f5f5f5;
     margin: 10% auto;
 }
-/* .childDiv {
-    border: 2px solid white;
-    height: 540px;
-    margin: 1rem 1rem 0rem 1rem;
-    overflow: auto;
-    display: flex;
-    flex-direction: column;
-    color: white;
-} */
 .todo {
   height: 80px;
   border: 1px solid red;
@@ -112,4 +103,6 @@ label {
 .formItem {
   text-align: start;
 }
-
+.formItem {
+  display: inline;
+}

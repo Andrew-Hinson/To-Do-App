@@ -1,5 +1,6 @@
 import { taskData } from './dataHandle.js';
-import { createTask } from './objectCreation.js';
+import { appendToFront } from './appendData.js';
+import { createTask } from "./objectCreation";
 const buttonEvent = () => {
   const flipCardInner = document.querySelector('.flip-card-inner')
   const parent = document.querySelector('.parentDiv')
@@ -7,27 +8,18 @@ const buttonEvent = () => {
   parent.addEventListener('click', (e) => {
     e.preventDefault()
     let target = e.target
-    if(target.id === 'addItem'){
+    if(target.id === 'addItem' || target.id === 'formDiscard'){
       flipit()
     }
     if(target.id === 'formSubmit'){
-      flipit()
-    }
-    if(target.id === 'formDiscard'){
-      //do not push data
+      createTask()
+      appendToFront()
       flipit()
     }
   })
   
   const flipit = () => {
     flipCardInner.classList.toggle('transform')
-  }
-
-  const appendToFront = () => {
-    const lastIndex = taskData.tasks.length - 1;
-    taskData.tasks.map((task, i) => {
-
-    })
   }
 }
 
