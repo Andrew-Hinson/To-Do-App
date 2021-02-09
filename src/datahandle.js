@@ -1,5 +1,5 @@
 class Task {
-    constructor(title, priority, notes, checked){
+    constructor(title, notes, priority, checked){
         this.title = title;
         this.notes = notes;
         this.priority = priority;

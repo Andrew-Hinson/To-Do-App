@@ -7,8 +7,10 @@ const appendToFront = () => {
     const taskTitle = document.createElement('h3')
     const checkBox = document.createElement('checkbox')
     
+    let taskObject = taskData.tasks[lastIndex]
+
     newTask.classList.add('todo')
-    taskTitle.innerText = `Task: ${lastIndex.title}`
+    taskTitle.innerText = `${taskObject.title}`
     newTask.appendChild(taskTitle)
     newTask.appendChild(checkBox)
     
