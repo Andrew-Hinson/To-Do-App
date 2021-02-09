@@ -72,12 +72,21 @@ const createForm = () => {
         noteInput.classList.add('formItem', 'formRadios')
         return noteInput;
     }
+    const discardBtn = () => {
+        const discard = document.createElement('button')
+        discard.setAttribute('type', 'submit')
+        discard.setAttribute('id', 'formDiscard')
+        discard.setAttribute('value', 'Add Task!')
+        discard.classList.add('formItem', 'addTrash')
+        discard.innerText = 'Discard Task'
+        return discard;
+    }
     const submitBtn = () => {
         const submit = document.createElement('input')
         submit.setAttribute('type', 'submit')
         submit.setAttribute('id', 'formSubmit')
         submit.setAttribute('value', 'Add Task!')
-        submit.classList.add('formItem')
+        submit.classList.add('formItem', 'addTrash')
         return submit;
     }
     flipForm.appendChild(setTitleLabel())
@@ -88,6 +97,7 @@ const createForm = () => {
     flipForm.appendChild(redBtn())
     flipForm.appendChild(setNotesLabel())
     flipForm.appendChild(notes())
+    flipForm.appendChild(discardBtn())
     flipForm.appendChild(submitBtn())
 
     return flipForm

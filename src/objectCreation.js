@@ -1,9 +1,14 @@
-class ToDo {
-    constructor(title, priority, notes){
-        this.title = title;
-        this.priority = priority;
-        this.notes = notes;
-        this.checked = checked;
-    }
-    //static method to check and uncheck? And what to do with the checked part
+import { Task , taskData } from './dataHandle.js';
+const flipForm = document.querySelector('#flipForm')
+
+const createTask = () => {
+    const task = new Task (
+        flipForm.elements.title.value,
+        flipForm.elements.priority.value,
+        flipForm.elements.notes.value,
+        
+    )
+    taskData.tasks.push(task)
 }
+
+export { createTask }
