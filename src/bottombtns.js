@@ -12,6 +12,7 @@ const buttonEvent = () => {
     }
     if(target.id === 'formSubmit'){
       createTask()
+      appendToFront()
     }
   })
   
