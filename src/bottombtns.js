@@ -1,11 +1,16 @@
 const buttonEvent = () => {
-    const addToDo = document.querySelector('#addItem')
-    const flipCardInner = document.querySelector('.flip-card-inner')
+  const flipCardInner = document.querySelector('.flip-card-inner')
+  const parent = document.querySelector('.parentDiv')
 
-    
-    addToDo.addEventListener('click', () => {
-      flipCardInner.classList.toggle('transform')
-    })
+  parent.addEventListener('click', (e) => {
+    e.preventDefault()
+    let flipTarget = e.target
+    flipTarget.id === 'addItem' || flipTarget.id === 'formSubmit' ? flipit() : '';
+  })
+  
+  const flipit = () => {
+    flipCardInner.classList.toggle('transform')
+  }
 }
 
 export { buttonEvent }

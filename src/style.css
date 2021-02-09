@@ -101,15 +101,15 @@ h1 {
   transform: rotateY(180deg);
 }
 label {
-  float: left;
-  text-align: right;
-  margin-right: 15px;
   width: 100px;
-}
-textarea:focus, input:focus {
-  border: 2px solid #900;
 }
 #flipForm {
   display: flex;
   flex-direction: column;
+  justify-content: space-evenly;
+  padding: 2%;
 }
+.formItem {
+  text-align: start;
+}
+

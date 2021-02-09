@@ -7,6 +7,7 @@ const createForm = () => {
         const label = document.createElement('label')
         label.setAttribute('id', 'titleLabel')
         label.setAttribute('name', 'titleLabel')
+        label.classList.add('formItem')
         label.innerText = 'Task Title:'
         return label;
     }
@@ -15,6 +16,7 @@ const createForm = () => {
         title.setAttribute('type', 'text')
         title.setAttribute('id', 'formTitle')
         title.setAttribute('name', 'titleLabel')
+        title.classList.add('formItem')
         title.setAttribute('minlength', '4')
         title.setAttribute('maxlength', '10')
         return title;
@@ -24,6 +26,7 @@ const createForm = () => {
         const label = document.createElement('label')
         label.setAttribute('id', 'radioLabel')
         label.setAttribute('name', 'radioLabel')
+        label.classList.add('formItem')
         label.innerText = 'Priority:'
         return label;
     }
@@ -33,7 +36,7 @@ const createForm = () => {
         input.setAttribute('type', 'radio')
         input.setAttribute('id', 'greenRadio')
         input.setAttribute('name', 'priority')
-        input.setAttribute('class', 'formRadios')
+        input.classList.add('formItem', 'formRadios')
         return input;
     }
     const yellowBtn = () => { 
@@ -41,7 +44,7 @@ const createForm = () => {
         input.setAttribute('type', 'radio')
         input.setAttribute('id', 'yellowRadio')
         input.setAttribute('name', 'priority')
-        input.setAttribute('class', 'formRadios')
+        input.classList.add('formItem', 'formRadios')
         return input;
     }
     const redBtn = () => { 
@@ -49,13 +52,14 @@ const createForm = () => {
         input.setAttribute('type', 'radio')
         input.setAttribute('id', 'greenRadio')
         input.setAttribute('name', 'priority')
-        input.setAttribute('class', 'formRadios')
+        input.classList.add('formItem', 'formRadios')
         return input;
     }
     const setNotesLabel = () => {
         const label = document.createElement('label')
         label.setAttribute('id', 'notesLabel')
         label.setAttribute('name', 'notesLabel')
+        label.classList.add('formItem', 'formRadios')
         label.innerText = 'Notes:'
         return label;
     }
@@ -65,13 +69,15 @@ const createForm = () => {
         noteInput.setAttribute('rows', '4')
         noteInput.setAttribute('cols', '30')
         noteInput.setAttribute('placeholder', 'Enter a description of your task!') 
+        noteInput.classList.add('formItem', 'formRadios')
         return noteInput;
     }
     const submitBtn = () => {
         const submit = document.createElement('input')
         submit.setAttribute('type', 'submit')
         submit.setAttribute('id', 'formSubmit')
-        submit.innerText = 'Add Task!'
+        submit.setAttribute('value', 'Add Task!')
+        submit.classList.add('formItem')
         return submit;
     }
     flipForm.appendChild(setTitleLabel())
