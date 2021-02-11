@@ -1,5 +1,5 @@
 import { Task , taskData } from './dataHandle.js';
-import { appendToFront } from './appendData.js';
+
 const buttonEvent = () => {
   const flipCardInner = document.querySelector('.flip-card-inner')
   const parent = document.querySelector('.parentDiv')
@@ -9,13 +9,16 @@ const buttonEvent = () => {
   parent.addEventListener('click', (e) => {
     e.preventDefault()
     let target = e.target
+    console.log(e)
     if(target.id === 'addItem' || target.id === 'formDiscard'){ //select only the buttons we want
       flipit() //flip card with no action if discard or +
     }
     if(target.id === 'formSubmit'){
       createTask() //pushes to array with data
       appendToFront() //sticks data to front Div
-      console.log(taskData.tasks[0].title)
+    }
+    if(target.type === 'checkbox'){
+      target.setAttribute('checked', '')
     }
   })
   

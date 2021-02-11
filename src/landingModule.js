@@ -1,27 +1,15 @@
 import { createForm } from './todoForm.js'
 const landing = () => {
+    const headDiv = document.createElement('div')
+        headDiv.setAttribute('id', 'headDiv')
     const mainDiv = document.createElement('div')
         mainDiv.setAttribute('class', 'parentDiv')
+    const cards = document.createElement('div')
+        cards.classList.add('cards')
+        cards.innerText = 'Content'
     const buttonContainer = document.createElement('div')
         buttonContainer.setAttribute('id', 'buttonContainer')
-    const checkArea = () => {
-        const checkDiv = document.createElement('div')    
-        checkDiv.setAttribute('id', 'checkDiv')
-        checkDiv.setAttribute('class', 'childDiv')
-        checkDiv.classList = 'childDiv flip-card'
-            const flipCardInner = document.createElement('div')
-            flipCardInner.classList = 'flip-card-inner'
-                const flipCardFront = document.createElement('div')
-                flipCardFront.classList = 'flip-card-front'
-                flipCardFront.innerText = 'check it out'
-            const flipCardBack = document.createElement('div')
-            flipCardBack.classList = 'flip-card-back'
-            flipCardBack.appendChild(createForm())
-        flipCardInner.appendChild(flipCardFront)
-        flipCardInner.appendChild(flipCardBack)
-        checkDiv.appendChild(flipCardInner)
-        return checkDiv;
-    }
+        
     const generateTitle = () => {
         const title = document.createElement('h1')
         title.innerText = 'CHECKED'
@@ -48,12 +36,17 @@ const landing = () => {
         return newButton;
     }
 
-    mainDiv.appendChild(generateTitle())
-    mainDiv.appendChild(checkArea())
+    
+      //form from todoForm.js
     buttonContainer.appendChild(deletedBtn())
     buttonContainer.appendChild(addItem())
     buttonContainer.appendChild(completedBtn())
-    mainDiv.appendChild(buttonContainer)
+    headDiv.appendChild(generateTitle())
+    headDiv.appendChild(buttonContainer)
+    headDiv.appendChild(createForm())
+    mainDiv.appendChild(headDiv)
+    mainDiv.appendChild(cards)
+    
     return mainDiv;
 }
 
