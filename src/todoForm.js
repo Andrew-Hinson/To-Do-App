@@ -7,6 +7,7 @@ const createForm = () => {
     
     const createList = () => {
         const ul = document.createElement('ul')
+        ul.setAttribute('id', 'mainUl')
 
         const startTask = () => {
             const li = document.createElement('li')

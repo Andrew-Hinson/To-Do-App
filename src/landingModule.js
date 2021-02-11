@@ -6,7 +6,7 @@ const landing = () => {
         parentDiv.setAttribute('class', 'parentDiv')
     const cards = document.createElement('div')
         cards.classList.add('cards')
-        cards.innerText = 'Content'
+        
     const buttonContainer = document.createElement('div')
         buttonContainer.setAttribute('id', 'buttonContainer')
     
