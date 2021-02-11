@@ -7,19 +7,38 @@ const createForm = () => {
     
     const createList = () => {
         const ul = document.createElement('ul')
-        const liTitle = () => {
+
+        const startTask = () => {
             const li = document.createElement('li')
-            const title = document.createElement('p')
+            const title = document.createElement('a')
                 title.setAttribute('id', 'title')
-                title.innerText = 'Task'
-                const titleInput = () => {
+                title.setAttribute('href', '#')
+                title.innerText = "Flip-Do's!"
+                li.appendChild(title)
+                return li;
+        }
+        const taskTitle = () => {
+            const li = document.createElement('li')
+            const aTag = document.createElement('a')
+                aTag.setAttribute('id', 'taskFieldTitle')
+                aTag.setAttribute('href', '#')
+                aTag.innerText = 'New Flip-Do'
+                const taskName = () => {
+                    const subUL = document.createElement('ul')
+                    subUL.classList.add('dropdown')
+                    const subLi = document.createElement('li')
+                    const label = document.createElement('label')
                     const input = document.createElement('input')
                     input.setAttribute('type', 'text')
                     input.setAttribute('id', 'task')
-                    return input
+                    label.innerText = 'Flip-Do Name:'
+                    label.appendChild(input)
+                    subLi.appendChild(label)
+                    subUL.appendChild(subLi)
+                    return subUL;
                 }
-            li.appendChild(title)
-            li.appendChild(titleInput())
+            li.appendChild(aTag)
+            li.appendChild(taskName())
             return li;
         }
         const liCollection = () => {
@@ -113,37 +132,55 @@ const createForm = () => {
         }
         const liNotes = () => {
             const li = document.createElement('li')
-            const notes = document.createElement('p')
-                notes.setAttribute('id', 'notes')
-                notes.innerText = 'notes'
+            const aTag = document.createElement('a')
+                aTag.setAttribute('id', 'notes')
+                aTag.setAttribute('href', '#')
+                aTag.innerText = 'Notes'
+                
                 const noteField = () => {
+                    const subUL = document.createElement('ul')
+                    subUL.classList.add('dropdown')
+                    const subLi = document.createElement('li')
+                    const label = document.createElement('label')
                     const input = document.createElement('textarea')
                     input.setAttribute('id', 'textarea')
                     input.setAttribute('rows', '4')
                     input.setAttribute('cols', '30')
-                    return input;
+                    label.setAttribute('for', 'textarea')
+                    label.innerText = 'Notes: '
+                    label.appendChild(input)
+                    subLi.appendChild(label)
+                    subUL.appendChild(subLi)
+                    return subUL;
                 }
-            notes.appendChild(noteField())
-            li.appendChild(notes)
+            li.appendChild(aTag)
+            li.appendChild(noteField())
             return li;
         }
-        ul.appendChild(liTitle())
+        const submitBtn = () => {
+            const li = document.createElement('li')
+            li.setAttribute('id', 'buttonLi')                
+            const submit = document.createElement('button')
+            submit.setAttribute('id', 'submit')
+            submit.innerText = 'Add Flip!'
+            li.appendChild(submit)
+            return li
+        }
+        ul.appendChild(startTask())
+        ul.appendChild(taskTitle())
+        ul.appendChild(liNotes())
         ul.appendChild(liCollection())
         ul.appendChild(liPriority())
-        ul.appendChild(liNotes())
+        ul.appendChild(submitBtn())
+        
         
         return ul
     }
-    const submitBtn = () => {
-        const submit = document.createElement('button')
-        submit.setAttribute('id', 'submit')
-        submit.innerText = 'Add Task'
-        return submit
-    }
+    
     
     //create UL. Use LI func to make multiple form items.
+    
     form.appendChild(createList())
-    form.appendChild(submitBtn())
     formDiv.appendChild(form)
 
     return formDiv;

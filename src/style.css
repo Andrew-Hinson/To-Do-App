@@ -1,4 +1,7 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
+@media screen and (max-width: 44em){
+
+}
 body {
     font-family: 'Architects Daughter', cursive;
     color: white;
@@ -11,12 +14,12 @@ html {
     background-size: cover;
   }
 .cards {
-    border: 2px solid white;
-    padding: 2rem;
-    display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-    grid-template-rows: repeat(auto-fill, minmax(230px, 1fr));
-    grid-gap: 3rem;
+  border: 2px solid white;
+  padding: 2rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(230px, 1fr));
+  grid-gap: 3rem;
 }
 .card {
   padding: 3px;
@@ -27,39 +30,46 @@ html {
   border-radius: 10px;
   font-size: 1.2em;
 }
-
-h1 {
-    color: #f5f5f5;
+.parentDiv {
+  border: 1px solid blue;
 }
-#headDiv {
+#formDiv {
   display: flex;
   flex-direction: row;
-  height: 100px;
-  border: 2px solid #f7f7f7;
-  padding: 1rem;
+  width: 100%;
 }
-#buttonContainer {
-  display: flex;
-  flex-direction: column;
+form {
+  
   border: 1px solid white;
+  text-align: center;
+  font-size: 17px;
+  float: left;
 }
-button {
-  background-color: #f7f7f7;
-  color: #323643;
-  border-radius: 2rem;
-  height: 3rem;
-  font-weight: bold;
-  cursor: pointer;
-  width: 5rem;
+/* exceptions in form that need special styling */
+#buttonLi{
+  color: #fff;
+  background: darkorange;
+  display: block;
+  float: left;
+  padding: 0.95rem;
+  position: relative;
+  text-decoration: none;
+  transition-duration: 0.5s;
 }
-button:hover, 
-button:focus {
-  outline: none;
-  background: #606470;
-  border-radius: 2rem;
-  color: #f7f7f7;
-  height: 3rem;
+#buttonLi:hover {
+  background: red;
+  cursor: initial;
 }
+#submit {
+  font-family: 'Architects Daughter', cursive;
+  font-size: 17px;
+  border: none;
+  background: none;
+  color: #fff;
+}
+/* /////////////////////////////////////////////// */
+
+/* FORM ELEMENT STYLING */
 a {
   text-decoration: none;
 }
@@ -102,6 +112,7 @@ ul li ul {
 }
 
 ul li:hover > ul,
+ul li:focus-within > ul,
 ul li ul:hover {
   visibility: visible;
   opacity: 1;
@@ -113,6 +124,7 @@ ul li ul li {
   width: 100%;
 }
 
+/* /////////////////////////////////////////////// */
 
 
 
