@@ -1,7 +1,5 @@
 @import url('https://fonts.googleapis.com/css2?family=Architects+Daughter&display=swap');
-@media screen and (max-width: 44em){
 
-}
 body {
     font-family: 'Architects Daughter', cursive;
     background-color: #364f6b;
@@ -11,11 +9,13 @@ body {
   border: 2px solid #fc5185;
   padding: 2rem;
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
-  grid-template-rows: repeat(auto-fill, minmax(200px, 1fr));
-  grid-gap: 3rem;
+  grid-template-columns: repeat(auto-fill, minmax(10rem, 1fr));
+  grid-template-rows: repeat(auto-fill, minmax(15rem, 1fr));
+  grid-gap: 1rem;
 }
 .card {
+  width: 10rem;
+  height: 15rem;
   padding: 3px;
   background-color: #3fc1c9;
   color: #f5f5f5;
@@ -23,77 +23,27 @@ body {
   border-radius: 10px;
   font-size: 1.2em;
 }
-
-.parentDiv {
-  border: 1px solid blue;
-}
-
-form {
-  text-align: center;
-  font-size: 17px;
-}
-
-
-/* FORM ELEMENT STYLING */
-#mainUl {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 20%;
-}
-a {
-  text-decoration: none;
-}
-li a {
+#homeBtn {
+  font-family: 'Architects Daughter', cursive;
+  font-size: 18px;
+  width: 7rem;
+  height: 4rem;
+  background-color: #fc5185;
   color: #f5f5f5;
+  border: #f5f5f5;
 }
-
-ul {
-  background: darkorange;
-  list-style: none;
-  margin: 0;
-  padding-left: 0;
-}
-
-li {
-  color: #f5f5f5;
-  background: darkorange;
-  padding: 1rem;
-  position: relative;
-  text-decoration: none;
-  transition-duration: 0.5s;
-}
-li:hover {
-  background: red;
-  cursor: pointer;
-}
-
-ul li ul {
-  background: orange;
-  visibility: hidden;
-  opacity: 0;
-  min-width: 5rem;
-  position: absolute;
+#homeBtn:hover,
+#homeBtn:focus {
+  outline: none;
+  border: none;
   transition: all 0.5s ease;
-  margin-top: 1rem;
-  left: 0;
-  display: none;
+  box-shadow: 0 8px 16px #f5f5f5;
 }
+#homeBtn:active {
+  transition: all 0.5s ease;
+  box-shadow: 0 8px 16px #f5f5f5;
 
-ul li:hover > ul,
-ul li:focus-within > ul,
-ul li ul:hover {
-  visibility: visible;
-  opacity: 1;
-  display: block;
 }
-
-ul li ul li {
-  clear: both;
-  width: 100%;
-}
-
-/* /////////////////////////////////////////////// */
 
 
 

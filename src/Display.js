@@ -4,7 +4,7 @@ export class Display {
 
         this.targetList = []
     }
-    //makes element of my choice//
+    //makes element of my choice appends to what is selected in index.js(or wherever I am selecting)//
     static createTargetItem(text){
         const div = document.createElement('div')
 
@@ -29,6 +29,7 @@ export class Display {
         this.targetList.push(text)
         this.update();
     }
+    //removes based on index of item
     remove(index){
         this.targetList.splice(index, 1)
         this.update();
