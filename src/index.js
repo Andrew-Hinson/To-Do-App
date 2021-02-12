@@ -11,8 +11,8 @@ const cards = document.querySelector('.cards')
 
 const display = new Display(cards)
 
-display.add('card')
+// display.add('card')
+// display.add('trash')
+// display.add('billy')
 
-
-
-
+// display.remove(1)

@@ -1,4 +1,3 @@
-
 export class Display {
     constructor (element){
         this.targetElement = element;
@@ -20,19 +19,20 @@ export class Display {
         while(this.targetElement.firstChild) {
                 this.targetElement.removeChild(this.targetElement.firstChild)
         }
-            // map over targetList Array, Create new element wi
+            // map over targetList Array, Create new element and append
         for(const text of this.targetList){
             this.targetElement.appendChild(Display.createTargetItem(text))
         }
     }
-
+    //calls update after pushing items to targetList array//
     add (text) {
         this.targetList.push(text)
         this.update();
     }
-    
-    
-
+    remove(index){
+        this.targetList.splice(index, 1)
+        this.update();
+    }
 }
 
 
