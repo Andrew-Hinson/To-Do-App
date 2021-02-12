@@ -1,7 +1,5 @@
-import { createForm } from './todoForm.js'
+import { collectionList, priorityList } from './todoForm.js'
 const landing = () => {
-    const headDiv = document.createElement('div')
-        headDiv.setAttribute('id', 'headDiv')
     const parentDiv = document.createElement('div')
         parentDiv.setAttribute('class', 'parentDiv')
     const cards = document.createElement('div')
@@ -10,9 +8,7 @@ const landing = () => {
     const buttonContainer = document.createElement('div')
         buttonContainer.setAttribute('id', 'buttonContainer')
     
-    headDiv.appendChild(createForm())
     
-    parentDiv.appendChild(headDiv)
     parentDiv.appendChild(cards)
     
     
