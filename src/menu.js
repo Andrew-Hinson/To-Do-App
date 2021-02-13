@@ -1,7 +1,4 @@
 const menu = () => {
-    const menu = document.createElement('div') //main div menu resides in
-    menu.setAttribute('id', 'mainMenu')
-
     const headUl = document.createElement('ul'); //main ul for first li item to reside in for styling
         headUl.classList.add('menu')
 
@@ -16,6 +13,7 @@ const menu = () => {
                                     
     const subMenu = () => {         //options can be changed-added to later
         const ul = document.createElement('ul')
+        ul.setAttribute('id','subMenu')
         const subLi1 = () => {
             const li = document.createElement('li')
             const a = document.createElement('a')
@@ -57,7 +55,7 @@ const menu = () => {
             const a = document.createElement('a')
             
             a.setAttribute('href', '#')
-            a.innerText = 'Family/Friends'
+            a.innerText = 'School'
             li.appendChild(a)
             return li;
         }
@@ -72,7 +70,7 @@ const menu = () => {
     headLi.appendChild(firstLi())
     headLi.appendChild(subMenu())
     headUl.appendChild(headLi)
-    menu.appendChild(headUl)
-    return menu
+    
+    return headUl
 }
 export { menu }
