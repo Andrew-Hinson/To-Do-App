@@ -1,21 +1,17 @@
+import { Display } from './Display.js';
+
 class Task {
-    constructor(title, notes, collection, priority){
+    constructor(title, notes, collection, priority, checked){
         this.title = title;
         this.notes = notes;
+        this.collection = collection;
         this.priority = priority;
-        this.col = priority;
         this.checked = checked;
     }
 
-    update() {
-        //remove any text in the fields clear selections//
-        
-    }
+
 }
-const taskData = {
-    tasks: [],
-    category: {},
-}
+
 
 
 
