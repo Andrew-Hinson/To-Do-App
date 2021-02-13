@@ -1,3 +1,5 @@
+import { Task } from './Tasks.js';
+import { cardCreation } from './cardCreation.js';
 export class Display {
     constructor (element){
         this.targetElement = element;
@@ -5,13 +7,8 @@ export class Display {
         this.targetList = []
     }
     //makes element of my choice appends to what is selected in index.js(or wherever I am selecting)//
-    static createTargetItem(text){
-        const div = document.createElement('div')
-
-        div.innerText = text
-        div.classList.add('card')
-
-        return div;
+    static createTargetItem(item){
+        return cardCreation(item)
     }
     
     update() {
@@ -20,13 +17,13 @@ export class Display {
                 this.targetElement.removeChild(this.targetElement.firstChild)
         }
             // map over targetList Array, Create new element and append
-        for(const text of this.targetList){
-            this.targetElement.appendChild(Display.createTargetItem(text))
+        for(const item of this.targetList){
+            this.targetElement.appendChild(Display.createTargetItem(item))
         }
     }
     //calls update after pushing items to targetList array//
-    add (text) {
-        this.targetList.push(text)
+    add (item) {
+        this.targetList.push(item)
         this.update();
     }
     //removes based on index of item

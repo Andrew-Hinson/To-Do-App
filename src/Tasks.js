@@ -1,6 +1,7 @@
 import { Display } from './Display.js';
 
-class Task {
+
+export class Task {
     constructor(title, notes, collection, priority, checked){
         this.title = title;
         this.notes = notes;
@@ -9,10 +10,6 @@ class Task {
         this.checked = checked;
     }
 
-
 }
 
 
-
-
-export { Task }
