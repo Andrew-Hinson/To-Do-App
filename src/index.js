@@ -13,14 +13,9 @@ let i = 0;
 
 const display1 = new Display(cards)
 
-newFlip.addEventListener('click', () => {
-    const testTask = new Task('testTask','no notes','work', 3,'not checked')
-    display1.add(testTask)
-    console.log(display1.targetList)
-})
-
 display1.update()
 
-
-
+const testTask = new Task('testTask','no notes','work', 3,'not checked')
+    display1.add(testTask)
+    console.log(display1.targetList)
 

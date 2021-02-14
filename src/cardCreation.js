@@ -1,4 +1,4 @@
-import { collectionList , priorityList } from './todoForm.js';
+import { collectionList , priorityList } from './dropDowns.js';
 const cardCreation = (item) => {
     let i = 0
     const cardParent = document.createElement('div')

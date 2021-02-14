@@ -1,4 +1,4 @@
-import { collectionList, priorityList } from './todoForm.js'
+import { collectionList, priorityList } from './dropDowns.js'
 import { menu } from './menu.js'
 const landing = () => {
     const content = document.querySelector('#content')
