@@ -51,7 +51,7 @@ a {
   backface-visibility: hidden;
   overflow: hidden;
   background: #3fc1c9;
-  color: #000;
+  color: #f5f5f5;
 }
 .cardBack {
   position: absolute;
@@ -64,11 +64,14 @@ a {
   backface-visibility: hidden;
   overflow: hidden;
   background: #fc5185;
-  color: #333;
+  color: #f5f5f5;
   text-align: center;
   transform: rotateY(180deg);
 }
-
+.cardNotes {
+  width: 8rem;
+  height: 4rem;
+}
 /* input styling */
 
 /* checkbox styling */

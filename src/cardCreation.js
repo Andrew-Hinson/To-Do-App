@@ -51,10 +51,11 @@ const cardCreation = (item) => {
     const cardBack = () => {
         const cardBack = document.createElement('div')
         cardBack.classList.add('cardBack')
-        const  subdiv = document.createElement('div')
-        subdiv.innerText = 'Card Back'
+        cardBack.appendChild(notesLabel)
+        // const  subdiv = document.createElement('div')
+        // subdiv.innerText = 'Card Back'
         // cardBack.appendChild(priorityList())
-        cardBack.appendChild(subdiv)
+       
         return cardBack;
     }
     i++

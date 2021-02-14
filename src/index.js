@@ -8,8 +8,19 @@ landing()
 
 const cards = document.querySelector('.cards')
 
+const newFlip = document.querySelector('#newFlip')
+let i = 0;
 
 const display1 = new Display(cards)
-const testTask = new Task('testTask','no notes','work', 3,'not checked')
-display1.add(testTask)
-console.log(display1.targetList)
+
+newFlip.addEventListener('click', () => {
+    const testTask = new Task('testTask','no notes','work', 3,'not checked')
+    display1.add(testTask)
+    console.log(display1.targetList)
+})
+
+display1.update()
+
+
+
+

@@ -17,7 +17,7 @@ const menu = () => {
         const subLi1 = () => {
             const li = document.createElement('li')
             const a = document.createElement('a')
-            
+            a.setAttribute('id', 'newFlip')
             a.setAttribute('href', '#')
             a.innerText = 'New Flip!'
             li.appendChild(a)
