@@ -1,3 +1,4 @@
+
 const menu = () => {
     const headUl = document.createElement('ul'); //main ul for first li item to reside in for styling
         headUl.classList.add('menu')
