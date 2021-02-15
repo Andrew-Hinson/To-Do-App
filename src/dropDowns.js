@@ -48,16 +48,18 @@ const checkBoxes = () => {
 
     const checkbox1 = () => {
         const checkboxLabel = document.createElement('label')
-            checkboxLabel.setAttribute('for',`greenbox`)
+            checkboxLabel.setAttribute('for','greenbox')
             checkboxLabel.classList.add('checkContainer')
             
 
         const cardChecked = document.createElement('input')
-            cardChecked.setAttribute('type', 'checkbox')
-            cardChecked.setAttribute('id',`greenbox`)
+            cardChecked.setAttribute('type', 'radio')
+            cardChecked.setAttribute('name', 'radio')
+            cardChecked.setAttribute('id','greenbox')
         
         const checkSpan = document.createElement('span')
             checkSpan.classList.add('checkmark')
+            checkSpan.classList.add('greenCheck')
 
         checkboxLabel.appendChild(cardChecked)
         checkboxLabel.appendChild(checkSpan)
@@ -65,16 +67,18 @@ const checkBoxes = () => {
     }
     const checkbox2 = () => {
         const checkboxLabel = document.createElement('label')
-            checkboxLabel.setAttribute('for',`yellowbox`)
+            checkboxLabel.setAttribute('for','yellowbox')
             checkboxLabel.classList.add('checkContainer')
             
 
         const cardChecked = document.createElement('input')
-            cardChecked.setAttribute('type', 'checkbox')
+            cardChecked.setAttribute('type', 'radio')
+            cardChecked.setAttribute('name', 'radio')
             cardChecked.setAttribute('id',`yellowbox`)
         
         const checkSpan = document.createElement('span')
             checkSpan.classList.add('checkmark')
+            checkSpan.classList.add('yellowCheck')
 
         checkboxLabel.appendChild(cardChecked)
         checkboxLabel.appendChild(checkSpan)
@@ -82,16 +86,18 @@ const checkBoxes = () => {
     }
     const checkbox3 = () => {
         const checkboxLabel = document.createElement('label')
-            checkboxLabel.setAttribute('for',`redbox`)
+            checkboxLabel.setAttribute('for','redbox')
             checkboxLabel.classList.add('checkContainer')
             
 
         const cardChecked = document.createElement('input')
-            cardChecked.setAttribute('type', 'checkbox')
-            cardChecked.setAttribute('id',`redbox`)
+            cardChecked.setAttribute('type', 'radio')
+            cardChecked.setAttribute('name', 'radio')
+            cardChecked.setAttribute('id','redbox')
         
         const checkSpan = document.createElement('span')
             checkSpan.classList.add('checkmark')
+            checkSpan.classList.add('redCheck')
 
         checkboxLabel.appendChild(cardChecked)
         checkboxLabel.appendChild(checkSpan)
