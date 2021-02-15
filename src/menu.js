@@ -18,6 +18,8 @@ const menu = () => {
         const subLi1 = () => {
             const li = document.createElement('li')
             const a = document.createElement('a')
+            li.classList.add('newFlip')
+            a.classList.add('newFlip')
             a.setAttribute('id', 'newFlip')
             a.setAttribute('href', '#')
             a.innerText = 'New Flip!'

@@ -9,9 +9,10 @@ landing()
 
 
 const cancel = document.querySelector('#cancel');
-const newFlip = document.querySelector('#newFlip');
+const newFlip = document.querySelector('.newFlip');
 // const cancel = document.querySelector('#cancel');
 const dialog = document.querySelector('#dialog');
+
 
 newFlip.addEventListener('click', ()=> {
       dialog.showModal()
