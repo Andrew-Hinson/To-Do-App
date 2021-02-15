@@ -1,4 +1,4 @@
-import { collectionList , priorityList } from './dropDowns.js';
+import { collectionList , checkBoxes } from './dropDowns.js';
 
 const dialog = () => {
     const dialog = document.createElement('dialog')
@@ -45,12 +45,8 @@ const dialog = () => {
         }
         const li2 = () => {
             const li = document.createElement('li')
-            const label = document.createElement('label')
-            label.setAttribute('for', 'select1')
             li.classList.add('dialogLi')
-            label.innerText = 'Category: '
-            label.appendChild(collectionList())
-            li.appendChild(label)
+            li.appendChild(checkBoxes())
             return li;
         }
         const li3 = () => {
@@ -58,48 +54,36 @@ const dialog = () => {
             const label = document.createElement('label')
             li.classList.add('dialogLi')
             label.setAttribute('for', 'select2')
-            label.innerText = 'Priority: '
-            label.appendChild(priorityList())
+            label.innerText = 'Category: '
+            label.appendChild(collectionList())
             li.appendChild(label)
             return li;
         }
-        const li4 = () => {
-            const li = document.createElement('li')
-            li.classList.add('dialogLi')
-            const cancel = () => {
-                const cancelBtn = document.createElement('button')
-                cancelBtn.setAttribute('id', 'cancel')
-                cancelBtn.innerText = 'Cancel'
-                return cancelBtn;
-            }
-            li.appendChild(cancel())
-            return li;
-        }
-        const li5 = () => {
-            const li = document.createElement('li')
-            li.classList.add('dialogLi')
-            const accept = () => {
-                const acceptBtn = document.createElement('button')
-                acceptBtn.setAttribute('type', 'submit')
-                acceptBtn.setAttribute('id', 'accept')
-                acceptBtn.innerText = 'Accept'
-                return acceptBtn;
-            }
-            li.appendChild(accept())
-            return li;
-        }
-        
-        
-            
+
         ul.appendChild(li0())
         ul.appendChild(li1())
         ul.appendChild(li2())
         ul.appendChild(li3())
-        ul.appendChild(li4())
-        ul.appendChild(li5())
         return ul;
     }
+        
+    const cancel = () => {
+        const cancelBtn = document.createElement('button')
+        cancelBtn.setAttribute('id', 'cancel')
+        cancelBtn.innerText = 'Cancel'
+        return cancelBtn;
+    }
+    
+    const accept = () => {
+        const acceptBtn = document.createElement('button')
+        acceptBtn.setAttribute('id', 'accept')
+        acceptBtn.innerText = 'Accept'
+        return acceptBtn;
+    }
+        
     form.appendChild(ul())
+    form.appendChild(cancel())
+    form.appendChild(accept())
     dialog.appendChild(form)
     return dialog;
 }

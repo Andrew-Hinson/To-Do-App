@@ -23,23 +23,7 @@ const cardCreation = (item) => {
         cardNotes.innerText = item.notes
     notesLabel.appendChild(cardNotes)
 
-    const checkbox = () => {
-        const checkboxLabel = document.createElement('label')
-            checkboxLabel.setAttribute('for',`checkbox${i}`)
-            checkboxLabel.classList.add('checkContainer')
-            checkboxLabel.innerText = 'Complete: '
-
-        const cardChecked = document.createElement('input')
-            cardChecked.setAttribute('type', 'checkbox')
-            cardChecked.setAttribute('id',`checkbox${i}`)
-        
-        const checkSpan = document.createElement('span')
-            checkSpan.classList.add('checkmark')
-
-        checkboxLabel.appendChild(cardChecked)
-        checkboxLabel.appendChild(checkSpan)
-        return checkboxLabel;
-    }
+    
 
     const cardFront = () => {
         const cardFront = document.createElement('div')

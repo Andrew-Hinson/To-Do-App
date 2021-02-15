@@ -37,41 +37,103 @@ const collectionList = () => {
 }
     
 
-const priorityList = () => {
-    const select2 = document.createElement('select')
-    select2.setAttribute('id', 'priority')
+const checkBoxes = () => {
+    const label = document.createElement('label')
+        label.setAttribute('for', 'select1')
+        label.classList.add('checkboxes')
 
-        const subItem1 = () => {
-            const item1 = document.createElement('option')
-            item1.innerText = 'Green'
-            item1.setAttribute('id', 'green')
-            return item1;
-        }
-        const subItem2 = () => {
-            const item2 = document.createElement('option')
-            item2.innerText = 'Yellow'
-            item2.setAttribute('id', 'yellow')
-            return item2;
-        }
-        const subItem3 = () => {
-            const item3 = document.createElement('option')
-            item3.innerText = 'Red'
-            item3.setAttribute('id', 'red')
-            return item3;
-        }
-        const subItem4 = () => {
-            const item4 = document.createElement('option')
-            item4.innerText = 'YESTERDAY'
-            item4.setAttribute('id', 'red')
-            return item4;
-        }
+    const checkbox1 = () => {
+        const checkboxLabel = document.createElement('label')
+            checkboxLabel.setAttribute('for',`greenbox`)
+            checkboxLabel.classList.add('checkContainer')
+            
+
+        const cardChecked = document.createElement('input')
+            cardChecked.setAttribute('type', 'checkbox')
+            cardChecked.setAttribute('id',`greenbox`)
         
-        select2.appendChild(subItem1())
-        select2.appendChild(subItem2())
-        select2.appendChild(subItem3())
-        select2.appendChild(subItem4())
-       return select2
+        const checkSpan = document.createElement('span')
+            checkSpan.classList.add('checkmark')
+
+        checkboxLabel.appendChild(cardChecked)
+        checkboxLabel.appendChild(checkSpan)
+        return checkboxLabel;
+    }
+    const checkbox2 = () => {
+        const checkboxLabel = document.createElement('label')
+            checkboxLabel.setAttribute('for',`yellowbox`)
+            checkboxLabel.classList.add('checkContainer')
+            
+
+        const cardChecked = document.createElement('input')
+            cardChecked.setAttribute('type', 'checkbox')
+            cardChecked.setAttribute('id',`yellowbox`)
+        
+        const checkSpan = document.createElement('span')
+            checkSpan.classList.add('checkmark')
+
+        checkboxLabel.appendChild(cardChecked)
+        checkboxLabel.appendChild(checkSpan)
+        return checkboxLabel;
+    }
+    const checkbox3 = () => {
+        const checkboxLabel = document.createElement('label')
+            checkboxLabel.setAttribute('for',`redbox`)
+            checkboxLabel.classList.add('checkContainer')
+            
+
+        const cardChecked = document.createElement('input')
+            cardChecked.setAttribute('type', 'checkbox')
+            cardChecked.setAttribute('id',`redbox`)
+        
+        const checkSpan = document.createElement('span')
+            checkSpan.classList.add('checkmark')
+
+        checkboxLabel.appendChild(cardChecked)
+        checkboxLabel.appendChild(checkSpan)
+        return checkboxLabel;
+    }
+    label.appendChild(checkbox1())
+    label.appendChild(checkbox2())
+    label.appendChild(checkbox3())
+    return label;
 }
 
+// const priorityList = () => {
+//     const select2 = document.createElement('select')
+//     select2.setAttribute('id', 'priority')
 
-export { collectionList, priorityList }
+//         const subItem1 = () => {
+//             const item1 = document.createElement('option')
+//             item1.innerText = 'Green'
+//             item1.setAttribute('id', 'green')
+//             return item1;
+//         }
+//         const subItem2 = () => {
+//             const item2 = document.createElement('option')
+//             item2.innerText = 'Yellow'
+//             item2.setAttribute('id', 'yellow')
+//             return item2;
+//         }
+//         const subItem3 = () => {
+//             const item3 = document.createElement('option')
+//             item3.innerText = 'Red'
+//             item3.setAttribute('id', 'red')
+//             return item3;
+//         }
+//         const subItem4 = () => {
+//             const item4 = document.createElement('option')
+//             item4.innerText = 'YESTERDAY'
+//             item4.setAttribute('id', 'red')
+//             return item4;
+//         }
+        
+//         select2.appendChild(subItem1())
+//         select2.appendChild(subItem2())
+//         select2.appendChild(subItem3())
+//         select2.appendChild(subItem4())
+//        return select2
+// }
+
+
+export { collectionList, checkBoxes }
