@@ -39,8 +39,12 @@ const collectionList = () => {
 
 const checkBoxes = () => {
     const label = document.createElement('label')
+    const checkboxDiv = document.createElement('div')
+    checkboxDiv.classList.add('labelBorder')
+    checkboxDiv.classList.add('checkBoxDiv')
         label.setAttribute('for', 'select1')
         label.classList.add('checkboxes')
+        label.innerText = 'Priority: '
 
     const checkbox1 = () => {
         const checkboxLabel = document.createElement('label')
@@ -93,9 +97,10 @@ const checkBoxes = () => {
         checkboxLabel.appendChild(checkSpan)
         return checkboxLabel;
     }
-    label.appendChild(checkbox1())
-    label.appendChild(checkbox2())
-    label.appendChild(checkbox3())
+    checkboxDiv.appendChild(checkbox1())
+    checkboxDiv.appendChild(checkbox2())
+    checkboxDiv.appendChild(checkbox3())
+    label.appendChild(checkboxDiv)
     return label;
 }
 

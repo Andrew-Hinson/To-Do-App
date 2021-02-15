@@ -19,7 +19,7 @@ const dialog = () => {
             const input = document.createElement('input')
             li.classList.add('dialogLi')
             label.setAttribute('for', 'titleInput')
-            label.innerText = 'Flip Title:'
+            label.innerText = 'Flip Title: '
             input.setAttribute('id', 'titleInput')
             input.setAttribute('type', 'text')
             input.setAttribute('maxlength', '15')
@@ -32,8 +32,10 @@ const dialog = () => {
             const label = document.createElement('label')
             const input = document.createElement('textarea')
             li.classList.add('dialogLi')
-            label.innerText = 'Notes:'
+            label.innerText = 'Notes: '
             label.setAttribute('for', 'notesInput')
+            
+            li.classList.add('centerLabel')
             input.setAttribute('id', 'notesInput')
             input.setAttribute('rows', '4')
             input.setAttribute('cols', '30')
