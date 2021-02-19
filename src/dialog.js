@@ -47,18 +47,18 @@ const dialog = () => {
         }
         const li2 = () => {
             const li = document.createElement('li')
+            const label = document.createElement('label')
             li.classList.add('dialogLi')
-            li.appendChild(checkBoxes())
+            label.setAttribute('for', 'select1')
+            label.innerText = 'Category: '
+            label.appendChild(collectionList())
+            li.appendChild(label)
             return li;
         }
         const li3 = () => {
             const li = document.createElement('li')
-            const label = document.createElement('label')
             li.classList.add('dialogLi')
-            label.setAttribute('for', 'select2')
-            label.innerText = 'Category: '
-            label.appendChild(collectionList())
-            li.appendChild(label)
+            li.appendChild(checkBoxes())
             return li;
         }
 

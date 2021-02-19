@@ -56,6 +56,7 @@ const checkBoxes = () => {
             cardChecked.setAttribute('type', 'radio')
             cardChecked.setAttribute('name', 'radio')
             cardChecked.setAttribute('id','greenbox')
+            cardChecked.setAttribute('checked', '')
         
         const checkSpan = document.createElement('span')
             checkSpan.classList.add('checkmark')
