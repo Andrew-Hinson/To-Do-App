@@ -28,7 +28,8 @@ cancel.addEventListener('click', () => {
       dialog.close();
 });
   
-accept.addEventListener('click', () => {
+accept.addEventListener('click', (e) => {
+      e.preventDefault()
       const task = new Task(titleInput.value)
       display1.add(task)
 })

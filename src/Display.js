@@ -7,6 +7,7 @@ export class Display {
         this.targetList = []
     }
     //makes element of my choice appends to what is selected in index.js(or wherever I am selecting)//
+    // creates div card elements
     static createTargetItem(item){
         return cardCreation(item)
     }

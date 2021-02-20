@@ -1,4 +1,6 @@
 import { collectionList , priorityList } from './dropDowns.js';
+
+//used in Display.js
 const cardCreation = (item) => {
     let i = 0
     const cardParent = document.createElement('div')
@@ -14,6 +16,7 @@ const cardCreation = (item) => {
         notesLabel.setAttribute('for', `cardNote${i}`)
         notesLabel.innerText = 'Notes: '
 
+    //
     const cardNotes = document.createElement('textarea')
         cardNotes.setAttribute('id', `cardNote${i}`)
         cardNotes.classList.add('cardNotes')
