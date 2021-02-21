@@ -1,4 +1,3 @@
-import { Task } from './Tasks.js';
 import { cardCreation } from './cardCreation.js';
 export class Display {
     constructor (element){
@@ -13,15 +12,21 @@ export class Display {
     }
     
     update() {
+        const lastIndex = this.targetList.length - 1;
         // remove all existing content from container
         while(this.targetElement.firstChild) {
                 this.targetElement.removeChild(this.targetElement.firstChild)
         }
             // map over targetList Array, Create new element and append
+        
         for(const item of this.targetList){
+            console.log(lastIndex)
+            console.log(item)
             this.targetElement.appendChild(Display.createTargetItem(item))
         }
+            
     }
+
     //calls update after pushing items to targetList array//
     add (item) {
         this.targetList.push(item)

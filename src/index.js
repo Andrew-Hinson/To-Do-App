@@ -16,7 +16,12 @@ const dialog = document.querySelector('#dialog');
 const cards = document.querySelector('.cards')
 const accept = document.querySelector('#accept')
 
+//inputs when creating a Task//
 const titleInput = document.querySelector('#titleInput')
+const notesInput = document.querySelector('#notesInput')
+const collectionInput = document.querySelector('#collection')
+// const priorityInput = document.querySelector('')
+
 // when button is clicked for accept, create new task and push to class Display
 const display1 = new Display(cards)
 
@@ -30,8 +35,9 @@ cancel.addEventListener('click', () => {
   
 accept.addEventListener('click', (e) => {
       e.preventDefault()
-      const task = new Task(titleInput.value)
+      const task = new Task(titleInput.value, notesInput.value, collectionInput.value)
       display1.add(task)
+      dialog.close();
 })
 
 

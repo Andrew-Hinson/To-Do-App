@@ -1,6 +1,6 @@
 import { collectionList , priorityList } from './dropDowns.js';
 
-//used in Display.js
+//used in Display.js // //called with index.js {Task}//
 const cardCreation = (item) => {
     let i = 0
     const cardParent = document.createElement('div')

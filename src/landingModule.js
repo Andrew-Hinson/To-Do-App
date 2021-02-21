@@ -6,6 +6,7 @@ const landing = () => {
     const content = document.querySelector('#content')
     const cards = document.createElement('div')
         cards.classList.add('cards')
+        cards.classList.add('container')
 
     content.appendChild(menu())
     content.appendChild(cards)
