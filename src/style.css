@@ -28,7 +28,7 @@ a {
   margin-left: 7rem;
   margin-right: 4rem;
   overflow-y: auto;
-  height: 40rem;
+  height: 50rem;
 }
 
 /* flip card styling */
@@ -349,4 +349,19 @@ select:focus{
   -webkit-transform: rotate(45deg);
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
+}
+
+/* ScrollBar Styling */
+
+::-webkit-scrollbar {
+  width: 10px;
+}
+::-webkit-scrollbar-track {
+  background: #3fc1c9;
+}
+::-webkit-scrollbar-thumb {
+  background: #f5f5f5;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #fc5185;
 }
