@@ -44,7 +44,8 @@ const checkBoxes = () => {
     checkboxDiv.classList.add('checkBoxDiv')
         label.setAttribute('for', 'select1')
         label.classList.add('checkboxes')
-        label.innerText = 'Priority: '
+        label.innerText = 'Priority:'
+        label.setAttribute('id', 'priorityLabel')
 
     const checkbox1 = () => {
         const checkboxLabel = document.createElement('label')
@@ -56,11 +57,12 @@ const checkBoxes = () => {
             cardChecked.setAttribute('type', 'radio')
             cardChecked.setAttribute('name', 'radio')
             cardChecked.setAttribute('id','greenbox')
-            cardChecked.setAttribute('checked', '')
+            cardChecked.setAttribute('value', 1)
         
         const checkSpan = document.createElement('span')
             checkSpan.classList.add('checkmark')
             checkSpan.classList.add('greenCheck')
+            checkSpan.classList.add('dcheck')
 
         checkboxLabel.appendChild(cardChecked)
         checkboxLabel.appendChild(checkSpan)
@@ -76,10 +78,12 @@ const checkBoxes = () => {
             cardChecked.setAttribute('type', 'radio')
             cardChecked.setAttribute('name', 'radio')
             cardChecked.setAttribute('id',`yellowbox`)
+            cardChecked.setAttribute('value', 2)
         
         const checkSpan = document.createElement('span')
             checkSpan.classList.add('checkmark')
             checkSpan.classList.add('yellowCheck')
+            checkSpan.classList.add('dcheck')
 
         checkboxLabel.appendChild(cardChecked)
         checkboxLabel.appendChild(checkSpan)
@@ -95,10 +99,13 @@ const checkBoxes = () => {
             cardChecked.setAttribute('type', 'radio')
             cardChecked.setAttribute('name', 'radio')
             cardChecked.setAttribute('id','redbox')
+            cardChecked.setAttribute('value', 3)
         
         const checkSpan = document.createElement('span')
             checkSpan.classList.add('checkmark')
             checkSpan.classList.add('redCheck')
+            checkSpan.classList.add('dcheck')
+
 
         checkboxLabel.appendChild(cardChecked)
         checkboxLabel.appendChild(checkSpan)

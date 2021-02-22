@@ -12,7 +12,6 @@ export class Display {
     }
     
     update() {
-        const lastIndex = this.targetList.length - 1;
         // remove all existing content from container
         while(this.targetElement.firstChild) {
                 this.targetElement.removeChild(this.targetElement.firstChild)
@@ -20,8 +19,7 @@ export class Display {
             // map over targetList Array, Create new element and append
         
         for(const item of this.targetList){
-            console.log(lastIndex)
-            console.log(item)
+            
             this.targetElement.appendChild(Display.createTargetItem(item))
         }
             
