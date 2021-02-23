@@ -2,12 +2,13 @@
 const menu = () => {
     const headUl = document.createElement('ul'); //main ul for first li item to reside in for styling
         headUl.classList.add('menu')
+        headUl.setAttribute('id', 'mainMenu')
 
     const headLi = document.createElement('li'); //main li to append subUL to for dropdown
      const firstLi = () => {
         const homeBtn = document.createElement('a')
         homeBtn.setAttribute('id','homeBtn')
-        homeBtn.innerText = 'Flip-it'
+        homeBtn.innerText = 'Menu'
         headLi.appendChild(homeBtn)
         return homeBtn;
     }

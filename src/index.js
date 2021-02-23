@@ -51,7 +51,7 @@ accept.addEventListener('click', (e) => {
                   radioValue = radio.value
             }
       }
-      const task = new Task(titleInput.value, notesInput.value, collectionInput.value, radioValue)
+      const task = new Task(titleInput.value, notesInput.value, radioValue)
       titleInput.value = '';
       notesInput.value = '';
       dialog.close();
