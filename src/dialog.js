@@ -45,16 +45,7 @@ const dialog = () => {
             return li;
 
         }
-        const li2 = () => {
-            const li = document.createElement('li')
-            const label = document.createElement('label')
-            li.classList.add('dialogLi')
-            label.setAttribute('for', 'select1')
-            label.innerText = 'Category: '
-            label.appendChild(collectionList())
-            li.appendChild(label)
-            return li;
-        }
+        
         const li3 = () => {
             const li = document.createElement('li')
             li.classList.add('dialogLi')
@@ -64,7 +55,7 @@ const dialog = () => {
 
         ul.appendChild(li0())
         ul.appendChild(li1())
-        ul.appendChild(li2())
+        
         ul.appendChild(li3())
         return ul;
     }

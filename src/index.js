@@ -7,9 +7,35 @@ import { Task } from './Tasks.js';
 
 landing()
 
+const landingInfo = () => {
+      const infoPanelParent = document.createElement('div')
+      infoPanelParent.setAttribute('id', 'infoPanelParent')
+
+      const infoContent = document.createElement('div')
+      infoContent.setAttribute('id', 'infoContent')
+
+      const infoContentP = document.createElement('p')
+      infoContentP.innerText = "Welcome to Task-Flip! Click on Menu to choose a category to add a new Task to! Choose 'Home' from menu to come back to this page for a full stat breakdown. Each Category will keep their own Tasks seperate, but you can see detailed statistics on all categories from here if you wish. Thank you for looking at my project!"
+
+}
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 //Event listener query's
 const cancel = document.querySelector('#cancel');
-const newFlip = document.querySelector('.newFlip');
+
 // const cancel = document.querySelector('#cancel');
 const dialog = document.querySelector('#dialog');
 
@@ -31,13 +57,18 @@ const choresDisplay = new Display(cards)
 
 
 
-newFlip.addEventListener('click', () => {
-      dialog.showModal()
-});
-//     // Form cancel button closes the dialog box
-cancel.addEventListener('click', () => {
-      dialog.close();
-});
+
+//opens dialog, IIFE, generates an error but still works!??
+const dialogControl = (() => {
+      const menuOptions = document.querySelectorAll('.newFlip')
+      for(const option of menuOptions){
+      option.addEventListener('click', () => dialog.showModal())    
+      }
+         // Form cancel button closes the dialog box
+      cancel.addEventListener('click', () => {
+            dialog.close();
+      });
+})();
 
 
 //when accept is pressed, it should place the card in the selected category

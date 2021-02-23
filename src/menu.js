@@ -16,21 +16,12 @@ const menu = () => {
     const subMenu = () => {         //options can be changed-added to later
         const ul = document.createElement('ul')
         ul.setAttribute('id','subMenu')
-        const subLi1 = () => {
+
+        const subLi2 = () => {
             const li = document.createElement('li')
             const a = document.createElement('a')
             li.classList.add('newFlip')
             a.classList.add('newFlip')
-            a.setAttribute('id', 'newFlip')
-            a.setAttribute('href', '#')
-            a.innerText = 'New Flip!'
-            li.appendChild(a)
-            return li;
-        }
-        const subLi2 = () => {
-            const li = document.createElement('li')
-            const a = document.createElement('a')
-            
             a.setAttribute('href', '#')
             a.innerText = 'Work'
             li.appendChild(a)
@@ -39,7 +30,8 @@ const menu = () => {
         const subLi3 = () => {
             const li = document.createElement('li')
             const a = document.createElement('a')
-            
+            li.classList.add('newFlip')
+            a.classList.add('newFlip')
             a.setAttribute('href', '#')
             a.innerText = 'Chores'
             li.appendChild(a)
@@ -48,7 +40,8 @@ const menu = () => {
         const subLi4 = () => {
             const li = document.createElement('li')
             const a = document.createElement('a')
-            
+            li.classList.add('newFlip')
+            a.classList.add('newFlip')
             a.setAttribute('href', '#')
             a.innerText = 'Personal'
             li.appendChild(a)
@@ -57,13 +50,14 @@ const menu = () => {
         const subLi5 = () => {
             const li = document.createElement('li')
             const a = document.createElement('a')
-            
+            li.classList.add('newFlip')
+            a.classList.add('newFlip')
             a.setAttribute('href', '#')
             a.innerText = 'School'
             li.appendChild(a)
             return li;
         }
-        ul.appendChild(subLi1());
+        
         ul.appendChild(subLi2());
         ul.appendChild(subLi3());
         ul.appendChild(subLi4());
