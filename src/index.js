@@ -104,7 +104,6 @@ accept.addEventListener('click', (e) => {
 
 // display1.update()
 
-// const testTask = new Task('testTask','no notes','work', 3,'not checked')
-//     
-//     console.log(display1.targetList)
+
+    
 
