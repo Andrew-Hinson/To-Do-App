@@ -13,13 +13,29 @@ const dialog = () => {
         const ul = document.createElement('ul')
         ul.classList.add('dialogUl')
 
+        const liAlpha = () => {
+            const li = document.createElement('li')
+            const h2 = document.createElement('h2')
+            const h2Span = document.createElement('span')
+
+            li.classList.add('dialogLi')
+
+            h2.setAttribute('id', 'dialogCatTitle')
+            h2Span.setAttribute('id', 'dialogH2Span')
+            h2Span.innerText = '';
+
+            h2.appendChild(h2Span);
+            li.appendChild(h2);
+            return li;
+        }
+
         const li0 = () => {
             const li = document.createElement('li')
             const label = document.createElement('label')
             const input = document.createElement('input')
             li.classList.add('dialogLi')
             label.setAttribute('for', 'titleInput')
-            label.innerText = 'Flip Title: '
+            label.innerText = 'Flip Title:'
             input.setAttribute('id', 'titleInput')
             input.setAttribute('type', 'text')
             input.setAttribute('maxlength', '15')
@@ -52,7 +68,7 @@ const dialog = () => {
             li.appendChild(checkBoxes())
             return li;
         }
-
+        ul.appendChild(liAlpha())
         ul.appendChild(li0())
         ul.appendChild(li1())
         

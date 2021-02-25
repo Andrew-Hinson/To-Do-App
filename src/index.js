@@ -2,7 +2,7 @@ import './style.css';
 import { landing } from './landingModule.js';
 import { Display } from './Display.js';
 import { Task } from './Tasks.js';
-
+import {workContainer, personalContainer, studyContainer, choresContainer} from './containers.js';
 
 
 landing()
@@ -19,33 +19,22 @@ const landingInfo = () => {
 
 }
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 //Event listener query's
 const cancel = document.querySelector('#cancel');
+const accept = document.querySelector('#accept')
 
-// const cancel = document.querySelector('#cancel');
 
 
 const cards = document.querySelector('.cards')
-const accept = document.querySelector('#accept')
+
 
 //inputs when creating a Task//
 const titleInput = document.querySelector('#titleInput')
 const notesInput = document.querySelector('#notesInput')
-const collectionInput = document.querySelector('#collection')
+
+
+//container querys
+
 
 
 
@@ -58,18 +47,22 @@ const choresDisplay = new Display(cards)
 
 
 
-//opens dialog, IIFE, generates an error but still works!??
 const dialogControl = (() => {
       const dialog = document.querySelector('#dialog');
          // Form cancel button closes the dialog box
       cancel.addEventListener('click', () => {
             dialog.close();
       });
-      
-
+      //accept also closes the dialog
       accept.addEventListener('click', () => {
             dialog.close()
       });
+      //clicking menu option opens dialog
+      const menuOptions = document.querySelectorAll('.newFlip')
+            for(const option of menuOptions){
+                  option.addEventListener('click', () => dialog.show())    
+            };
+
 })();
 
 
@@ -85,15 +78,12 @@ accept.addEventListener('click', (e) => {
             }
       }
       const task = new Task(titleInput.value, notesInput.value, radioValue)
+      workDisplay.add(task)
       titleInput.value = '';
       notesInput.value = '';
-      dialog.close();
+      
 })
 
-const menuOptions = document.querySelectorAll('.newFlip')
-      for(const option of menuOptions){
-      option.addEventListener('click', () => dialog.show())    
-      }
 
 // const newFlip = document.querySelector('#newFlip')
 // let i = 0;

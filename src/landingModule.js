@@ -1,4 +1,4 @@
-import { collectionList, priorityList } from './dropDowns.js'
+
 import { menu } from './menu.js'
 import { dialog } from './dialog.js';
 

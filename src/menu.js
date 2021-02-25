@@ -20,8 +20,13 @@ const menu = () => {
         const subLi2 = () => {
             const li = document.createElement('li')
             const a = document.createElement('a')
+
             li.classList.add('newFlip')
+            li.classList.add('workCat')
+            
             a.classList.add('newFlip')
+            a.classList.add('workCat')
+            
             a.setAttribute('href', '#')
             a.innerText = 'Work'
             li.appendChild(a)
@@ -30,8 +35,13 @@ const menu = () => {
         const subLi3 = () => {
             const li = document.createElement('li')
             const a = document.createElement('a')
+
             li.classList.add('newFlip')
+            li.classList.add('choresCat')
+
             a.classList.add('newFlip')
+            a.classList.add('choresCat')
+
             a.setAttribute('href', '#')
             a.innerText = 'Chores'
             li.appendChild(a)
@@ -40,8 +50,13 @@ const menu = () => {
         const subLi4 = () => {
             const li = document.createElement('li')
             const a = document.createElement('a')
+
             li.classList.add('newFlip')
+            li.classList.add('personalCat')
+
             a.classList.add('newFlip')
+            a.classList.add('personalCat')
+
             a.setAttribute('href', '#')
             a.innerText = 'Personal'
             li.appendChild(a)
@@ -50,8 +65,13 @@ const menu = () => {
         const subLi5 = () => {
             const li = document.createElement('li')
             const a = document.createElement('a')
+
             li.classList.add('newFlip')
+            li.classList.add('schoolCat')
+
             a.classList.add('newFlip')
+            a.classList.add('schoolCat')
+
             a.setAttribute('href', '#')
             a.innerText = 'School'
             li.appendChild(a)
