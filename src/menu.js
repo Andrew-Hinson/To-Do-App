@@ -23,12 +23,15 @@ const menu = () => {
 
             li.classList.add('newFlip')
             li.classList.add('workCat')
-            
+            li.setAttribute('value', 0)
+
             a.classList.add('newFlip')
             a.classList.add('workCat')
             
+            a.setAttribute('value', 0)
             a.setAttribute('href', '#')
             a.innerText = 'Work'
+
             li.appendChild(a)
             return li;
         }
@@ -38,10 +41,12 @@ const menu = () => {
 
             li.classList.add('newFlip')
             li.classList.add('choresCat')
+            li.setAttribute('value', 1)
 
             a.classList.add('newFlip')
             a.classList.add('choresCat')
 
+            a.setAttribute('value', 1)
             a.setAttribute('href', '#')
             a.innerText = 'Chores'
             li.appendChild(a)
@@ -53,10 +58,12 @@ const menu = () => {
 
             li.classList.add('newFlip')
             li.classList.add('personalCat')
+            li.setAttribute('value', 2)
 
             a.classList.add('newFlip')
             a.classList.add('personalCat')
 
+            a.setAttribute('value', 2)
             a.setAttribute('href', '#')
             a.innerText = 'Personal'
             li.appendChild(a)
@@ -68,10 +75,12 @@ const menu = () => {
 
             li.classList.add('newFlip')
             li.classList.add('schoolCat')
+            li.setAttribute('value', 3)
 
             a.classList.add('newFlip')
             a.classList.add('schoolCat')
 
+            a.setAttribute('value', 3)
             a.setAttribute('href', '#')
             a.innerText = 'School'
             li.appendChild(a)

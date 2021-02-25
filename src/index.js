@@ -44,47 +44,58 @@ const studyDisplay = new Display(cards)
 const personalDisplay = new Display(cards)
 const choresDisplay = new Display(cards)
 
+const taskCreation = (() => {
 
+      let currentCategory;
+      const dialogControl = (() => {
 
+            const dialog = document.querySelector('#dialog');
+               // Form cancel button closes the dialog box
+            cancel.addEventListener('click', () => {
+                  dialog.close();
+            });
 
-const dialogControl = (() => {
-      const dialog = document.querySelector('#dialog');
-         // Form cancel button closes the dialog box
-      cancel.addEventListener('click', () => {
-            dialog.close();
-      });
-      //accept also closes the dialog
-      accept.addEventListener('click', () => {
-            dialog.close()
-      });
-      //clicking menu option opens dialog
-      const menuOptions = document.querySelectorAll('.newFlip')
-            for(const option of menuOptions){
-                  option.addEventListener('click', () => dialog.show())    
-            };
+            //clicking menu option opens dialog
+            const menuOptions = document.querySelectorAll('.newFlip')
 
-})();
+                  for(const option of menuOptions){
+                        
+                        option.addEventListener('click', (e) => {
+                              let target = e.target.classList //DOMTokenList
+                             
+                              //check class of category to specify where task will be added
+                              // if(target.contains('personalCat') || target.contains('schoolCat') || target.contains('workCat') || target.contains('choresCat')){
+                              //       currentCategory =  //fires twice for some reason
+                              // }
+                              dialog.show()
+                        });
+                  };
+
+      })();
 
 
 //when accept is pressed, it should place the card in the selected category
-accept.addEventListener('click', (e) => {
-      e.preventDefault()
-      //radio selection to determine priority
-      const radioInputs = document.getElementsByTagName('input')
-      let radioValue; //assigned a number 1-3 green - red, loops over title input as well but not a factor
-      for(let radio of radioInputs){
-            if(radio.checked === true){
-                  radioValue = radio.value
+      accept.addEventListener('click', (e) => {
+            e.preventDefault()
+            //radio selection to determine priority
+            const radioInputs = document.getElementsByTagName('input')
+            let radioValue; //assigned a number 1-3 green - red, loops over title input as well but not a factor
+            for(let radio of radioInputs){
+                  if(radio.checked === true){
+                        radioValue = radio.value
+                  }
             }
-      }
-      const task = new Task(titleInput.value, notesInput.value, radioValue)
-      workDisplay.add(task)
-      titleInput.value = '';
-      notesInput.value = '';
-      
-})
+            const task = new Task(titleInput.value, notesInput.value, radioValue)
+            workDisplay.add(task)
 
+            titleInput.value = '';
+            notesInput.value = '';
 
+            dialog.close()
+
+      })
+
+})();
 // const newFlip = document.querySelector('#newFlip')
 // let i = 0;
 
