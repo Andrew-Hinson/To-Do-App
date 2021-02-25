@@ -68,6 +68,9 @@ const dialogControl = (() => {
       cancel.addEventListener('click', () => {
             dialog.close();
       });
+      accept.addEventListener('click', () => {
+            dialog.close()
+      });
 })();
 
 
