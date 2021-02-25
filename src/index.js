@@ -37,7 +37,7 @@ const landingInfo = () => {
 const cancel = document.querySelector('#cancel');
 
 // const cancel = document.querySelector('#cancel');
-const dialog = document.querySelector('#dialog');
+
 
 const cards = document.querySelector('.cards')
 const accept = document.querySelector('#accept')
@@ -60,14 +60,13 @@ const choresDisplay = new Display(cards)
 
 //opens dialog, IIFE, generates an error but still works!??
 const dialogControl = (() => {
-      const menuOptions = document.querySelectorAll('.newFlip')
-      for(const option of menuOptions){
-      option.addEventListener('click', () => dialog.showModal())    
-      }
+      const dialog = document.querySelector('#dialog');
          // Form cancel button closes the dialog box
       cancel.addEventListener('click', () => {
             dialog.close();
       });
+      
+
       accept.addEventListener('click', () => {
             dialog.close()
       });
@@ -91,7 +90,10 @@ accept.addEventListener('click', (e) => {
       dialog.close();
 })
 
-
+const menuOptions = document.querySelectorAll('.newFlip')
+      for(const option of menuOptions){
+      option.addEventListener('click', () => dialog.show())    
+      }
 
 // const newFlip = document.querySelector('#newFlip')
 // let i = 0;
