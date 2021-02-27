@@ -14,6 +14,7 @@ const dialog = () => {
         ul.classList.add('dialogUl')
 
         const liAlpha = () => {
+            
             const li = document.createElement('li')
             const h2 = document.createElement('h2')
             const h2Span = document.createElement('span')
@@ -22,7 +23,7 @@ const dialog = () => {
 
             h2.setAttribute('id', 'dialogCatTitle')
             h2Span.setAttribute('id', 'dialogH2Span')
-            h2Span.innerText = '';
+            
 
             h2.appendChild(h2Span);
             li.appendChild(h2);
@@ -96,4 +97,4 @@ const dialog = () => {
     dialog.appendChild(form)
     return dialog;
 }
-export { dialog }
+export { dialog } 

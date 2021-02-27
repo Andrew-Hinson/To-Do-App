@@ -19,71 +19,53 @@ const menu = () => {
 
         const subLi2 = () => {
             const li = document.createElement('li')
-            const a = document.createElement('a')
+            
 
             li.classList.add('newFlip')
             li.classList.add('workCat')
+            li.setAttribute('id', 'Work')
             li.setAttribute('value', 0)
 
-            a.classList.add('newFlip')
-            a.classList.add('workCat')
-            
-            a.setAttribute('value', 0)
-            a.setAttribute('href', '#')
-            a.innerText = 'Work'
+            li.innerText = 'Work'
 
-            li.appendChild(a)
             return li;
         }
         const subLi3 = () => {
             const li = document.createElement('li')
-            const a = document.createElement('a')
+            
 
             li.classList.add('newFlip')
             li.classList.add('choresCat')
+            li.setAttribute('id','Chores')
             li.setAttribute('value', 1)
 
-            a.classList.add('newFlip')
-            a.classList.add('choresCat')
-
-            a.setAttribute('value', 1)
-            a.setAttribute('href', '#')
-            a.innerText = 'Chores'
-            li.appendChild(a)
+            li.innerText = 'Chores';
+            
             return li;
         }
         const subLi4 = () => {
             const li = document.createElement('li')
-            const a = document.createElement('a')
+            
 
             li.classList.add('newFlip')
             li.classList.add('personalCat')
+            li.setAttribute('id', 'Personal')
             li.setAttribute('value', 2)
 
-            a.classList.add('newFlip')
-            a.classList.add('personalCat')
+            li.innerText = 'Personal';
 
-            a.setAttribute('value', 2)
-            a.setAttribute('href', '#')
-            a.innerText = 'Personal'
-            li.appendChild(a)
             return li;
         }
         const subLi5 = () => {
             const li = document.createElement('li')
-            const a = document.createElement('a')
-
+            
             li.classList.add('newFlip')
-            li.classList.add('schoolCat')
+            li.classList.add('studyCat')
+            li.setAttribute('id','Study')
             li.setAttribute('value', 3)
 
-            a.classList.add('newFlip')
-            a.classList.add('schoolCat')
+            li.innerText = 'Study'
 
-            a.setAttribute('value', 3)
-            a.setAttribute('href', '#')
-            a.innerText = 'School'
-            li.appendChild(a)
             return li;
         }
         

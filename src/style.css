@@ -178,7 +178,7 @@ ul li ul li {
 }
 
 /* Dialog Styling */
-.dialog {
+dialog {
   position: sticky;
   bottom: 30%;
   width: 15rem;

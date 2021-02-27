@@ -44,34 +44,33 @@ const studyDisplay = new Display(cards)
 const personalDisplay = new Display(cards)
 const choresDisplay = new Display(cards)
 
-const taskCreation = (() => {
 
-      let currentCategory;
-      const dialogControl = (() => {
-
-            const dialog = document.querySelector('#dialog');
-               // Form cancel button closes the dialog box
-            cancel.addEventListener('click', () => {
-                  dialog.close();
-            });
-
-            //clicking menu option opens dialog
-            const menuOptions = document.querySelectorAll('.newFlip')
-
-                  for(const option of menuOptions){
-                        
-                        option.addEventListener('click', (e) => {
-                              let target = e.target.classList //DOMTokenList
-                             
-                              //check class of category to specify where task will be added
-                              // if(target.contains('personalCat') || target.contains('schoolCat') || target.contains('workCat') || target.contains('choresCat')){
-                              //       currentCategory =  //fires twice for some reason
-                              // }
-                              dialog.show()
-                        });
-                  };
-
-      })();
+ const dialogControl = (() => {
+      let target;
+      
+      const dialog = document.querySelector('#dialog');
+      let h2Span = document.querySelector('#dialogH2Span')
+      let catTitle = document.querySelector('#categoryTitle')
+         // Form cancel button closes the dialog box
+      cancel.addEventListener('click', (e) => {
+            e.preventDefault()
+            dialog.close();
+      });
+      //clicking menu option opens dialog
+      const menuOptions = document.querySelectorAll('.newFlip')
+            for(const option of menuOptions){
+                  
+                  option.addEventListener('click', (e) => {
+                        target = e.target
+                        h2Span.innerText = `${target.id}`
+                        h2Span.setAttribute('value', `${target.value}`)
+                        catTitle.innerText = `${target.id}`
+                       
+                        dialog.show()
+                  });
+            };
+ })();
+ 
 
 
 //when accept is pressed, it should place the card in the selected category
@@ -79,6 +78,7 @@ const taskCreation = (() => {
             e.preventDefault()
             //radio selection to determine priority
             const radioInputs = document.getElementsByTagName('input')
+            let catValue = document.querySelector('#dialogH2Span')
             let radioValue; //assigned a number 1-3 green - red, loops over title input as well but not a factor
             for(let radio of radioInputs){
                   if(radio.checked === true){
@@ -93,9 +93,9 @@ const taskCreation = (() => {
 
             dialog.close()
 
-      })
+});
 
-})();
+
 // const newFlip = document.querySelector('#newFlip')
 // let i = 0;
 
@@ -112,4 +112,3 @@ const taskCreation = (() => {
 
 
     
-
