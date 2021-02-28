@@ -6,7 +6,7 @@ import {workContainer, personalContainer, studyContainer, choresContainer} from 
 
 
 landing()
-
+//home page fill 
 const landingInfo = () => {
       const infoPanelParent = document.createElement('div')
       infoPanelParent.setAttribute('id', 'infoPanelParent')
@@ -19,29 +19,22 @@ const landingInfo = () => {
 
 }
 
-//Event listener query's
+//Dialog control Listeners
 const cancel = document.querySelector('#cancel');
 const accept = document.querySelector('#accept')
 
-
-
+//main element that Display class needs to access
+const mainContainer = document.querySelector('#mainContainer')
 const cards = document.querySelector('.cards')
-
 
 //inputs when creating a Task//
 const titleInput = document.querySelector('#titleInput')
 const notesInput = document.querySelector('#notesInput')
 
-
-//container querys
-
-
-
-
 //value of the selected category to put the task inside
 let categoryDisplay; 
 
-
+//detects the option clicked and updates categoryDisplay for accept event listener
 const dialogControl = (() => {
      let target;
      
@@ -69,7 +62,7 @@ const dialogControl = (() => {
            };
 })();
  
-
+//classes that tasks will be assigned to
 const workDisplay = new Display(cards)
 const choresDisplay = new Display(cards)
 const studyDisplay = new Display(cards)
@@ -93,33 +86,22 @@ accept.addEventListener('click', (e) => {
       
       if(categoryDisplay === '0'){
             workDisplay.add(task)
+            console.log(workDisplay)
       } else if(categoryDisplay === '1'){
             choresDisplay.add(task)
+            console.log(choresDisplay)
       } else if(categoryDisplay === '2'){
             personalDisplay.add(task)
+            console.log(personalDisplay)
       } else if(categoryDisplay === '3'){
             studyDisplay.add(task)
+            console.log(studyDisplay)
       }
 
       titleInput.value = '';
       notesInput.value = '';
       dialog.close()
 });
-
-
-// const newFlip = document.querySelector('#newFlip')
-// let i = 0;
-
-// const body = document.querySelector('body')
-// body.addEventListener('click', (e)=> {
-//       const target = e.target
-//       let radioValue;
-//       if(target.checked === true){
-//             radioValue = target.id;
-//       }
-// })
-
-// display1.update()
 
 
     

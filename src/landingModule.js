@@ -4,10 +4,12 @@ import { dialog } from './dialog.js';
 
 const landing = () => {
     const content = document.querySelector('#content')
-    const cards = document.createElement('div')
-        cards.classList.add('cards')
-        cards.classList.add('container')
+    
+    const mainContainer = document.createElement('div')
+    mainContainer.setAttribute('id', 'mainContainer')
 
+    const cards = document.createElement('div')
+        cards.classList.add('cards') 
     const headingDiv = document.createElement('div')
     headingDiv.setAttribute('id', 'headingDiv')
 
@@ -25,8 +27,10 @@ const landing = () => {
     headingDiv.appendChild(menu())
     headingDiv.appendChild(currentSection())
 
+    mainContainer.appendChild(cards)
+    
     content.appendChild(headingDiv)
-    content.appendChild(cards)
+    content.appendChild(mainContainer)
     content.appendChild(dialog())
    
     return content;
