@@ -6,9 +6,9 @@ const menu = () => {
 
     const headLi = document.createElement('li'); //main li to append subUL to for dropdown
      const firstLi = () => {
-        const homeBtn = document.createElement('a')
+        const homeBtn = document.createElement('li')
         homeBtn.setAttribute('id','homeBtn')
-        homeBtn.innerText = 'Menu'
+        homeBtn.innerText = 'Category'
         headLi.appendChild(homeBtn)
         return homeBtn;
     }
@@ -17,6 +17,7 @@ const menu = () => {
         const ul = document.createElement('ul')
         ul.setAttribute('id','subMenu')
 
+        
         const subLi2 = () => {
             const li = document.createElement('li')
             

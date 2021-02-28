@@ -13,23 +13,6 @@ const dialog = () => {
         const ul = document.createElement('ul')
         ul.classList.add('dialogUl')
 
-        const liAlpha = () => {
-            
-            const li = document.createElement('li')
-            const h2 = document.createElement('h2')
-            const h2Span = document.createElement('span')
-
-            li.classList.add('dialogLi')
-
-            h2.setAttribute('id', 'dialogCatTitle')
-            h2Span.setAttribute('id', 'dialogH2Span')
-            
-
-            h2.appendChild(h2Span);
-            li.appendChild(h2);
-            return li;
-        }
-
         const li0 = () => {
             const li = document.createElement('li')
             const label = document.createElement('label')
@@ -44,7 +27,16 @@ const dialog = () => {
             li.appendChild(label)
             return li;
         }
+
         const li1 = () => {
+            const li = document.createElement('li')
+            li.classList.add('dialogLi')
+            li.innerText = 'Category: '
+            li.appendChild(collectionList())
+            return li;
+        }
+
+        const li2 = () => {
             const li = document.createElement('li')
             const label = document.createElement('label')
             const input = document.createElement('textarea')
@@ -62,17 +54,17 @@ const dialog = () => {
             return li;
 
         }
-        
+
         const li3 = () => {
             const li = document.createElement('li')
             li.classList.add('dialogLi')
             li.appendChild(checkBoxes())
             return li;
         }
-        ul.appendChild(liAlpha())
+
         ul.appendChild(li0())
         ul.appendChild(li1())
-        
+        ul.appendChild(li2())
         ul.appendChild(li3())
         return ul;
     }

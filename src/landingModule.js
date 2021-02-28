@@ -23,9 +23,27 @@ const landing = () => {
 
         return sectionHeading;
     }
+    const createNew = () => {
+        const ul =document.createElement('ul')
+            ul.classList.add('menu')
+            ul.setAttribute('id', 'createNewParent')
+        const li = document.createElement('li')
+            
+            li.classList.add('newFlip')
+            
+            li.setAttribute('id', 'CreateNew')
+            li.setAttribute('value', 4)
+
+
+            li.innerText = 'New Task!'
+
+            ul.appendChild(li)
+            return ul;
+    }
 
     headingDiv.appendChild(menu())
     headingDiv.appendChild(currentSection())
+    headingDiv.appendChild(createNew())
 
     mainContainer.appendChild(cards)
     

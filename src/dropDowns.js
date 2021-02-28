@@ -7,27 +7,29 @@ const collectionList = () => {
         const subItem1 = () => {
             const item1 = document.createElement('option')
             item1.innerText = 'Work'
-            item1.setAttribute('id', 'work')
+            item1.setAttribute('id', 'workSelect')
             return item1;
         }
         const subItem2 = () => {
-            const item2 = document.createElement('option')
-            item2.innerText = 'Study'
-            item2.setAttribute('id', 'Study')
-            return item2;
+            const item4 = document.createElement('option')
+            item4.innerText = 'Chores'
+            item4.setAttribute('id', 'choresSelect')
+            return item4;
         }
         const subItem3 = () => {
             const item3 = document.createElement('option')
             item3.innerText = 'Personal'
-            item3.setAttribute('id', 'personal')
+            item3.setAttribute('id', 'personalSelect')
             return item3;
         }
         const subItem4 = () => {
-            const item4 = document.createElement('option')
-            item4.innerText = 'Chores'
-            item4.setAttribute('id', 'chores')
-            return item4;
+            const item2 = document.createElement('option')
+            item2.innerText = 'Study'
+            item2.setAttribute('id', 'studySelect')
+            return item2;
         }
+        
+        
      
      select1.appendChild(subItem1())
      select1.appendChild(subItem2())
