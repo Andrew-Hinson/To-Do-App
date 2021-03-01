@@ -1,19 +1,18 @@
 
 const menu = () => {
-    const headUl = document.createElement('ul'); //main ul for first li item to reside in for styling
+    //main ul for first li item to reside in for styling
+    const headUl = document.createElement('ul'); 
         headUl.classList.add('menu')
         headUl.setAttribute('id', 'mainMenu')
 
-    const headLi = document.createElement('li'); //main li to append subUL to for dropdown
-     const firstLi = () => {
-        const homeBtn = document.createElement('li')
-        homeBtn.setAttribute('id','homeBtn')
-        homeBtn.innerText = 'Home'
-        headLi.appendChild(homeBtn)
-        return homeBtn;
-    }
-                                    
-    const subMenu = () => {         //options can be changed-added to later
+    //main li to append subUL to for dropdown
+    const headLi = document.createElement('li'); 
+        headLi.setAttribute('id','homeBtn')
+        headLi.innerText = 'Home'
+        
+    
+     //options can be changed-added to later                               
+    const subMenu = () => {        
         const ul = document.createElement('ul')
         ul.setAttribute('id','subMenu')
 
@@ -21,7 +20,6 @@ const menu = () => {
         const subLi2 = () => {
             const li = document.createElement('li')
             
-
             li.classList.add('newFlip')
             li.classList.add('workCat')
             li.setAttribute('id', 'Work')
@@ -77,7 +75,7 @@ const menu = () => {
         return ul;
     }
     
-    headLi.appendChild(firstLi())
+    
     headLi.appendChild(subMenu())
     headUl.appendChild(headLi)
     

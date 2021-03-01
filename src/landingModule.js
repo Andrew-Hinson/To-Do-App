@@ -18,7 +18,7 @@ const landing = () => {
         const headingSpan = document.createElement('span');
 
         headingSpan.setAttribute('id','categoryTitle')
-        headingSpan.innerText = 'Tasks'
+        headingSpan.innerText = 'Home'
         sectionHeading.appendChild(headingSpan)
 
         return sectionHeading;
