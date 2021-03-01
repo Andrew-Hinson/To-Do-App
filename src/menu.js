@@ -8,7 +8,7 @@ const menu = () => {
      const firstLi = () => {
         const homeBtn = document.createElement('li')
         homeBtn.setAttribute('id','homeBtn')
-        homeBtn.innerText = 'Category'
+        homeBtn.innerText = 'Home'
         headLi.appendChild(homeBtn)
         return homeBtn;
     }

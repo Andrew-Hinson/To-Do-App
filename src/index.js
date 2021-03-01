@@ -19,24 +19,26 @@ const landingInfo = () => {
       infoContentP.innerText = "Welcome to Task-Flip! Click on Menu to choose a category to add a new Task to! Choose 'Home' from menu to come back to this page for a full stat breakdown. Each Category will keep their own Tasks seperate, but you can see detailed statistics on all categories from here if you wish. Thank you for looking at my project!"
 
 }
-
-//Dialog control Listeners
-const cancel = document.querySelector('#cancel');
-const accept = document.querySelector('#accept')
-const createNew = document.querySelector('#CreateNew')
+const categoryTitle = document.querySelector('#categoryTitle')
 //main element that Display class needs to access
 const mainContainer = document.querySelector('#mainContainer')
 const cards = document.querySelector('.cards')
 
-//inputs when creating a Task//
-const titleInput = document.querySelector('#titleInput')
-const notesInput = document.querySelector('#notesInput')
+//classes that tasks will be assigned to
+const workDisplay = new Display(cards)
+const choresDisplay = new Display(cards)
+const personalDisplay = new Display(cards)
+const studyDisplay = new Display(cards)
 
-//value of the selected category to put the task inside
-let categoryDisplay; 
 
-//detects the option clicked and updates categoryDisplay for accept event listener
+
+
+
 const dialogControl = (() => {
+      //Dialog control Listeners
+      const cancel = document.querySelector('#cancel');
+      const accept = document.querySelector('#accept')
+      const createNew = document.querySelector('#CreateNew')
       const dialog = document.querySelector('#dialog');
 
       cancel.addEventListener('click', (e) => {
@@ -51,79 +53,86 @@ const dialogControl = (() => {
 
       accept.addEventListener('click', (e) => {
             e.preventDefault()
+            submitForm()
             dialog.close();
       })
 
 })();
 
 
-// const dialogControl = (() => {
-//      let target;
-     
-//      const dialog = document.querySelector('#dialog');
-//      let h2Span = document.querySelector('#dialogH2Span')
-//      let catTitle = document.querySelector('#categoryTitle')
-//         // Form cancel button closes the dialog box
-//      cancel.addEventListener('click', (e) => {
-//            e.preventDefault()
-//            dialog.close();
-//      });
-//      //clicking menu option opens dialog
-//      const menuOptions = document.querySelectorAll('.newFlip')
-//            for(const option of menuOptions){
-                 
-//                  option.addEventListener('click', (e) => {
-//                        target = e.target
-//                        categoryDisplay = `${target.value}` //maincontrol of which category we are in
-//                        h2Span.innerText = `${target.id}`
-//                        h2Span.setAttribute('value', `${target.value}`)
-//                        catTitle.innerText = `${target.id}`
-                       
-//                        dialog.show()
-//                  });
-//            };
-// })();
+
+const switchDisplay = (() => {
+      //menu options on the left all have class of .newFlip
+      const menuOptions = document.querySelectorAll('.newFlip')
+      //figure out what was clicked, change Display accordingly
+      let target;
+      for(const option of menuOptions){
+            option.addEventListener('click', (e) => {
+                  target = e.target
+                  
+                  if(target.value === 0){
+                        categoryTitle.innerText = target.id
+                        workDisplay.update()
+                        
+                  } else if(target.value === 1){
+                        categoryTitle.innerText = target.id
+                        choresDisplay.update()
+                        
+                  } else if(target.value === 2){
+                        categoryTitle.innerText = target.id
+                        personalDisplay.update()
+                        
+                  } else if(target.value === 3){
+                        categoryTitle.innerText = target.id
+                        studyDisplay.update()
+                  }
+           });
+     };
+})();
  
-//classes that tasks will be assigned to
-const workDisplay = new Display(cards)
-const choresDisplay = new Display(cards)
-const studyDisplay = new Display(cards)
-const personalDisplay = new Display(cards)
 
 
-// when button is clicked for accept, create new task and push to class Display
+
 //when accept is pressed, it should place the card in the selected category
-// accept.addEventListener('click', (e) => {
-//       e.preventDefault()
-//       //radio selection to determine priority
-//       const radioInputs = document.getElementsByTagName('input')
-//             //can use this to figure out which Display Class to use
-//       let radioValue; //assigned a number 1-3 green - red, loops over title input as well but not a factor
-//       for(let radio of radioInputs){
-//             if(radio.checked === true){
-//                   radioValue = radio.value
-//             }
-//       }
-//       const task = new Task(titleInput.value, notesInput.value, radioValue)
+const submitForm = () => {
+      const titleInput = document.querySelector('#titleInput')
+      const notesInput = document.querySelector('#notesInput')      
+      //Category select to determine which Display Class to use and put Task in
+      const categoryDisplay = document.querySelector('#collection').value
+      //radio selection to determine priority
+      const radioInputs = document.getElementsByTagName('input')
+      //assigned a number 1-3 green - red, loops over title input as well but not a factor
+      let radioValue; 
+      for(let radio of radioInputs){
+            if(radio.checked === true){
+                  radioValue = radio.value
+            }
+      }
       
-//       if(categoryDisplay === '0'){
-//             workDisplay.add(task)
-//             console.log(workDisplay)
-//       } else if(categoryDisplay === '1'){
-//             choresDisplay.add(task)
-//             console.log(choresDisplay)
-//       } else if(categoryDisplay === '2'){
-//             personalDisplay.add(task)
-//             console.log(personalDisplay)
-//       } else if(categoryDisplay === '3'){
-//             studyDisplay.add(task)
-//             console.log(studyDisplay)
-//       }
+      const task = new Task(titleInput.value, notesInput.value, categoryDisplay, radioValue)
+      
+      if(categoryDisplay === '0'){
+            workDisplay.add(task)
+            categoryTitle.innerText = 'Work';
+            console.log(workDisplay)
+      } else if(categoryDisplay === '1'){
+            choresDisplay.add(task)
+            categoryTitle.innerText = 'Chores';
+            console.log(choresDisplay)
+      } else if(categoryDisplay === '2'){
+            personalDisplay.add(task)
+            categoryTitle.innerText = 'Personal'
+            console.log(personalDisplay)
+      } else if(categoryDisplay === '3'){
+            studyDisplay.add(task)
+            categoryTitle.innerText = 'Study'
+            console.log(studyDisplay)
+      }
 
-//       titleInput.value = '';
-//       notesInput.value = '';
-//       dialog.close()
-// });
+      titleInput.value = '';
+      notesInput.value = '';
+      
+};
 
 
     

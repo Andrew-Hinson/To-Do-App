@@ -8,25 +8,29 @@ const collectionList = () => {
             const item1 = document.createElement('option')
             item1.innerText = 'Work'
             item1.setAttribute('id', 'workSelect')
+            item1.setAttribute('value', 0)
             return item1;
         }
         const subItem2 = () => {
-            const item4 = document.createElement('option')
-            item4.innerText = 'Chores'
-            item4.setAttribute('id', 'choresSelect')
-            return item4;
+            const item2 = document.createElement('option')
+            item2.innerText = 'Chores'
+            item2.setAttribute('id', 'choresSelect')
+            item2.setAttribute('value', 1)
+            return item2;
         }
         const subItem3 = () => {
             const item3 = document.createElement('option')
             item3.innerText = 'Personal'
             item3.setAttribute('id', 'personalSelect')
+            item3.setAttribute('value', 2)
             return item3;
         }
         const subItem4 = () => {
-            const item2 = document.createElement('option')
-            item2.innerText = 'Study'
-            item2.setAttribute('id', 'studySelect')
-            return item2;
+            const item4 = document.createElement('option')
+            item4.innerText = 'Study'
+            item4.setAttribute('id', 'studySelect')
+            item4.setAttribute('value', 3)
+            return item4;
         }
         
         
