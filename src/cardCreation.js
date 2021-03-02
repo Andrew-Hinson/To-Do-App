@@ -15,7 +15,7 @@ const cardCreation = (item) => {
 
     const cardTitle = document.createElement('p')  
         cardTitle.innerText = item.title
-        cardTitle.setAttribute('required', 'required')
+        cardTitle.classList.add('frontCardTitle')
 
     const notesLabel = document.createElement('label')
         notesLabel.setAttribute('for', `cardNote${i}`)
@@ -23,9 +23,8 @@ const cardCreation = (item) => {
     
     const frontCheckMark = document.createElement('div')
         frontCheckMark.classList.add('cardFrontCheck')
+        frontCheckMark.setAttribute('id', `frontCheck${i}`)
     
-
-    //
     const cardNotes = document.createElement('textarea')
         cardNotes.setAttribute('id', `cardNote${i}`)
         cardNotes.classList.add('cardNotes')
@@ -75,6 +74,7 @@ const cardCreation = (item) => {
                 //set checked on card if checked in dialog
                 if(item.priority === '1'){
                     cardChecked.checked = !cardChecked.checked;
+                    frontCheckMark.classList.toggle('green')
                 }
                 //////////////////////////////////////COME FIX THIS
     
@@ -100,6 +100,7 @@ const cardCreation = (item) => {
                 cardChecked.setAttribute('value', 2)
                 if(item.priority === '2'){
                     cardChecked.checked = !cardChecked.checked;
+                    frontCheckMark.classList.toggle('yellow')
                 }
             
             const checkSpan = document.createElement('span')
@@ -124,6 +125,7 @@ const cardCreation = (item) => {
                 cardChecked.setAttribute('id', `redbox${i}`)
                 if(item.priority === '3'){
                     cardChecked.checked = !cardChecked.checked;
+                    frontCheckMark.classList.toggle('red')
                 }
             
             const checkSpan = document.createElement('span')

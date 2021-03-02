@@ -386,9 +386,10 @@ select:focus{
   -ms-transform: rotate(45deg);
   transform: rotate(45deg);
 }
-
+.frontCardTitle {
+  height: 2rem;
+}
 .cardFrontCheck {
-  
   display: block;
   margin: 0 auto;
   height: 5rem;
@@ -396,7 +397,15 @@ select:focus{
   background-color: #eee;
   border-radius: 50%;
 }
-
+.green {
+  background-color: #3fc98c;
+}
+.yellow {
+  background-color: #fddb3a;
+}
+.red {
+  background-color: #c9473f;
+}
 /* ScrollBar Styling */
 
 ::-webkit-scrollbar {
