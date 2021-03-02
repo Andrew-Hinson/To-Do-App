@@ -6,9 +6,12 @@ const cardCreation = (item) => {
     
     const cardParent = document.createElement('div')
         cardParent.classList.add('cardParent')
+        cardParent.setAttribute('id', `cardParent${i}`)
+        cardParent.dataset.category = item.category;
 
     const card = document.createElement('div')
         card.classList.add('card')
+        card.dataset.category = item.category;
 
     const cardTitle = document.createElement('p')  
         cardTitle.innerText = item.title
@@ -133,22 +136,31 @@ const cardCreation = (item) => {
             checkboxLabel.appendChild(checkSpan)
             return checkboxLabel;
         }
+
         checkboxDiv.appendChild(checkbox1())
         checkboxDiv.appendChild(checkbox2())
         checkboxDiv.appendChild(checkbox3())
         label.appendChild(checkboxDiv)
-    
-        
-        
+
         return label;
     }
-    
+    const completeBtn = () => {
+        const button = document.createElement('button')
+        button.setAttribute('id', `completeBtn${i}`)
+        button.innerText = 'Complete'
+        return button;
+    }
+    const deleteBtn = () => {
+        const button = document.createElement('button')
+        button.setAttribute('id', `deleteBtn${i}`)
+        button.innerText = 'Delete'
+        return button;
+    }
 
-
-    
     i++
     cardBack.appendChild(cardBoxes())
-
+    cardBack.appendChild(deleteBtn())
+    cardBack.appendChild(completeBtn())
     card.appendChild(cardFront)
     card.appendChild(cardBack)
     cardParent.appendChild(card)

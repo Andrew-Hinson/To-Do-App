@@ -25,12 +25,13 @@ const categoryTitle = document.querySelector('#categoryTitle')
 const mainContainer = document.querySelector('#mainContainer')
 const cards = document.querySelector('.cards')
 
-//classes that tasks will be assigned to
+
+//classes that tasks will be assigned to//
 const workDisplay = new Display(cards)
 const choresDisplay = new Display(cards)
 const personalDisplay = new Display(cards)
 const studyDisplay = new Display(cards)
-
+////////////////////////////////////////
 
 
 
@@ -115,19 +116,19 @@ const submitForm = () => {
       if(categoryDisplay === '0'){
             workDisplay.add(task)
             categoryTitle.innerText = 'Work';
-            console.log(workDisplay)
+            
       } else if(categoryDisplay === '1'){
             choresDisplay.add(task)
             categoryTitle.innerText = 'Chores';
-            console.log(choresDisplay)
+           
       } else if(categoryDisplay === '2'){
             personalDisplay.add(task)
             categoryTitle.innerText = 'Personal'
-            console.log(personalDisplay)
+            
       } else if(categoryDisplay === '3'){
             studyDisplay.add(task)
             categoryTitle.innerText = 'Study'
-            console.log(studyDisplay)
+            
       }
 
       titleInput.value = '';
@@ -136,12 +137,16 @@ const submitForm = () => {
 };
 
 
-    
-const body = document.querySelector('body').addEventListener('click', (e) => {
-      console.log(e)
-})
-// const checkBtn = document.querySelectorAll('.checkmark')
+const cardListener = document.querySelector('.cards')
 
-// checkBtn.forEach((check) => check.addEventListener('click', (e) => {
-//       console.log(Task)
-// }))
+cardListener.addEventListener('click', (e) => {
+      //for button use
+      // let currentCategory = document.querySelector('')
+      // // let target = e.target;
+      // // console.log(target)
+      // console.log(currentCategory)
+      // let targetTask;
+      // if(target.type === 'radio'){
+            
+      // }
+})

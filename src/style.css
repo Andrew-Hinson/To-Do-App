@@ -235,7 +235,7 @@ dialog::backdrop {
 #accept{
   float: right;
 }
-form button {
+button {
   width: 5rem;
   height: 2rem;
   color: #f5f5f5;
@@ -244,14 +244,14 @@ form button {
   border-radius: 20px;
   font-family: 'Architects Daughter', cursive;
 }
-form button:hover {
+button:hover {
   background-color: #3fc1c9;
   border-color: #f5f5f5;
   border: 1px solid #f5f5f5;
   border-radius: 20px;
   transition: all 0.8s ease;
 }
-form button:focus {
+button:focus {
   outline: none;
   border-color: #f5f5f5;
   border: 1px solid #f5f5f5;
@@ -396,6 +396,7 @@ select:focus{
   background-color: #eee;
   border-radius: 50%;
 }
+
 /* ScrollBar Styling */
 
 ::-webkit-scrollbar {
