@@ -136,3 +136,6 @@ const submitForm = () => {
 
 
     
+const body = document.querySelector('body').addEventListener('click', (e) => {
+      console.log(e)
+})

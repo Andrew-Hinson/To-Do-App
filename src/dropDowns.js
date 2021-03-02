@@ -1,9 +1,9 @@
-
+import { Task } from './Tasks.js'
     
 const collectionList = () => {
  const select1 = document.createElement('select')
- select1.setAttribute('id', 'collection')
-
+    select1.setAttribute('id', 'collection')
+    select1.setAttribute('required', '')
         const subItem1 = () => {
             const item1 = document.createElement('option')
             item1.innerText = 'Work'
@@ -64,7 +64,8 @@ const checkBoxes = () => {
             cardChecked.setAttribute('name', 'radio')
             cardChecked.setAttribute('id','greenbox')
             cardChecked.setAttribute('value', 1)
-        
+            cardChecked.setAttribute('checked', '')
+
         const checkSpan = document.createElement('span')
             checkSpan.classList.add('checkmark')
             checkSpan.classList.add('greenCheck')
@@ -121,44 +122,13 @@ const checkBoxes = () => {
     checkboxDiv.appendChild(checkbox2())
     checkboxDiv.appendChild(checkbox3())
     label.appendChild(checkboxDiv)
+
+    
+
     return label;
 }
 
-// const priorityList = () => {
-//     const select2 = document.createElement('select')
-//     select2.setAttribute('id', 'priority')
 
-//         const subItem1 = () => {
-//             const item1 = document.createElement('option')
-//             item1.innerText = 'Green'
-//             item1.setAttribute('id', 'green')
-//             return item1;
-//         }
-//         const subItem2 = () => {
-//             const item2 = document.createElement('option')
-//             item2.innerText = 'Yellow'
-//             item2.setAttribute('id', 'yellow')
-//             return item2;
-//         }
-//         const subItem3 = () => {
-//             const item3 = document.createElement('option')
-//             item3.innerText = 'Red'
-//             item3.setAttribute('id', 'red')
-//             return item3;
-//         }
-//         const subItem4 = () => {
-//             const item4 = document.createElement('option')
-//             item4.innerText = 'YESTERDAY'
-//             item4.setAttribute('id', 'red')
-//             return item4;
-//         }
-        
-//         select2.appendChild(subItem1())
-//         select2.appendChild(subItem2())
-//         select2.appendChild(subItem3())
-//         select2.appendChild(subItem4())
-//        return select2
-// }
 
 
 export { collectionList, checkBoxes }
