@@ -387,6 +387,15 @@ select:focus{
   transform: rotate(45deg);
 }
 
+.cardFrontCheck {
+  
+  display: block;
+  margin: 0 auto;
+  height: 5rem;
+  width: 5rem;
+  background-color: #eee;
+  border-radius: 50%;
+}
 /* ScrollBar Styling */
 
 ::-webkit-scrollbar {

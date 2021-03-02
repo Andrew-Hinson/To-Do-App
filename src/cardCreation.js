@@ -13,9 +13,14 @@ const cardCreation = (item) => {
     const cardTitle = document.createElement('p')  
         cardTitle.innerText = item.title
         cardTitle.setAttribute('required', 'required')
+
     const notesLabel = document.createElement('label')
         notesLabel.setAttribute('for', `cardNote${i}`)
-        notesLabel.innerText = 'Notes: '
+        notesLabel.innerText = 'Notes: ';
+    
+    const frontCheckMark = document.createElement('div')
+        frontCheckMark.classList.add('cardFrontCheck')
+    
 
     //
     const cardNotes = document.createElement('textarea')
@@ -25,20 +30,20 @@ const cardCreation = (item) => {
         cardNotes.setAttribute('cols', '20')
         cardNotes.setAttribute('maxlength', '50')
         cardNotes.innerText = item.notes
-    notesLabel.appendChild(cardNotes)
+        notesLabel.appendChild(cardNotes)
 
     
+    const cardFront = document.createElement('div')
 
-    const cardFront = () => {
-        const cardFront = document.createElement('div')
+    const cardFrontStyle = (() => {
         cardFront.classList.add('cardFront')
         cardFront.appendChild(cardTitle)
-
+        cardFront.appendChild(frontCheckMark)
         return cardFront;
-    }
+    })()
     
     const cardBack = document.createElement('div')
-    const setCardBack = (() => {
+    const cardBackStyle = (() => {
         cardBack.classList.add('cardBack')
         cardBack.appendChild(notesLabel)
         return cardBack;
@@ -64,7 +69,11 @@ const cardCreation = (item) => {
                 cardChecked.setAttribute('name', `radio${i}`)
                 cardChecked.setAttribute('id',`greenbox${i}`)
                 cardChecked.setAttribute('value', 1)
-                cardChecked.setAttribute('checked', '')
+                //set checked on card if checked in dialog
+                if(item.priority === '1'){
+                    cardChecked.checked = !cardChecked.checked;
+                }
+                //////////////////////////////////////COME FIX THIS
     
             const checkSpan = document.createElement('span')
                 checkSpan.classList.add('checkmark')
@@ -86,6 +95,9 @@ const cardCreation = (item) => {
                 cardChecked.setAttribute('name', `radio${i}`)
                 cardChecked.setAttribute('id',`yellowbox${i}`)
                 cardChecked.setAttribute('value', 2)
+                if(item.priority === '2'){
+                    cardChecked.checked = !cardChecked.checked;
+                }
             
             const checkSpan = document.createElement('span')
                 checkSpan.classList.add('checkmark')
@@ -107,6 +119,9 @@ const cardCreation = (item) => {
                 cardChecked.setAttribute('name', `radio${i}`)
                 cardChecked.setAttribute('value', 3)
                 cardChecked.setAttribute('id', `redbox${i}`)
+                if(item.priority === '3'){
+                    cardChecked.checked = !cardChecked.checked;
+                }
             
             const checkSpan = document.createElement('span')
                 checkSpan.classList.add('checkmark')
@@ -127,14 +142,14 @@ const cardCreation = (item) => {
         
         return label;
     }
-
+    
 
 
     
     i++
     cardBack.appendChild(cardBoxes())
 
-    card.appendChild(cardFront())
+    card.appendChild(cardFront)
     card.appendChild(cardBack)
     cardParent.appendChild(card)
     return cardParent;

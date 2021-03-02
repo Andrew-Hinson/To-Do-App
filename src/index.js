@@ -4,6 +4,7 @@ import { Display } from './Display.js';
 import { Task } from './Tasks.js';
 import {workContainer, personalContainer, studyContainer, choresContainer} from './containers.js';
 import { dialog } from './dialog';
+import { checkBoxes } from './dropDowns';
 
 
 landing()
@@ -139,3 +140,8 @@ const submitForm = () => {
 const body = document.querySelector('body').addEventListener('click', (e) => {
       console.log(e)
 })
+// const checkBtn = document.querySelectorAll('.checkmark')
+
+// checkBtn.forEach((check) => check.addEventListener('click', (e) => {
+//       console.log(Task)
+// }))
