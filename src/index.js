@@ -183,10 +183,13 @@ cardListener.addEventListener('click', (e) => {
             //currentPosition
             let y = target.dataset.position;
             
+            let cardNote = document.querySelector(`#cardNote${y}`)
+
             let frontColor = document.querySelector(`#frontCheck${y}`)
 
             const radioInputs = document.querySelectorAll(`.cardRadio${y}`)
 
+            
             //radioValue will hold the value of the currently clicked radio button
             let radioValue;
            //iterates through what is checked or not, to then UPDATE the object with radioValue
@@ -198,15 +201,23 @@ cardListener.addEventListener('click', (e) => {
             //if category = categorynum, get specific task with tasks position of y, drill down to priority and set
             if(x === '0'){
                   workDisplay.targetList[y].priority = radioValue;
+                  workDisplay.targetList[y].notes = cardNote.value;
+                  
             }
             if(x === '1'){
                   choresDisplay.targetList[y].priority = radioValue;
+                  choresDisplay.targetList[y].notes = cardNote.value;
+                  console.log(choresDisplay.targetList[y])
             }
             if(x === '2'){
                   personalDisplay.targetList[y].priority = radioValue;
+                  personalDisplay.targetList[y].notes = cardNote.value;
+                  console.log(personalDisplay.targetList[y])
             }
             if(x === '3'){
                   studyDisplay.targetList[y].priority = radioValue;
+                  studyDisplay.targetList[y].notes = cardNote.value;
+                  console.log(studyDisplay.targetList[y])
             }
 
             if(radioValue === '1'){
@@ -220,6 +231,7 @@ cardListener.addEventListener('click', (e) => {
                   frontColor.classList.add('red')
             }
             
+            console.log(workDisplay.targetList[y])
             
       if(target.classList.contains('delete')){
             //delete card

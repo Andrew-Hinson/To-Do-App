@@ -19,6 +19,7 @@ const cardCreation = (item) => {
     const cardTitle = document.createElement('p')  
         cardTitle.innerText = item.title
         cardTitle.classList.add('frontCardTitle')
+        cardTitle.classList.add(`title${i}`)
 
     const notesLabel = document.createElement('label')
         notesLabel.setAttribute('for', `cardNote${i}`)
@@ -132,7 +133,7 @@ const cardCreation = (item) => {
                 cardChecked.setAttribute('value', 3)
                 cardChecked.setAttribute('id', `redbox${i}`)
                 cardChecked.classList.add(`cardRadio${i}`)
-                
+
                 if(item.priority === '3'){
                     cardChecked.checked = !cardChecked.checked;
                     frontCheckMark.classList.toggle('red')
