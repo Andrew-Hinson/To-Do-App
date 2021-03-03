@@ -111,6 +111,15 @@ h1 {
   width: 90%;
   height: 4rem;
 }
+.save {
+  width: 5rem;
+  background-color: #f5f5f5;
+  color: #364f6b;
+  border: 1px solid #3fc1c9;
+}
+.save:hover{
+  background-color: #3fc1c9;
+}
 /* input styling */
 
 

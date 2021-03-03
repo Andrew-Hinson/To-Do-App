@@ -1,6 +1,6 @@
 import { collectionList , checkBoxes } from './dropDowns.js';
 import { Task } from './Tasks.js';
-let i = 0
+let i
 //used in Display.js // //called with index.js {Task}//
 const cardCreation = (item) => {
     
@@ -8,6 +8,7 @@ const cardCreation = (item) => {
         cardParent.classList.add('cardParent')
         cardParent.setAttribute('id', `cardParent${i}`)
         cardParent.dataset.category = item.category;
+        cardParent.dataset.position = item.position
 
     const card = document.createElement('div')
         card.classList.add('card')
@@ -41,6 +42,7 @@ const cardCreation = (item) => {
         cardFront.classList.add('cardFront')
         cardFront.appendChild(cardTitle)
         cardFront.appendChild(frontCheckMark)
+        cardFront.dataset.category = item.category;
         return cardFront;
     })()
     
@@ -48,6 +50,7 @@ const cardCreation = (item) => {
     const cardBackStyle = (() => {
         cardBack.classList.add('cardBack')
         cardBack.appendChild(notesLabel)
+        cardBack.dataset.category = item.category;
         return cardBack;
     })()
     //creating checkboxes for card has to be slightly different
@@ -146,21 +149,46 @@ const cardCreation = (item) => {
 
         return label;
     }
+    const buttonContainer = document.createElement('div')
+        buttonContainer.classList.add('buttonContainer')
+
+    //s${i} - save
+    //c${i} -complete
+    //c${i} -delete
+
+    const saveBtn = () => {
+        const button = document.createElement('button')
+        
+        button.classList.add('save')
+        button.dataset.category = item.category;
+        button.dataset.position = `${item.position}`;
+        button.innerText = 'SAVE';
+        return button;
+    }
     const completeBtn = () => {
         const button = document.createElement('button')
-        button.setAttribute('id', `completeBtn${i}`)
-        button.innerText = 'Complete'
+    
+        button.classList.add('complete')
+        button.dataset.category = item.category;
+        button.dataset.position = item.position;
+        button.innerText = 'COMPLETE'
         return button;
     }
     const deleteBtn = () => {
+        
+        // taskPosition.toString()
         const button = document.createElement('button')
-        button.setAttribute('id', `deleteBtn${i}`)
-        button.innerText = 'Delete'
+        
+        button.classList.add('delete')
+        button.dataset.category = item.category;
+        button.dataset.position = item.position;
+        button.innerText = 'DELETE'
         return button;
     }
 
     i++
     cardBack.appendChild(cardBoxes())
+    cardBack.appendChild(saveBtn())
     cardBack.appendChild(deleteBtn())
     cardBack.appendChild(completeBtn())
     card.appendChild(cardFront)

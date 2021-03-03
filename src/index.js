@@ -92,8 +92,15 @@ const switchDisplay = (() => {
      };
 })();
  
+//used in position of Task within Display targetList
+const displayCounter = {
 
+      work:       0,
+      chores:     0,
+      personal:   0,
+      study:      0
 
+};
 
 //when accept is pressed, it should place the card in the selected category
 const submitForm = () => {
@@ -109,44 +116,79 @@ const submitForm = () => {
             if(radio.checked === true){
                   radioValue = radio.value
             }
-      }
-      
-      const task = new Task(titleInput.value, notesInput.value, categoryDisplay, radioValue)
-      
+      };
+
+      let position;
       if(categoryDisplay === '0'){
-            workDisplay.add(task)
-            categoryTitle.innerText = 'Work';
-            
-      } else if(categoryDisplay === '1'){
-            choresDisplay.add(task)
-            categoryTitle.innerText = 'Chores';
-           
-      } else if(categoryDisplay === '2'){
-            personalDisplay.add(task)
-            categoryTitle.innerText = 'Personal'
-            
-      } else if(categoryDisplay === '3'){
-            studyDisplay.add(task)
-            categoryTitle.innerText = 'Study'
-            
+            position = displayCounter.work;
+            displayCounter.work++
+      }
+      if(categoryDisplay === '1'){
+            position = displayCounter.chores;
+            displayCounter.chores++
+      }
+      if(categoryDisplay === '2'){
+            position = displayCounter.personal;
+      }
+      if(categoryDisplay === '3'){
+            position = displayCounter.study;
+            displayCounter.study++
       }
 
+      
+      const task = new Task(titleInput.value, notesInput.value, categoryDisplay, radioValue, position)
+      
+      if(categoryDisplay === '0'){
+
+            workDisplay.add(task)
+            categoryTitle.innerText = 'Work';
+
+      } else if(categoryDisplay === '1'){
+
+            choresDisplay.add(task)
+            categoryTitle.innerText = 'Chores';
+
+
+      } else if(categoryDisplay === '2'){
+
+            personalDisplay.add(task)
+            categoryTitle.innerText = 'Personal'
+
+      } else if(categoryDisplay === '3'){
+
+            studyDisplay.add(task)
+            categoryTitle.innerText = 'Study'
+
+      }
+      
+     
       titleInput.value = '';
       notesInput.value = '';
       
 };
-
-
+//0 = work
+//1 = chores
+//2 = personal
+//3 = study
+//target.dataset.category
+//Edit card details
 const cardListener = document.querySelector('.cards')
 
 cardListener.addEventListener('click', (e) => {
-      //for button use
-      // let currentCategory = document.querySelector('')
-      // // let target = e.target;
-      // // console.log(target)
-      // console.log(currentCategory)
-      // let targetTask;
-      // if(target.type === 'radio'){
+      console.log(e)
+      let target = e.target;
+      if(target.classList.contains('save')){
+            //submit changes to Task class
+            let currentCategory = target.dataset.category;
+            let currentPosition = target.dataset.position;
             
-      // }
+            
+      }
+      if(target.classList.contains('delete')){
+            //delete card
+      }
+      if(target.classList.contains('complete')){
+            //either remove or highlight card as completed
+      }
 })
+
