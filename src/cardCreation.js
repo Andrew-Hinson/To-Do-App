@@ -1,9 +1,11 @@
 import { collectionList , checkBoxes } from './dropDowns.js';
 import { Task } from './Tasks.js';
-let i
+
 //used in Display.js // //called with index.js {Task}//
 const cardCreation = (item) => {
-    
+    //position directly tied to each card
+    let i = item.position
+
     const cardParent = document.createElement('div')
         cardParent.classList.add('cardParent')
         cardParent.setAttribute('id', `cardParent${i}`)
@@ -74,6 +76,7 @@ const cardCreation = (item) => {
                 cardChecked.setAttribute('name', `radio${i}`)
                 cardChecked.setAttribute('id',`greenbox${i}`)
                 cardChecked.setAttribute('value', 1)
+                cardChecked.classList.add(`cardRadio${i}`)
                 //set checked on card if checked in dialog
                 if(item.priority === '1'){
                     cardChecked.checked = !cardChecked.checked;
@@ -101,6 +104,8 @@ const cardCreation = (item) => {
                 cardChecked.setAttribute('name', `radio${i}`)
                 cardChecked.setAttribute('id',`yellowbox${i}`)
                 cardChecked.setAttribute('value', 2)
+                cardChecked.classList.add(`cardRadio${i}`)
+
                 if(item.priority === '2'){
                     cardChecked.checked = !cardChecked.checked;
                     frontCheckMark.classList.toggle('yellow')
@@ -126,6 +131,8 @@ const cardCreation = (item) => {
                 cardChecked.setAttribute('name', `radio${i}`)
                 cardChecked.setAttribute('value', 3)
                 cardChecked.setAttribute('id', `redbox${i}`)
+                cardChecked.classList.add(`cardRadio${i}`)
+                
                 if(item.priority === '3'){
                     cardChecked.checked = !cardChecked.checked;
                     frontCheckMark.classList.toggle('red')
@@ -161,7 +168,7 @@ const cardCreation = (item) => {
         
         button.classList.add('save')
         button.dataset.category = item.category;
-        button.dataset.position = `${item.position}`;
+        button.dataset.position = item.position;
         button.innerText = 'SAVE';
         return button;
     }
@@ -186,7 +193,7 @@ const cardCreation = (item) => {
         return button;
     }
 
-    i++
+  
     cardBack.appendChild(cardBoxes())
     cardBack.appendChild(saveBtn())
     cardBack.appendChild(deleteBtn())

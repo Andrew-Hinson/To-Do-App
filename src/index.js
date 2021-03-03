@@ -160,7 +160,7 @@ const submitForm = () => {
             categoryTitle.innerText = 'Study'
 
       }
-      
+      console.log(task)
      
       titleInput.value = '';
       notesInput.value = '';
@@ -178,17 +178,55 @@ cardListener.addEventListener('click', (e) => {
       console.log(e)
       let target = e.target;
       if(target.classList.contains('save')){
-            //submit changes to Task class
-            let currentCategory = target.dataset.category;
-            let currentPosition = target.dataset.position;
+            //currentCategory
+            let x = target.dataset.category;
+            //currentPosition
+            let y = target.dataset.position;
+            
+            let frontColor = document.querySelector(`#frontCheck${y}`)
+
+            const radioInputs = document.querySelectorAll(`.cardRadio${y}`)
+
+            //radioValue will hold the value of the currently clicked radio button
+            let radioValue;
+           //iterates through what is checked or not, to then UPDATE the object with radioValue
+            for(let radio of radioInputs){
+                  if(radio.checked === true){
+                        radioValue = radio.value
+                  }
+            }
+            //if category = categorynum, get specific task with tasks position of y, drill down to priority and set
+            if(x === '0'){
+                  workDisplay.targetList[y].priority = radioValue;
+            }
+            if(x === '1'){
+                  choresDisplay.targetList[y].priority = radioValue;
+            }
+            if(x === '2'){
+                  personalDisplay.targetList[y].priority = radioValue;
+            }
+            if(x === '3'){
+                  studyDisplay.targetList[y].priority = radioValue;
+            }
+
+            if(radioValue === '1'){
+                  frontColor.classList.remove('yellow','red')
+                  frontColor.classList.add('green')
+            } else if(radioValue === '2'){
+                  frontColor.classList.remove('green','red')
+                  frontColor.classList.add('yellow')
+            } else if(radioValue === '3'){
+                  frontColor.classList.remove('green','yellow')
+                  frontColor.classList.add('red')
+            }
             
             
-      }
       if(target.classList.contains('delete')){
             //delete card
       }
       if(target.classList.contains('complete')){
             //either remove or highlight card as completed
       }
-})
+      }
+});
 
