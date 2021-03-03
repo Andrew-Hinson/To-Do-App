@@ -175,7 +175,7 @@ const submitForm = () => {
 const cardListener = document.querySelector('.cards')
 
 cardListener.addEventListener('click', (e) => {
-      console.log(e)
+
       let target = e.target;
       if(target.classList.contains('save')){
             //currentCategory
@@ -202,22 +202,18 @@ cardListener.addEventListener('click', (e) => {
             if(x === '0'){
                   workDisplay.targetList[y].priority = radioValue;
                   workDisplay.targetList[y].notes = cardNote.value;
-                  
             }
             if(x === '1'){
                   choresDisplay.targetList[y].priority = radioValue;
                   choresDisplay.targetList[y].notes = cardNote.value;
-                  console.log(choresDisplay.targetList[y])
             }
             if(x === '2'){
                   personalDisplay.targetList[y].priority = radioValue;
                   personalDisplay.targetList[y].notes = cardNote.value;
-                  console.log(personalDisplay.targetList[y])
             }
             if(x === '3'){
                   studyDisplay.targetList[y].priority = radioValue;
                   studyDisplay.targetList[y].notes = cardNote.value;
-                  console.log(studyDisplay.targetList[y])
             }
 
             if(radioValue === '1'){
@@ -230,15 +226,29 @@ cardListener.addEventListener('click', (e) => {
                   frontColor.classList.remove('green','yellow')
                   frontColor.classList.add('red')
             }
-            
-            console.log(workDisplay.targetList[y])
-            
-      if(target.classList.contains('delete')){
+      }   
+      
             //delete card
+      else if(target.classList.contains('delete')){
+            let x = target.dataset.category
+            let y = target.dataset.position
+            console.log('yay')
+            if( x === '0'){
+                  workDisplay.remove(y)
+                  console.log(workDisplay.targetList)
+            }
+            if( x === '1'){
+                  choresDisplay.remove(y)
+            }
+            if (x === '2'){
+                  personalDisplay.remove(y)
+            }
+            if (x === '3'){
+                  studyDisplay.remove(y)
+            }
       }
-      if(target.classList.contains('complete')){
-            //either remove or highlight card as completed
-      }
-      }
+      // if(target.classList.contains('complete')){
+      //       //either remove or highlight card as completed
+      // }
 });
 

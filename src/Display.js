@@ -31,8 +31,10 @@ export class Display {
         this.update();
     }
     //removes based on index of item
-    remove(index){
-        this.targetList.splice(index, 1)
+    remove(location){
+        let remove = this.targetList.find(item.position(location))
+        let indexToRemove = this.targetList.findIndex(remove)
+        this.targetList.splice(indexToRemove, 1)
         this.update();
     }
 }
