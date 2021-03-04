@@ -117,7 +117,7 @@ const submitForm = () => {
                   radioValue = radio.value
             }
       };
-
+      
       let position;
       if(categoryDisplay === '0'){
             position = displayCounter.work;
@@ -129,14 +129,15 @@ const submitForm = () => {
       }
       if(categoryDisplay === '2'){
             position = displayCounter.personal;
+            displayCounter.personal++
       }
       if(categoryDisplay === '3'){
             position = displayCounter.study;
             displayCounter.study++
       }
-
+      let id = `id${position}`
       
-      const task = new Task(titleInput.value, notesInput.value, categoryDisplay, radioValue, position)
+      const task = new Task(titleInput.value, notesInput.value, categoryDisplay, radioValue, position, id)
       
       if(categoryDisplay === '0'){
 
@@ -181,13 +182,24 @@ cardListener.addEventListener('click', (e) => {
             //currentCategory
             let x = target.dataset.category;
             //currentPosition
-            let y = target.dataset.position;
-            
-            let cardNote = document.querySelector(`#cardNote${y}`)
+            let z = target.dataset.id
+            //rewrite to have the selection of the ID instead of the position
+            let y;
+            if(x === '0'){
+                  y = workDisplay.find(z)
+            } else if (x === '1'){
+                  y = choresDisplay.find(z)
+            } else if (x === '2'){
+                  y = personalDisplay.find(z)
+            } else if (x === '3'){
+                  y = personalDisplay.find(z)
+            }
 
-            let frontColor = document.querySelector(`#frontCheck${y}`)
+            let cardNote = document.querySelector(`#cardNote${z}`)
 
-            const radioInputs = document.querySelectorAll(`.cardRadio${y}`)
+            let frontColor = document.querySelector(`#frontCheck${z}`)
+
+            const radioInputs = document.querySelectorAll(`.cardRadio${z}`)
 
             
             //radioValue will hold the value of the currently clicked radio button
@@ -198,6 +210,8 @@ cardListener.addEventListener('click', (e) => {
                         radioValue = radio.value
                   }
             }
+            console.log(z)
+            console.log(y)
             //if category = categorynum, get specific task with tasks position of y, drill down to priority and set
             if(x === '0'){
                   workDisplay.targetList[y].priority = radioValue;
@@ -231,11 +245,10 @@ cardListener.addEventListener('click', (e) => {
             //delete card
       else if(target.classList.contains('delete')){
             let x = target.dataset.category
-            let y = target.dataset.position
-            console.log('yay')
+            let y = target.dataset.id
+            
             if( x === '0'){
                   workDisplay.remove(y)
-                  console.log(workDisplay.targetList)
             }
             if( x === '1'){
                   choresDisplay.remove(y)

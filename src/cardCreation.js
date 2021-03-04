@@ -3,14 +3,13 @@ import { Task } from './Tasks.js';
 
 //used in Display.js // //called with index.js {Task}//
 const cardCreation = (item) => {
-    //position directly tied to each card
-    let i = item.position
+    //id directly tied to each card
 
     const cardParent = document.createElement('div')
         cardParent.classList.add('cardParent')
-        cardParent.setAttribute('id', `cardParent${i}`)
+        cardParent.setAttribute('id', `cardParent${item.id}`)
         cardParent.dataset.category = item.category;
-        cardParent.dataset.position = item.position
+        cardParent.dataset.id = item.id
 
     const card = document.createElement('div')
         card.classList.add('card')
@@ -19,18 +18,18 @@ const cardCreation = (item) => {
     const cardTitle = document.createElement('p')  
         cardTitle.innerText = item.title
         cardTitle.classList.add('frontCardTitle')
-        cardTitle.classList.add(`title${i}`)
+        cardTitle.classList.add(`title${item.id}`)
 
-    const notesLabel = document.createElement('label')
-        notesLabel.setAttribute('for', `cardNote${i}`)
-        notesLabel.innerText = 'Notes: ';
-    
     const frontCheckMark = document.createElement('div')
         frontCheckMark.classList.add('cardFrontCheck')
-        frontCheckMark.setAttribute('id', `frontCheck${i}`)
+        frontCheckMark.setAttribute('id', `frontCheck${item.id}`)
     
+    const notesLabel = document.createElement('label')
+    notesLabel.setAttribute('for', `cardNote${item.id}`)
+    notesLabel.innerText = 'Notes: ';    
+
     const cardNotes = document.createElement('textarea')
-        cardNotes.setAttribute('id', `cardNote${i}`)
+        cardNotes.setAttribute('id', `cardNote${item.id}`)
         cardNotes.classList.add('cardNotes')
         cardNotes.setAttribute('rows', '4')
         cardNotes.setAttribute('cols', '20')
@@ -69,15 +68,15 @@ const cardCreation = (item) => {
     
         const checkbox1 = () => {
             const checkboxLabel = document.createElement('label')
-                checkboxLabel.setAttribute('for',`greenbox${i}`)
+                checkboxLabel.setAttribute('for',`greenbox${item.id}`)
                 checkboxLabel.classList.add('checkContainer')
                 
             const cardChecked = document.createElement('input')
                 cardChecked.setAttribute('type', 'radio')
-                cardChecked.setAttribute('name', `radio${i}`)
-                cardChecked.setAttribute('id',`greenbox${i}`)
+                cardChecked.setAttribute('name', `radio${item.id}`)
+                cardChecked.setAttribute('id',`greenbox${item.id}`)
                 cardChecked.setAttribute('value', 1)
-                cardChecked.classList.add(`cardRadio${i}`)
+                cardChecked.classList.add(`cardRadio${item.id}`)
                 //set checked on card if checked in dialog
                 if(item.priority === '1'){
                     cardChecked.checked = !cardChecked.checked;
@@ -96,16 +95,16 @@ const cardCreation = (item) => {
         }
         const checkbox2 = () => {
             const checkboxLabel = document.createElement('label')
-                checkboxLabel.setAttribute('for',`yellowbox${i}`)
+                checkboxLabel.setAttribute('for',`yellowbox${item.id}`)
                 checkboxLabel.classList.add('checkContainer')
                 
     
             const cardChecked = document.createElement('input')
                 cardChecked.setAttribute('type', 'radio')
-                cardChecked.setAttribute('name', `radio${i}`)
-                cardChecked.setAttribute('id',`yellowbox${i}`)
+                cardChecked.setAttribute('name', `radio${item.id}`)
+                cardChecked.setAttribute('id',`yellowbox${item.id}`)
                 cardChecked.setAttribute('value', 2)
-                cardChecked.classList.add(`cardRadio${i}`)
+                cardChecked.classList.add(`cardRadio${item.id}`)
 
                 if(item.priority === '2'){
                     cardChecked.checked = !cardChecked.checked;
@@ -123,16 +122,16 @@ const cardCreation = (item) => {
         }
         const checkbox3 = () => {
             const checkboxLabel = document.createElement('label')
-                checkboxLabel.setAttribute('for',`redbox${i}`)
+                checkboxLabel.setAttribute('for',`redbox${item.id}`)
                 checkboxLabel.classList.add('checkContainer')
                 
     
             const cardChecked = document.createElement('input')
                 cardChecked.setAttribute('type', 'radio')
-                cardChecked.setAttribute('name', `radio${i}`)
+                cardChecked.setAttribute('name', `radio${item.id}`)
                 cardChecked.setAttribute('value', 3)
-                cardChecked.setAttribute('id', `redbox${i}`)
-                cardChecked.classList.add(`cardRadio${i}`)
+                cardChecked.setAttribute('id', `redbox${item.id}`)
+                cardChecked.classList.add(`cardRadio${item.id}`)
 
                 if(item.priority === '3'){
                     cardChecked.checked = !cardChecked.checked;
@@ -169,7 +168,8 @@ const cardCreation = (item) => {
         
         button.classList.add('save')
         button.dataset.category = item.category;
-        button.dataset.position = item.position;
+        
+        button.dataset.id = item.id;
         button.innerText = 'SAVE';
         return button;
     }
@@ -178,19 +178,20 @@ const cardCreation = (item) => {
     
         button.classList.add('complete')
         button.dataset.category = item.category;
-        button.dataset.position = item.position;
-        button.innerText = 'COMPLETE'
+        
+        button.dataset.id = item.id;
+        button.innerText = 'COMPLETE';
         return button;
     }
     const deleteBtn = () => {
         
-        // taskPosition.toString()
         const button = document.createElement('button')
         
         button.classList.add('delete')
         button.dataset.category = item.category;
-        button.dataset.position = item.position;
-        button.innerText = 'DELETE'
+        
+        button.dataset.id = item.id;
+        button.innerText = 'DELETE';
         return button;
     }
 

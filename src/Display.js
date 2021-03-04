@@ -14,13 +14,16 @@ export class Display {
     update() {
         // remove all existing content from container
         while(this.targetElement.firstChild) {
+
                 this.targetElement.removeChild(this.targetElement.firstChild)
+
         }
             // map over targetList Array, Create new element and append
         
         for(const item of this.targetList){
             
             this.targetElement.appendChild(Display.createTargetItem(item))
+
         }
             
     }
@@ -31,11 +34,19 @@ export class Display {
         this.update();
     }
     //removes based on index of item
-    remove(location){
-        let remove = this.targetList.find(item.position(location))
-        let indexToRemove = this.targetList.findIndex(remove)
+    remove(id){
+        
+        let indexToRemove = this.targetList.findIndex((item) => item.id === id)
         this.targetList.splice(indexToRemove, 1)
         this.update();
+
+    }
+
+    find (id) {
+
+        let indexOfTask = this.targetList.findIndex((item) => item.id === id)
+        return indexOfTask;
+
     }
 }
 
