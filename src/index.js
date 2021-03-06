@@ -80,7 +80,7 @@ const switchDisplay = (() => {
                             
                   } else if(target.value === 4){
                         categoryTitle.innerText = target.id
-                        homeDisplay.update()
+                        homeDisplay.statUpdate()
                   }
            });
      };

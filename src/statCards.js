@@ -29,7 +29,7 @@ const cardParent = document.createElement('div')
 
     
     card.appendChild(cardFront)
-    card.appendChild(cardBack)
+    card.appendChild(cardOther)
     cardParent.appendChild(card)
 
 
