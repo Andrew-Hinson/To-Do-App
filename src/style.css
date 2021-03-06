@@ -51,7 +51,9 @@ h1 {
   overflow-y: auto;
   height: 50rem;
 }
-
+.megaCard {
+  
+}
 /* flip card styling */
 .cardParent {
   display: block;
@@ -62,7 +64,8 @@ h1 {
   width: 12rem;
   height: 16rem;
   border-radius: 10px;
-  
+  opacity: 1;
+  transition: 1s linear all;
 }
 .card {
   position: relative;
@@ -429,3 +432,10 @@ select:focus{
 ::-webkit-scrollbar-thumb:hover {
   background: #fc5185;
 }
+
+/* transitions for adding and removing elements */
+
+.removed {
+  opacity: 0;
+}
+

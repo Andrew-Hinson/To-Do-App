@@ -41,6 +41,8 @@ const landing = () => {
             return ul;
     }
 
+   
+  
     headingDiv.appendChild(menu())
     headingDiv.appendChild(currentSection())
     headingDiv.appendChild(createNew())

@@ -7,8 +7,10 @@ const menu = () => {
 
     //main li to append subUL to for dropdown
     const headLi = document.createElement('li'); 
-        headLi.setAttribute('id','homeBtn')
+        headLi.setAttribute('id','Home')
         headLi.innerText = 'Home'
+        headLi.setAttribute('value', 4)
+        headLi.classList.add('newFlip')
         
     
      //options can be changed-added to later                               

@@ -2,24 +2,13 @@ import './style.css';
 import { landing } from './landingModule.js';
 import { Display } from './Display.js';
 import { Task } from './Tasks.js';
-import {workContainer, personalContainer, studyContainer, choresContainer} from './containers.js';
-import { dialog } from './dialog';
-import { checkBoxes } from './dropDowns';
-
+import { dialog } from './dialog.js';
+import { checkBoxes } from './dropDowns.js';
+import { stats } from './statCards.js'
 
 landing()
 //home page fill 
-const landingInfo = () => {
-      const infoPanelParent = document.createElement('div')
-      infoPanelParent.setAttribute('id', 'infoPanelParent')
 
-      const infoContent = document.createElement('div')
-      infoContent.setAttribute('id', 'infoContent')
-
-      const infoContentP = document.createElement('p')
-      infoContentP.innerText = "Welcome to Task-Flip! Click on Menu to choose a category to add a new Task to! Choose 'Home' from menu to come back to this page for a full stat breakdown. Each Category will keep their own Tasks seperate, but you can see detailed statistics on all categories from here if you wish. Thank you for looking at my project!"
-
-}
 const categoryTitle = document.querySelector('#categoryTitle')
 //main element that Display class needs to access
 const mainContainer = document.querySelector('#mainContainer')
@@ -31,6 +20,7 @@ const workDisplay = new Display(cards)
 const choresDisplay = new Display(cards)
 const personalDisplay = new Display(cards)
 const studyDisplay = new Display(cards)
+const homeDisplay = new Display(cards)
 ////////////////////////////////////////
 
 
@@ -71,7 +61,7 @@ const switchDisplay = (() => {
       for(const option of menuOptions){
             option.addEventListener('click', (e) => {
                   target = e.target
-                  
+                  console.log(target)
                   if(target.value === 0){
                         categoryTitle.innerText = target.id
                         workDisplay.update()
@@ -87,6 +77,10 @@ const switchDisplay = (() => {
                   } else if(target.value === 3){
                         categoryTitle.innerText = target.id
                         studyDisplay.update()
+                            
+                  } else if(target.value === 4){
+                        categoryTitle.innerText = target.id
+                        homeDisplay.update()
                   }
            });
      };
@@ -176,8 +170,9 @@ const submitForm = () => {
 const cardListener = document.querySelector('.cards')
 
 cardListener.addEventListener('click', (e) => {
-
+      
       let target = e.target;
+      let a;
       if(target.classList.contains('save')){
             //currentCategory
             let x = target.dataset.category;
@@ -246,22 +241,30 @@ cardListener.addEventListener('click', (e) => {
       else if(target.classList.contains('delete')){
             let x = target.dataset.category
             let y = target.dataset.id
-            
-            if( x === '0'){
-                  workDisplay.remove(y)
-            }
-            if( x === '1'){
-                  choresDisplay.remove(y)
-            }
-            if (x === '2'){
-                  personalDisplay.remove(y)
-            }
-            if (x === '3'){
-                  studyDisplay.remove(y)
+            a = y //to use when transitioning to figure out which element to remove
+            let currentCard = document.querySelector(`#cardParent${y}`)
+
+            currentCard.classList.add("removed")
+      
+            if(currentCard.classList.contains('removed')){
+                  setTimeout(() => {
+                        
+                        if( x === '0'){
+                              workDisplay.remove(a)
+                        }
+                        if( x === '1'){
+                              choresDisplay.remove(a)
+                        }
+                        if (x === '2'){
+                              personalDisplay.remove(a)
+                        }
+                        if (x === '3'){
+                              studyDisplay.remove(a)
+                        }
+                  }, 1000);
             }
       }
-      // if(target.classList.contains('complete')){
-      //       //either remove or highlight card as completed
-      // }
 });
+            
+homeDisplay.statAdd(stats())
 

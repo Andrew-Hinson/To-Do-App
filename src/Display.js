@@ -28,6 +28,24 @@ export class Display {
             
     }
 
+    statUpdate(){
+        while(this.targetElement.firstChild) {
+
+            this.targetElement.removeChild(this.targetElement.firstChild)
+
+        }
+        //lacks createTargetItem to avoid making generic card
+        for(const item of this.targetList){
+            
+            this.targetElement.appendChild(item)
+
+        }
+    }
+
+    statAdd(item){
+        this.targetList.push(item)
+        this.statUpdate();
+    }
     //calls update after pushing items to targetList array//
     add (item) {
         this.targetList.push(item)
