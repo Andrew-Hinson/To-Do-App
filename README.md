@@ -7,7 +7,7 @@
 * Class use 
 * Dynamic creation and removal of objects
 
-#Project So Far
+# Project So Far
 This application has taught me a great deal, classes, ES6 module manipulation, Webpack configurations, CSS animations.
 
 Currently working on:
