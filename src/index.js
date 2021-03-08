@@ -1,19 +1,20 @@
+const Chart = require('chart.js');
+
 import './style.css';
 import { landing } from './landingModule.js';
 import { Display } from './Display.js';
 import { Task } from './Tasks.js';
-import { dialog } from './dialog.js';
-import { checkBoxes } from './dropDowns.js';
 import { stats } from './statCards.js'
+import { addData, removeData } from './homeChart.js'
 
+//initial page generation
 landing()
-//home page fill 
+
+
 
 const categoryTitle = document.querySelector('#categoryTitle')
 //main element that Display class needs to access
-const mainContainer = document.querySelector('#mainContainer')
 const cards = document.querySelector('.cards')
-
 
 //classes that tasks will be assigned to//
 const workDisplay = new Display(cards)
@@ -23,11 +24,45 @@ const studyDisplay = new Display(cards)
 const homeDisplay = new Display(cards)
 ////////////////////////////////////////
 
+///Stats for homepage generation///
+
+homeDisplay.statAdd(stats())
+
+//note to self, must be selected after dom element exists :) ///
+const ctx = document.querySelector('.ctxParent')
+Chart.defaults.global.defaultFontColor = 'white'
+const chart = new Chart(ctx, {
+      type: 'pie',
+      data: {
+        labels: ["Work", "Chores", "Personal", "Study"],
+        datasets: [{
+          label: "ToDo's",
+          backgroundColor: ["#f47c7c", "#f7f48b","#a1de93","#70a1d7"],
+          data: []
+        }]
+      },
+      options: {
+        title: {
+          display: true,
+          text: "Your ToDo's",
+          fontSize: 25,
+          frontColor: 'red'
+        },
+        responsive: true,
+        maintainAspectRatio: false
+      }
+  });
+
+
+
+///homepage charts //////
+
 
 
 
 const dialogControl = (() => {
       //Dialog control Listeners
+     
       const cancel = document.querySelector('#cancel');
       const accept = document.querySelector('#accept')
       const createNew = document.querySelector('#CreateNew')
@@ -35,6 +70,7 @@ const dialogControl = (() => {
 
       cancel.addEventListener('click', (e) => {
             e.preventDefault()
+            categoryTitle.innerText = 'Home'
             dialog.close();
       });
 
@@ -65,7 +101,7 @@ const switchDisplay = (() => {
                   if(target.value === 0){
                         categoryTitle.innerText = target.id
                         workDisplay.update()
-                        
+
                   } else if(target.value === 1){
                         categoryTitle.innerText = target.id
                         choresDisplay.update()
@@ -80,7 +116,9 @@ const switchDisplay = (() => {
                             
                   } else if(target.value === 4){
                         categoryTitle.innerText = target.id
+                        updateChart()
                         homeDisplay.statUpdate()
+                        
                   }
            });
      };
@@ -136,11 +174,13 @@ const submitForm = () => {
       if(categoryDisplay === '0'){
 
             workDisplay.add(task)
+            
             categoryTitle.innerText = 'Work';
 
       } else if(categoryDisplay === '1'){
 
             choresDisplay.add(task)
+            
             categoryTitle.innerText = 'Chores';
 
 
@@ -161,12 +201,7 @@ const submitForm = () => {
       notesInput.value = '';
       
 };
-//0 = work
-//1 = chores
-//2 = personal
-//3 = study
-//target.dataset.category
-//Edit card details
+
 const cardListener = document.querySelector('.cards')
 
 cardListener.addEventListener('click', (e) => {
@@ -205,8 +240,7 @@ cardListener.addEventListener('click', (e) => {
                         radioValue = radio.value
                   }
             }
-            console.log(z)
-            console.log(y)
+            
             //if category = categorynum, get specific task with tasks position of y, drill down to priority and set
             if(x === '0'){
                   workDisplay.targetList[y].priority = radioValue;
@@ -265,6 +299,13 @@ cardListener.addEventListener('click', (e) => {
             }
       }
 });
-            
-homeDisplay.statAdd(stats())
 
+const updateChart = () => {
+      let workChart = workDisplay.targetList.length
+      let choresChart = choresDisplay.targetList.length
+      let personalChart = personalDisplay.targetList.length
+      let studyChart = studyDisplay.targetList.length
+
+      chart.data.datasets[0].data = [workChart, choresChart, personalChart, studyChart]
+      chart.update();
+}

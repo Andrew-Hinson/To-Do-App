@@ -1,10 +1,13 @@
+
 const stats = () => {
     
-const cardParent = document.createElement('div')
+const ctx = document.createElement('canvas')
 
-
-    
-    cardParent.classList.add('homeParent')
+    ctx.classList.add('ctxParent')
+    ctx.setAttribute('aria-label', 'main stats')
+    ctx.setAttribute('role', 'img')
+    ctx.style.width = '20rem'
+    ctx.style.height = '20rem'
         
     const card = document.createElement('div')
         card.classList.add('homeCard')
@@ -27,14 +30,11 @@ const cardParent = document.createElement('div')
         return cardOther;
     })()
 
-    
     card.appendChild(cardFront)
     card.appendChild(cardOther)
-    cardParent.appendChild(card)
+    ctx.appendChild(card)
 
-
-
-return cardParent;
+return ctx;
 }
 
 export { stats }

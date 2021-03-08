@@ -1,5 +1,6 @@
 const path = require('path');
 
+
 module.exports = {
     mode: 'development',
     entry: './src/index.js',
@@ -7,6 +8,14 @@ module.exports = {
     output: {
         filename: 'bundle.js',
         path: path.resolve(__dirname, 'dist'),
+    },
+    
+    externals: {
+          moment: 'moment',
+          Chart: 'Chart'
+    },
+    externalsPresets: {
+      node: true,
     },
     module: {
         rules: [
