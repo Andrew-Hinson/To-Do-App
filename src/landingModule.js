@@ -1,10 +1,10 @@
-
 import { menu } from './menu.js'
 import { dialog } from './dialog.js';
 
 const landing = () => {
     const content = document.querySelector('#content')
-    
+
+
     const mainContainer = document.createElement('div')
     mainContainer.setAttribute('id', 'mainContainer')
 

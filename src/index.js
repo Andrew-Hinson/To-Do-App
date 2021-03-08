@@ -30,7 +30,7 @@ homeDisplay.statAdd(stats())
 
 //note to self, must be selected after dom element exists :) ///
 const ctx = document.querySelector('.ctxParent')
-Chart.defaults.global.defaultFontColor = 'white'
+Chart.defaults.global.defaultFontColor = '#fd7a4f'
 const chart = new Chart(ctx, {
       type: 'pie',
       data: {
@@ -46,7 +46,6 @@ const chart = new Chart(ctx, {
           display: true,
           text: "Your ToDo's",
           fontSize: 25,
-          frontColor: 'red'
         },
         responsive: true,
         maintainAspectRatio: false
@@ -56,9 +55,6 @@ const chart = new Chart(ctx, {
 
 
 ///homepage charts //////
-
-
-
 
 const dialogControl = (() => {
       //Dialog control Listeners
@@ -297,6 +293,9 @@ cardListener.addEventListener('click', (e) => {
                         }
                   }, 1000);
             }
+      }
+      else if(target.classList.contains('complete')){
+
       }
 });
 
