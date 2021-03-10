@@ -7,10 +7,17 @@
 * Class use 
 * Dynamic creation and removal of objects
 
-# Project So Far
+# New Features:
+* Stat Tracking, implimented Chart.js tracking of ToDo's and completed Todo's.
+* Updated styling, menu bar with more coherant styling.
+
+# Features in-development:
+
+* Local Data Storage / Firebase implimentation
+* Mobile Styling
+
+# Final Thoughts
 This application has taught me a great deal, classes, ES6 module manipulation, Webpack configurations, CSS animations.
 
-Currently working on:
-* Local Data Storage
-* Styling
-* Completed items stat tracking
+
+
