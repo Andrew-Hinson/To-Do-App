@@ -3,7 +3,9 @@ export class Display {
     constructor (element){
         this.targetElement = element;
 
-        this.targetList = []
+        this.targetList = [];
+
+        this.counter = 0;
     }
     //makes element of my choice appends to what is selected in index.js(or wherever I am selecting)//
     // creates div card elements

@@ -238,7 +238,7 @@ const submitForm = () => {
 const cardListener = document.querySelector('.cards')
 
 cardListener.addEventListener('click', (e) => {
-      
+
       let target = e.target;
       let a;
       if(target.classList.contains('save')){
@@ -334,7 +334,34 @@ cardListener.addEventListener('click', (e) => {
             
       }
       else if(target.classList.contains('complete')){
+            let x = target.dataset.category
+            let y = target.dataset.id
+            a = y //to use when transitioning to figure out which element to remove
+            let currentCard = document.querySelector(`#cardParent${y}`)
 
+            currentCard.classList.add("removed")
+      
+            if(currentCard.classList.contains('removed')){
+                  setTimeout(() => {
+                        
+                        if( x === '0'){
+                              workDisplay.remove(a)
+                              workDisplay.counter++
+                        }
+                        if( x === '1'){
+                              choresDisplay.remove(a)
+                              choresDisplay.counter++
+                        }
+                        if (x === '2'){
+                              personalDisplay.remove(a)
+                              personalDisplay.counter++
+                        }
+                        if (x === '3'){
+                              studyDisplay.remove(a)
+                              studyDisplay.counter++
+                        }
+                  }, 1000);
+            }
       }
       
 });
