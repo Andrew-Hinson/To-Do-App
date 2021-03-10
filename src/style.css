@@ -29,7 +29,7 @@ a {
   background: rgba(0, 0, 0, 0.2);
   height: 40px;
   margin: 0 auto;
-  min-width: 1060px;
+  max-width: 1060px;
 }
 
 #headingP {
@@ -101,17 +101,16 @@ a {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
-  align-items: center;
-  justify-items: center;
+  
   grid-gap: 2rem;
   margin: 0 auto;
   overflow-x: hidden;
   height: 50rem;
+
 }
 
 /* flip card styling */
 .cardParent {
-  margin: 0 auto;
   display: block;
   background: none;
   position: relative;
@@ -123,6 +122,8 @@ a {
   border-radius: 10px;
   opacity: 1;
   transition: 1s linear all;
+  padding-left: 28%;
+  padding-top: 15%;
 }
 .card {
   position: relative;
