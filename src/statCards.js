@@ -1,40 +1,48 @@
 
-const stats = () => {
+const pieChart = () => {
+
+
+const canvasContainer = document.createElement('div')
+
+    canvasContainer.setAttribute('id', 'canvasContainer1')
+    canvasContainer.classList.add('canvasContainer')
+
+const canvas = document.createElement('canvas')
     
-const ctx = document.createElement('canvas')
+    canvas.setAttribute('id', 'canvas1')
+    canvas.classList.add('canvas')
+    canvas.setAttribute('aria-label', 'main stats')
+    canvas.setAttribute('role', 'img')
 
-    ctx.classList.add('ctxParent')
-    ctx.setAttribute('aria-label', 'main stats')
-    ctx.setAttribute('role', 'img')
-    ctx.style.width = '20%'
-    ctx.style.height = '20%'
-        
-    const card = document.createElement('div')
-        card.classList.add('homeCard')
-    
-    const cardFront = document.createElement('div')
+    canvasContainer.appendChild(canvas)
 
-        
-
-    const cardFrontStyle = (() => {
-        cardFront.classList.add('homeCardFront')
-        cardFront.classList.add('statsFront')
-        cardFront.innerText = 'This is test content'
-        return cardFront;
-    })()
-
-    const cardOther = document.createElement('div')
-    const cardOtherAdd = (() => {
-        cardOther.classList.add('homeCardBack')
-        cardOther.classList.add('backStats')
-        return cardOther;
-    })()
-
-    card.appendChild(cardFront)
-    card.appendChild(cardOther)
-    ctx.appendChild(card)
-
-return ctx;
+    return canvasContainer
 }
 
-export { stats }
+const graphChart = () => {
+
+
+const canvasContainer2 = document.createElement('div')
+
+    canvasContainer2.setAttribute('id', 'canvasContainer2')
+    canvasContainer2.classList.add('canvasContainer')
+
+
+
+const canvas = document.createElement('canvas')
+
+    canvas.setAttribute('id', 'canvas2')
+    canvas.classList.add('canvas')
+    canvas.setAttribute('aria-label', 'secondary-stats')
+    canvas.setAttribute('role', 'img')
+
+    
+    canvasContainer2.appendChild(canvas)
+
+    return canvasContainer2
+}
+    
+
+
+
+export { pieChart, graphChart }

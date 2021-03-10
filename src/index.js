@@ -4,14 +4,14 @@ import './style.css';
 import { landing } from './landingModule.js';
 import { Display } from './Display.js';
 import { Task } from './Tasks.js';
-import { stats } from './statCards.js'
+import { pieChart, graphChart }from './statCards.js'
 import { addData, removeData } from './homeChart.js'
 
 //initial page generation
 landing()
 
 
-
+const mainContainer = document.querySelector('#mainContainer')
 const categoryTitle = document.querySelector('#categoryTitle')
 //main element that Display class needs to access
 const cards = document.querySelector('.cards')
@@ -26,12 +26,13 @@ const homeDisplay = new Display(cards)
 
 ///Stats for homepage generation///
 
-homeDisplay.statAdd(stats())
-
+homeDisplay.statAdd(pieChart())
+homeDisplay.statAdd(graphChart())
 //note to self, must be selected after dom element exists :) ///
-const ctx = document.querySelector('.ctxParent')
+const canvas1 = document.querySelector('#canvas1')
+const canvas2 = document.querySelector('#canvas2')
 Chart.defaults.global.defaultFontColor = '#fd7a4f'
-const chart = new Chart(ctx, {
+const chart = new Chart(canvas1, {
       type: 'pie',
       data: {
         labels: ["Work", "Chores", "Personal", "Study"],
@@ -48,13 +49,45 @@ const chart = new Chart(ctx, {
           fontSize: 25,
         },
         responsive: true,
+        maintainAspectRatio: true
+      }
+  });
+  const barChart = new Chart(canvas2, {
+      type: 'bar',
+      data: {
+        labels: ["Work", "Chores", "Personal", "Study"],
+        datasets: [{
+          label: "ToDo's",
+          backgroundColor: ["#f47c7c", "#f7f48b","#a1de93","#70a1d7"],
+          data: []
+        }]
+      },
+      options: {
+        title: {
+          display: true,
+          text: "Your Completed ToDo's",
+          fontSize: 25,
+        },
+        responsive: false,
         maintainAspectRatio: false
       }
   });
 
-
-
 ///homepage charts //////
+
+
+const updateChart = () => {
+      let workChart = workDisplay.targetList.length
+      let choresChart = choresDisplay.targetList.length
+      let personalChart = personalDisplay.targetList.length
+      let studyChart = studyDisplay.targetList.length
+
+      chart.data.datasets[0].data = [workChart, choresChart, personalChart, studyChart]
+      chart.update();
+}
+
+////////////////////////
+
 
 const dialogControl = (() => {
       //Dialog control Listeners
@@ -112,13 +145,17 @@ const switchDisplay = (() => {
                             
                   } else if(target.value === 4){
                         categoryTitle.innerText = target.id
-                        updateChart()
+                        
                         homeDisplay.statUpdate()
                         
+                        updateChart()
                   }
            });
      };
 })();
+
+
+
  
 //used in position of Task within Display targetList
 const displayCounter = {
@@ -265,6 +302,7 @@ cardListener.addEventListener('click', (e) => {
                   frontColor.classList.remove('green','yellow')
                   frontColor.classList.add('red')
             }
+            
       }   
       
             //delete card
@@ -293,18 +331,11 @@ cardListener.addEventListener('click', (e) => {
                         }
                   }, 1000);
             }
+            
       }
       else if(target.classList.contains('complete')){
 
       }
+      
 });
 
-const updateChart = () => {
-      let workChart = workDisplay.targetList.length
-      let choresChart = choresDisplay.targetList.length
-      let personalChart = personalDisplay.targetList.length
-      let studyChart = studyDisplay.targetList.length
-
-      chart.data.datasets[0].data = [workChart, choresChart, personalChart, studyChart]
-      chart.update();
-}

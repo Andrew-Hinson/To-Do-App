@@ -14,7 +14,10 @@ const landing = () => {
     headingDiv.setAttribute('id', 'headingDiv')
 
     const currentSection = () => {
-        const sectionHeading = document.createElement('h1');
+        const sectionHeading = document.createElement('p');
+
+        sectionHeading.setAttribute('id', 'headingP')
+        sectionHeading.innerText = 'Category: '
         const headingSpan = document.createElement('span');
 
         headingSpan.setAttribute('id','categoryTitle')
@@ -44,8 +47,9 @@ const landing = () => {
    
   
     headingDiv.appendChild(menu())
-    headingDiv.appendChild(currentSection())
     headingDiv.appendChild(createNew())
+    headingDiv.appendChild(currentSection())
+    
 
     mainContainer.appendChild(cards)
     
