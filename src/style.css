@@ -69,22 +69,25 @@ a {
 
 /* Home Page Stat Styling */
 #canvasContainer{
-  height: 300px;
+  height: 400px;
   width: 400px;
   justify-self: center;
   align-self: center;
 }
 #canvasContainer2{
-  height: 300px;
+  height: 400px;
   width: 400px;
   justify-self: center;
   align-self: center;
+  padding-top: 6rem;
 }
 #canvas1 {
   width: 400px;
+  padding-bottom: 7rem;
 }
 #canvas2 {
   width: 400px;
+
 }
 /* ////////////////////// */
 #mainContainer{

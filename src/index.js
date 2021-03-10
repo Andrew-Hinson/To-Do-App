@@ -48,7 +48,7 @@ const chart = new Chart(canvas1, {
           text: "Your ToDo's",
           fontSize: 25,
         },
-        responsive: true,
+        responsive: false,
         maintainAspectRatio: true
       }
   });
@@ -57,19 +57,33 @@ const chart = new Chart(canvas1, {
       data: {
         labels: ["Work", "Chores", "Personal", "Study"],
         datasets: [{
-          label: "ToDo's",
-          backgroundColor: ["#f47c7c", "#f7f48b","#a1de93","#70a1d7"],
-          data: []
+            beginAtZero: true,
+            backgroundColor: ["#f47c7c", "#f7f48b","#a1de93","#70a1d7"],
+            data: []
         }]
       },
       options: {
         title: {
           display: true,
-          text: "Your Completed ToDo's",
+          text: "Completed ToDo's",
           fontSize: 25,
         },
+        lineHeight: 2,
+        scales: {
+            yAxes: [{
+                ticks: {
+                    max: 10,
+                    min: 0,
+                    stepSize: 1,
+                    lineHeight: 1.7
+                }
+            }]
+        },
+        legend: {
+              display: false
+        },
         responsive: false,
-        maintainAspectRatio: false
+        maintainAspectRatio: true
       }
   });
 
@@ -87,6 +101,15 @@ const updateChart = () => {
 }
 
 ////////////////////////
+const updateCompletedChart = () => {
+      let workChart = workDisplay.counter
+      let choresChart = choresDisplay.counter
+      let personalChart = personalDisplay.counter
+      let studyChart = studyDisplay.counter
+
+      barChart.data.datasets[0].data = [workChart, choresChart, personalChart, studyChart]
+      barChart.update()
+}
 
 
 const dialogControl = (() => {
@@ -149,6 +172,7 @@ const switchDisplay = (() => {
                         homeDisplay.statUpdate()
                         
                         updateChart()
+                        updateCompletedChart()
                   }
            });
      };
