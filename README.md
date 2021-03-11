@@ -1,5 +1,7 @@
 # To-Do-App
-* Work in Progress
+Site is live! https://andrew-hinson.github.io/To-Do-App/
+
+
 ### Key goals 
 * Single Responsibility Focus
 * Loosely Coupled Objects
@@ -10,11 +12,11 @@
 # New Features:
 * Stat Tracking, implimented Chart.js tracking of ToDo's and completed Todo's.
 * Updated styling, menu bar with more coherant styling.
-
+* Mobile Styling and support. Readability and usability adjustments.
+* 
 # Features in-development:
-
 * Local Data Storage / Firebase implimentation
-* Mobile Styling
+
 
 # Final Thoughts
 This application has taught me a great deal, classes, ES6 module manipulation, Webpack configurations, CSS animations.
