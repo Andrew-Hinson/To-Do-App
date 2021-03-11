@@ -3,7 +3,7 @@ Site is live! https://andrew-hinson.github.io/To-Do-App/
 
 
 ### Key goals 
-* Single Responsibility Focus
+* Single Responsibility Focus of classes, objects, and functions.
 * Loosely Coupled Objects
 * Local data save implimentation 
 * Class use 
