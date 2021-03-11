@@ -31,7 +31,7 @@ homeDisplay.statAdd(graphChart())
 //note to self, must be selected after dom element exists :) ///
 const canvas1 = document.querySelector('#canvas1')
 const canvas2 = document.querySelector('#canvas2')
-Chart.defaults.global.defaultFontColor = '#fd7a4f'
+Chart.defaults.global.defaultFontColor = '#364f6b'
 const chart = new Chart(canvas1, {
       type: 'pie',
       data: {

@@ -1,11 +1,11 @@
 @import url('https://fonts.googleapis.com/css2?family=Cairo&display=swap');
 
-/* @media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
+@media only screen and (min-device-width: 320px) and (max-device-width: 480px) {
   #mainContainer{
     min-width: 390px;
-    max-width: 390px;
+    
   }
-} */
+}
 
 html { 
   background: url(./mixedPencils.jpg) no-repeat center center fixed; 
@@ -73,6 +73,7 @@ a {
   width: 400px;
   justify-self: center;
   align-self: center;
+  
 }
 #canvasContainer2{
   height: 400px;
@@ -83,7 +84,9 @@ a {
 }
 #canvas1 {
   width: 400px;
+  padding-top: 2rem;
   padding-bottom: 7rem;
+  margin: 0 auto;
 }
 #canvas2 {
   width: 400px;
@@ -94,19 +97,19 @@ a {
   max-width: 900px;
   min-width: 400px;
   margin: 0 auto;
-  padding: 10%;
+  
+  padding-right: 1rem;
 }
 
 .cards {
   display: grid;
   grid-template-columns: repeat(auto-fill, minmax(400px, 1fr));
   grid-template-rows: repeat(auto-fill, minmax(300px, 1fr));
-  
   grid-gap: 2rem;
   margin: 0 auto;
   overflow-x: hidden;
   height: 50rem;
-
+  
 }
 
 /* flip card styling */
@@ -465,7 +468,7 @@ select:focus{
   border-radius: 50%;
 }
 .green {
-  background-color: #3fc98c;
+  background-color: #2fe492;
 }
 .yellow {
   background-color: #fddb3a;
