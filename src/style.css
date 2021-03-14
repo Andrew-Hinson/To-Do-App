@@ -68,12 +68,12 @@ a {
 }
 
 /* Home Page Stat Styling */
-#canvasContainer{
+#canvasContainer1{
   height: 400px;
   width: 400px;
   justify-self: center;
   align-self: center;
-  
+  padding-top: 6rem;
 }
 #canvasContainer2{
   height: 400px;
@@ -87,10 +87,14 @@ a {
   padding-top: 2rem;
   padding-bottom: 7rem;
   margin: 0 auto;
+  background: rgba(0, 0, 0, 0.2);
 }
 #canvas2 {
   width: 400px;
-
+  padding-top: 2rem;
+  padding-bottom: 7rem;
+  margin: 0 auto;
+  background: rgba(0, 0, 0, 0.2);
 }
 /* ////////////////////// */
 #mainContainer{
