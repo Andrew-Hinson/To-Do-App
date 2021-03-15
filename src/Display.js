@@ -1,9 +1,14 @@
 import { cardCreation } from './cardCreation.js';
 export class Display {
+
+
     constructor (element){
+
         this.targetElement = element;
 
-        this.targetList = [];
+        this.targetList = []
+
+        this.storage = []
 
         this.counter = 0;
     }
@@ -12,23 +17,33 @@ export class Display {
     static createTargetItem(item){
         return cardCreation(item)
     }
+
+
     
     update() {
+       
         // remove all existing content from container
         while(this.targetElement.firstChild) {
-
                 this.targetElement.removeChild(this.targetElement.firstChild)
-
         }
-            // map over targetList Array, Create new element and append
-        
-        for(const item of this.targetList){
-            
-            this.targetElement.appendChild(Display.createTargetItem(item))
 
+        if(this.targetList.length === 0){
+            for(const item of this.storage){
+                this.targetElement.appendChild(Display.createTargetItem(item))
+                this.updateLocalStorage(item)
+            }
+        } else {
+            for(const item of this.targetList ){
+                this.readFromLocalStorage(item)
+                this.targetElement.appendChild(Display.createTargetItem(item))
+                this.updateLocalStorage(item)
+            }
         }
             
     }
+
+    //read from targetList and then push to localStorage
+    //THEN if nothing in targetList, populate targetList with whats in localStorage and then update
 
     statUpdate(){
         while(this.targetElement.firstChild) {
@@ -38,28 +53,35 @@ export class Display {
         }
         //lacks createTargetItem to avoid making generic card
         for(const item of this.targetList){
-            
             this.targetElement.appendChild(item)
-
         }
+    }
+
+    readFromLocalStorage(item){
+        this.storage =  JSON.parse(localStorage.getItem(item.category))
+    }
+    
+    updateLocalStorage(item){
+        localStorage.setItem(item.category, JSON.stringify(this.targetList))
+    }
+
+    add (item) {
+        this.targetList.push(item)
+        this.update();
     }
 
     statAdd(item){
         this.targetList.push(item)
         this.statUpdate();
     }
-    //calls update after pushing items to targetList array//
-    add (item) {
-        this.targetList.push(item)
-        this.update();
-    }
+   
+    
     //removes based on index of item
     remove(id){
         
         let indexToRemove = this.targetList.findIndex((item) => item.id === id)
         this.targetList.splice(indexToRemove, 1)
         this.update();
-
     }
 
     find (id) {

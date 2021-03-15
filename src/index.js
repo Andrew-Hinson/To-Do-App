@@ -1,11 +1,12 @@
 const Chart = require('chart.js');
 
+
 import './style.css';
 import { landing } from './landingModule.js';
 import { Display } from './Display.js';
 import { Task } from './Tasks.js';
-import { pieChart, graphChart }from './statCards.js'
-import { addData, removeData } from './homeChart.js'
+import { pieChart, graphChart }from './statCards.js';
+import { addData, removeData } from './homeChart.js';
 
 //initial page generation
 landing()
@@ -22,13 +23,17 @@ const choresDisplay = new Display(cards)
 const personalDisplay = new Display(cards)
 const studyDisplay = new Display(cards)
 const homeDisplay = new Display(cards)
+const loginDisplay = new Display(cards)
 ////////////////////////////////////////
 
-///Stats for homepage generation///
+
+
 
 homeDisplay.statAdd(pieChart())
 homeDisplay.statAdd(graphChart())
-//note to self, must be selected after dom element exists :) ///
+
+
+///homepage charts //////
 const canvas1 = document.querySelector('#canvas1')
 const canvas2 = document.querySelector('#canvas2')
 Chart.defaults.global.defaultFontColor = '#f5f5f5'
@@ -87,10 +92,8 @@ const chart = new Chart(canvas1, {
       }
   });
 
-///homepage charts //////
 
-
-const updateChart = () => {
+  const updateChart = () => {
       let workChart = workDisplay.targetList.length
       let choresChart = choresDisplay.targetList.length
       let personalChart = personalDisplay.targetList.length
@@ -110,6 +113,8 @@ const updateCompletedChart = () => {
       barChart.data.datasets[0].data = [workChart, choresChart, personalChart, studyChart]
       barChart.update()
 }
+
+
 
 
 const dialogControl = (() => {
@@ -149,7 +154,7 @@ const switchDisplay = (() => {
       for(const option of menuOptions){
             option.addEventListener('click', (e) => {
                   target = e.target
-                  console.log(target)
+                  
                   if(target.value === 0){
                         categoryTitle.innerText = target.id
                         workDisplay.update()
@@ -231,7 +236,7 @@ const submitForm = () => {
       if(categoryDisplay === '0'){
 
             workDisplay.add(task)
-            
+            // localStorage.setItem('work', JSON.stringify(workDisplay.targetList))
             categoryTitle.innerText = 'Work';
 
       } else if(categoryDisplay === '1'){
@@ -252,7 +257,7 @@ const submitForm = () => {
             categoryTitle.innerText = 'Study'
 
       }
-      console.log(task)
+      
      
       titleInput.value = '';
       notesInput.value = '';

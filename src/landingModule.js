@@ -50,6 +50,7 @@ const landing = () => {
     headingDiv.appendChild(createNew())
     headingDiv.appendChild(currentSection())
     
+    
 
     mainContainer.appendChild(cards)
     
