@@ -27,20 +27,20 @@ export class Display {
                 this.targetElement.removeChild(this.targetElement.firstChild)
         }
 
-        if(this.targetList.length === 0){
-            for(const item of this.storage){
-                this.targetElement.appendChild(Display.createTargetItem(item))
-                this.updateLocalStorage(item)
-            }
-        } else {
+        // if(this.targetList.length === 0){
+        //     for(const item of this.storage){
+        //         this.targetElement.appendChild(Display.createTargetItem(item))
+        //         this.updateLocalStorage(item)
+        //     }
+        // } else {
             for(const item of this.targetList ){
-                this.readFromLocalStorage(item)
+                
                 this.targetElement.appendChild(Display.createTargetItem(item))
                 this.updateLocalStorage(item)
             }
         }
             
-    }
+    
 
     //read from targetList and then push to localStorage
     //THEN if nothing in targetList, populate targetList with whats in localStorage and then update
@@ -54,15 +54,15 @@ export class Display {
         //lacks createTargetItem to avoid making generic card
         for(const item of this.targetList){
             this.targetElement.appendChild(item)
+            
         }
     }
 
-    readFromLocalStorage(item){
-        this.storage =  JSON.parse(localStorage.getItem(item.category))
-    }
+    
     
     updateLocalStorage(item){
         localStorage.setItem(item.category, JSON.stringify(this.targetList))
+        localStorage.setItem(`counter${item.category}`, JSON.stringify(this.counter))
     }
 
     add (item) {

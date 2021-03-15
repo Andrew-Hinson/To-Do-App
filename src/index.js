@@ -24,13 +24,40 @@ const personalDisplay = new Display(cards)
 const studyDisplay = new Display(cards)
 const homeDisplay = new Display(cards)
 const loginDisplay = new Display(cards)
-////////////////////////////////////////
+//DOM chart appending to Home screen//
 
 
 
+for(const key in localStorage){
+      if(key === '0'){
+            workDisplay.targetList = JSON.parse(localStorage.getItem(key))
+            workDisplay.counter = JSON.parse(localStorage.getItem('counter0'))
+            workDisplay.update()
+      }
+      if(key === '1'){
+            choresDisplay.targetList = JSON.parse(localStorage.getItem(key))
+            choresDisplay.counter = JSON.parse(localStorage.getItem('counter1'))
+            choresDisplay.update()
+      }
+      if(key === '2'){
+            personalDisplay.targetList = JSON.parse(localStorage.getItem(key))
+            personalDisplay.counter = JSON.parse(localStorage.getItem('counter2'))
+            personalDisplay.update()
+      }
+      if(key === '3'){
+            studyDisplay.targetList = JSON.parse(localStorage.getItem(key))
+            studyDisplay.counter = JSON.parse(localStorage.getItem('counter3'))
+            studyDisplay.update()
+      }
+}
 
+// if(0 in localStorage|| 1 in localStorage|| 2 in localStorage|| 3 in localStorage){
+      
+// } 
 homeDisplay.statAdd(pieChart())
 homeDisplay.statAdd(graphChart())
+
+
 
 
 ///homepage charts //////
@@ -114,7 +141,8 @@ const updateCompletedChart = () => {
       barChart.update()
 }
 
-
+updateChart()
+updateCompletedChart()
 
 
 const dialogControl = (() => {
@@ -376,18 +404,22 @@ cardListener.addEventListener('click', (e) => {
                         if( x === '0'){
                               workDisplay.remove(a)
                               workDisplay.counter++
+                              workDisplay.update()
                         }
                         if( x === '1'){
                               choresDisplay.remove(a)
                               choresDisplay.counter++
+                              choresDisplay.update()
                         }
                         if (x === '2'){
                               personalDisplay.remove(a)
                               personalDisplay.counter++
+                              personalDisplay.update()
                         }
                         if (x === '3'){
                               studyDisplay.remove(a)
                               studyDisplay.counter++
+                              studyDisplay.update()
                         }
                   }, 1000);
             }
