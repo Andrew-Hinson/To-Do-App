@@ -10,12 +10,12 @@ Site is live! https://andrew-hinson.github.io/To-Do-App/
 * Dynamic creation and removal of objects
 
 # New Features:
+* Local Storage is now live! You can have as many completed Todos as you want as long as its < 10 ;)
 * Stat Tracking, implimented Chart.js tracking of ToDo's and completed Todo's.
 * Updated styling, menu bar with more coherant styling.
-* Mobile Styling and support. Readability and usability adjustments.
-* 
-# Features in-development:
-* Local Data Storage / Firebase implimentation
+* Mobile Styling and support. 
+* Successfully tested hosting on Firebase, will be using in future projects more.
+
 
 
 # Final Thoughts
