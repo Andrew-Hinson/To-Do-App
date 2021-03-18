@@ -19,7 +19,7 @@ const dialog = () => {
             const input = document.createElement('input')
             li.classList.add('dialogLi')
             label.setAttribute('for', 'titleInput')
-            label.innerText = 'Flip Title:'
+            label.innerText = 'Title:'
             input.setAttribute('id', 'titleInput')
             input.setAttribute('type', 'text')
             input.setAttribute('maxlength', '15')
