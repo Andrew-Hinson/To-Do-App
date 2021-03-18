@@ -1,6 +1,8 @@
 # To-Do-App
 Site is live! https://andrew-hinson.github.io/To-Do-App/
 
+This is my unique take on a To-Do Application, I decided to veer away from most standard looking To-Do applications and make something that I thought kids (and kids at heart) could have fun interacting with. The background image is from Unsplash: https://unsplash.com/photos/2LJ4rqK2qfU The color pallet is from ColorHunt.io: https://colorhunt.co/palette/15830. The flip card addition and css fade animations are a first for me and are purely run on CSS and JS, I look forward in getting better at interactivity elements for my projects.
+
 
 ### Key goals 
 * Single Responsibility Focus of classes, objects, and functions.
