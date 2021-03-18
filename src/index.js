@@ -297,7 +297,7 @@ cardListener.addEventListener('click', (e) => {
             } else if (y === '2'){
                   a = personalDisplay.find(x)
             } else if (y === '3'){
-                  a = personalDisplay.find(x)
+                  a = studyDisplay.find(x)
             }
 
             let cardNote = document.querySelector(`#cardNote${x}`)
@@ -315,7 +315,7 @@ cardListener.addEventListener('click', (e) => {
                         radioValue = radio.value
                   }
             }
-            console.log(a)
+            
             //if category = categorynum, get specific task with tasks position of y, drill down to priority and set
             if(y === '0'){
                   
@@ -334,6 +334,7 @@ cardListener.addEventListener('click', (e) => {
                   personalDisplay.setItem(y)
             }
             if(y === '3'){
+                  
                   studyDisplay.targetList[a].priority = radioValue;
                   studyDisplay.targetList[a].notes = cardNote.value;
                   studyDisplay.setItem(y)
