@@ -27,21 +27,29 @@ const landing = () => {
         return sectionHeading;
     }
     const createNew = () => {
+
         const ul =document.createElement('ul')
             ul.classList.add('menu')
             ul.setAttribute('id', 'createNewParent')
+
         const li = document.createElement('li')
             
-            li.classList.add('newFlip')
-            
             li.setAttribute('id', 'CreateNew')
-            li.setAttribute('value', 4)
-
 
             li.innerText = 'New Task!'
 
-            ul.appendChild(li)
-            return ul;
+        const subul = document.createElement('ul')
+        const reset = document.createElement('li')
+        
+        
+            reset.setAttribute('id', 'reset')
+            reset.innerText = 'Reset'
+        
+        subul.appendChild(reset)
+        li.appendChild(subul)
+        ul.appendChild(li)
+        
+        return ul;
     }
 
    

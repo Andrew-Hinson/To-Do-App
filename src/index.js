@@ -140,10 +140,17 @@ const updateCompletedChart = () => {
 updateChart()
 updateCompletedChart()
 
+const reset = document.querySelector('#reset')
+
+reset.addEventListener('click', (e) => {
+      e.stopPropagation()
+      window.localStorage.clear()
+      location.reload()
+})
 
 const dialogControl = (() => {
       //Dialog control Listeners
-     
+      
       const cancel = document.querySelector('#cancel');
       const accept = document.querySelector('#accept')
       const createNew = document.querySelector('#CreateNew')

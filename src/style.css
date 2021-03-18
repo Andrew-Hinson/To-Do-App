@@ -237,7 +237,6 @@ li {
 li:hover {
   background: #3fc1c9;
   cursor: pointer;
- 
 }
 
 ul li li {
@@ -268,7 +267,23 @@ ul li ul li {
   clear: both;
   width: 100%;
 }
+#CreateNew {
+  line-height: 2.5rem;
+  color: #f5f5f5;
+  text-align: center;
+  cursor: pointer;
+}
 
+#reset {
+  background-color: #364f6b;
+}
+#reset:hover{
+  background-color: #3fc1c9;
+}
+/* #CreateNew #reset {
+  clear: both;
+  width: 100%;
+} */
 /* Dialog Styling */
 dialog {
   position: fixed;
@@ -378,6 +393,7 @@ select:focus{
   outline: none;
   border-color: #f5f5f5;
 }
+
 
 /* priority dropdown styling */
 
