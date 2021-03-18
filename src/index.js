@@ -30,23 +30,19 @@ const loginDisplay = new Display(cards)
 
 for(const key in localStorage){
       if(key === '0'){
-            workDisplay.targetList = JSON.parse(localStorage.getItem(key))
-            workDisplay.counter = JSON.parse(localStorage.getItem('counter0'))
+            workDisplay.getLocalStorage(key)
             workDisplay.update()
       }
       if(key === '1'){
-            choresDisplay.targetList = JSON.parse(localStorage.getItem(key))
-            choresDisplay.counter = JSON.parse(localStorage.getItem('counter1'))
+            choresDisplay.getLocalStorage(key)
             choresDisplay.update()
       }
       if(key === '2'){
-            personalDisplay.targetList = JSON.parse(localStorage.getItem(key))
-            personalDisplay.counter = JSON.parse(localStorage.getItem('counter2'))
+            personalDisplay.getLocalStorage(key)
             personalDisplay.update()
       }
       if(key === '3'){
-            studyDisplay.targetList = JSON.parse(localStorage.getItem(key))
-            studyDisplay.counter = JSON.parse(localStorage.getItem('counter3'))
+            studyDisplay.getLocalStorage(key)
             studyDisplay.update()
       }
 }
@@ -132,10 +128,10 @@ const chart = new Chart(canvas1, {
 
 ////////////////////////
 const updateCompletedChart = () => {
-      let workChart = workDisplay.counter
-      let choresChart = choresDisplay.counter
-      let personalChart = personalDisplay.counter
-      let studyChart = studyDisplay.counter
+      let workChart = workDisplay.completed
+      let choresChart = choresDisplay.completed
+      let personalChart = personalDisplay.completed
+      let studyChart = studyDisplay.completed
 
       barChart.data.datasets[0].data = [workChart, choresChart, personalChart, studyChart]
       barChart.update()
@@ -214,15 +210,7 @@ const switchDisplay = (() => {
 
 
  
-//used in position of Task within Display targetList
-const displayCounter = {
 
-      work:       0,
-      chores:     0,
-      personal:   0,
-      study:      0
-
-};
 
 //when accept is pressed, it should place the card in the selected category
 const submitForm = () => {
@@ -240,31 +228,27 @@ const submitForm = () => {
             }
       };
       
-      let position;
+      let id;
+
       if(categoryDisplay === '0'){
-            position = displayCounter.work;
-            displayCounter.work++
+            id =  `id${workDisplay.identifier}`
       }
       if(categoryDisplay === '1'){
-            position = displayCounter.chores;
-            displayCounter.chores++
+            id =  `id${choresDisplay.identifier}`
       }
       if(categoryDisplay === '2'){
-            position = displayCounter.personal;
-            displayCounter.personal++
+            id =  `id${personalDisplay.identifier}`
       }
       if(categoryDisplay === '3'){
-            position = displayCounter.study;
-            displayCounter.study++
+            id =  `id${studyDisplay.identifier}`
       }
-      let id = `id${position}`
       
-      const task = new Task(titleInput.value, notesInput.value, categoryDisplay, radioValue, position, id)
+      
+      const task = new Task(titleInput.value, notesInput.value, categoryDisplay, radioValue, id)
       
       if(categoryDisplay === '0'){
 
             workDisplay.add(task)
-            // localStorage.setItem('work', JSON.stringify(workDisplay.targetList))
             categoryTitle.innerText = 'Work';
 
       } else if(categoryDisplay === '1'){
@@ -295,31 +279,32 @@ const submitForm = () => {
 const cardListener = document.querySelector('.cards')
 
 cardListener.addEventListener('click', (e) => {
-
+      
       let target = e.target;
-      let a;
+
       if(target.classList.contains('save')){
             //currentCategory
-            let x = target.dataset.category;
+            let y = target.dataset.category;
             //currentPosition
-            let z = target.dataset.id
-            //rewrite to have the selection of the ID instead of the position
-            let y;
-            if(x === '0'){
-                  y = workDisplay.find(z)
-            } else if (x === '1'){
-                  y = choresDisplay.find(z)
-            } else if (x === '2'){
-                  y = personalDisplay.find(z)
-            } else if (x === '3'){
-                  y = personalDisplay.find(z)
+            let x = target.dataset.id
+            // a is = {item} in this.targetlist
+            let a;
+
+            if(y === '0'){
+                  a = workDisplay.find(x)
+            } else if (y === '1'){
+                  a = choresDisplay.find(x)
+            } else if (y === '2'){
+                  a = personalDisplay.find(x)
+            } else if (y === '3'){
+                  a = personalDisplay.find(x)
             }
 
-            let cardNote = document.querySelector(`#cardNote${z}`)
+            let cardNote = document.querySelector(`#cardNote${x}`)
 
-            let frontColor = document.querySelector(`#frontCheck${z}`)
+            let frontColor = document.querySelector(`#frontCheck${x}`)
 
-            const radioInputs = document.querySelectorAll(`.cardRadio${z}`)
+            const radioInputs = document.querySelectorAll(`.cardRadio${x}`)
 
             
             //radioValue will hold the value of the currently clicked radio button
@@ -330,23 +315,28 @@ cardListener.addEventListener('click', (e) => {
                         radioValue = radio.value
                   }
             }
-            
+            console.log(a)
             //if category = categorynum, get specific task with tasks position of y, drill down to priority and set
-            if(x === '0'){
-                  workDisplay.targetList[y].priority = radioValue;
-                  workDisplay.targetList[y].notes = cardNote.value;
+            if(y === '0'){
+                  
+                  workDisplay.targetList[a].priority = radioValue;
+                  workDisplay.targetList[a].notes = cardNote.value;
+                  workDisplay.setItem(y)
             }
-            if(x === '1'){
-                  choresDisplay.targetList[y].priority = radioValue;
-                  choresDisplay.targetList[y].notes = cardNote.value;
+            if(y === '1'){
+                  choresDisplay.targetList[a].priority = radioValue;
+                  choresDisplay.targetList[a].notes = cardNote.value;
+                  choresDisplay.setItem(y)
             }
-            if(x === '2'){
-                  personalDisplay.targetList[y].priority = radioValue;
-                  personalDisplay.targetList[y].notes = cardNote.value;
+            if(y === '2'){
+                  personalDisplay.targetList[a].priority = radioValue;
+                  personalDisplay.targetList[a].notes = cardNote.value;
+                  personalDisplay.setItem(y)
             }
-            if(x === '3'){
-                  studyDisplay.targetList[y].priority = radioValue;
-                  studyDisplay.targetList[y].notes = cardNote.value;
+            if(y === '3'){
+                  studyDisplay.targetList[a].priority = radioValue;
+                  studyDisplay.targetList[a].notes = cardNote.value;
+                  studyDisplay.setItem(y)
             }
 
             if(radioValue === '1'){
@@ -364,61 +354,67 @@ cardListener.addEventListener('click', (e) => {
       
             //delete card
       else if(target.classList.contains('delete')){
-            let x = target.dataset.category
-            let y = target.dataset.id
-            a = y //to use when transitioning to figure out which element to remove
-            let currentCard = document.querySelector(`#cardParent${y}`)
-
+            let y = target.dataset.category
+            let x = target.dataset.id
+            
+            //to use when transitioning to figure out which element to remove
+            let currentCard = document.querySelector(`#cardParent${x}`)
+            
+            
             currentCard.classList.add("removed")
       
             if(currentCard.classList.contains('removed')){
                   setTimeout(() => {
                         
-                        if( x === '0'){
-                              workDisplay.remove(a)
+                        if( y === '0'){
+                              workDisplay.remove(x, y)
+                              workDisplay.update()
                         }
-                        if( x === '1'){
-                              choresDisplay.remove(a)
+                        if( y === '1'){
+                              choresDisplay.remove(x, y)
+                              workDisplay.update()
                         }
-                        if (x === '2'){
-                              personalDisplay.remove(a)
+                        if (y === '2'){
+                              personalDisplay.remove(x, y)
+                              workDisplay.update()
                         }
-                        if (x === '3'){
-                              studyDisplay.remove(a)
+                        if (y === '3'){
+                              studyDisplay.remove(x, y)
+                              workDisplay.update()
                         }
                   }, 1000);
             }
             
       }
       else if(target.classList.contains('complete')){
-            let x = target.dataset.category
-            let y = target.dataset.id
-            a = y //to use when transitioning to figure out which element to remove
-            let currentCard = document.querySelector(`#cardParent${y}`)
+            let y = target.dataset.category
+            let x = target.dataset.id
+            //to use when transitioning to figure out which element to remove
+            let currentCard = document.querySelector(`#cardParent${x}`)
 
             currentCard.classList.add("removed")
-      
+            
             if(currentCard.classList.contains('removed')){
                   setTimeout(() => {
                         
-                        if( x === '0'){
-                              workDisplay.remove(a)
-                              workDisplay.counter++
+                        if( y === '0'){
+                              ++workDisplay.completed
+                              workDisplay.remove(x, y)
                               workDisplay.update()
                         }
-                        if( x === '1'){
-                              choresDisplay.remove(a)
-                              choresDisplay.counter++
+                        if( y === '1'){
+                              choresDisplay.remove(x, y)
+                              ++choresDisplay.completed
                               choresDisplay.update()
                         }
-                        if (x === '2'){
-                              personalDisplay.remove(a)
-                              personalDisplay.counter++
+                        if (y === '2'){
+                              personalDisplay.remove(x, y)
+                              ++personalDisplay.completed
                               personalDisplay.update()
                         }
-                        if (x === '3'){
-                              studyDisplay.remove(a)
-                              studyDisplay.counter++
+                        if (y === '3'){
+                              studyDisplay.remove(x, y)
+                              ++studyDisplay.completed
                               studyDisplay.update()
                         }
                   }, 1000);
