@@ -372,15 +372,15 @@ cardListener.addEventListener('click', (e) => {
                         }
                         if( y === '1'){
                               choresDisplay.remove(x, y)
-                              workDisplay.update()
+                              choresDisplay.update()
                         }
                         if (y === '2'){
                               personalDisplay.remove(x, y)
-                              workDisplay.update()
+                              personalDisplay.update()
                         }
                         if (y === '3'){
                               studyDisplay.remove(x, y)
-                              workDisplay.update()
+                              studyDisplay.update()
                         }
                   }, 1000);
             }
@@ -403,18 +403,18 @@ cardListener.addEventListener('click', (e) => {
                               workDisplay.update()
                         }
                         if( y === '1'){
-                              choresDisplay.remove(x, y)
                               ++choresDisplay.completed
+                              choresDisplay.remove(x, y)
                               choresDisplay.update()
                         }
                         if (y === '2'){
-                              personalDisplay.remove(x, y)
                               ++personalDisplay.completed
+                              personalDisplay.remove(x, y)
                               personalDisplay.update()
                         }
                         if (y === '3'){
-                              studyDisplay.remove(x, y)
                               ++studyDisplay.completed
+                              studyDisplay.remove(x, y)
                               studyDisplay.update()
                         }
                   }, 1000);
