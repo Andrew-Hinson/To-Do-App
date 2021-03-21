@@ -26,7 +26,7 @@ This is my unique take on a To-Do Application, I decided to veer away from most 
 
 
 # Final Thoughts
-This application has taught me a great deal, classes, ES6 module manipulation, Webpack configurations, CSS animations.
+This application has taught me a great deal, classes, ES6 module manipulation, Webpack configurations, CSS animations. I enjoyed figuring out how to use local storage in the browser with JSON.
 
 
 
