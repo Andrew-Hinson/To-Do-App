@@ -1,5 +1,3 @@
-import { collectionList , checkBoxes } from './dropDowns.js';
-import { Task } from './Tasks.js';
 
 //used in Display.js // //called with index.js {Task}//
 const cardCreation = (item) => {
@@ -40,6 +38,7 @@ const cardCreation = (item) => {
     
     const cardFront = document.createElement('div')
 
+    // eslint-disable-next-line no-unused-vars
     const cardFrontStyle = (() => {
         cardFront.classList.add('cardFront')
         cardFront.appendChild(cardTitle)
@@ -49,6 +48,7 @@ const cardCreation = (item) => {
     })()
     
     const cardBack = document.createElement('div')
+    // eslint-disable-next-line no-unused-vars
     const cardBackStyle = (() => {
         cardBack.classList.add('cardBack')
         cardBack.appendChild(notesLabel)

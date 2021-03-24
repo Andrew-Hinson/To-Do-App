@@ -1,3 +1,4 @@
+// eslint-disable-next-line no-undef
 const Chart = require('chart.js');
 
 
@@ -6,13 +7,11 @@ import { landing } from './landingModule.js';
 import { Display } from './Display.js';
 import { Task } from './Tasks.js';
 import { pieChart, graphChart }from './statCards.js';
-import { addData, removeData } from './homeChart.js';
 
 //initial page generation
 landing()
 
 
-const mainContainer = document.querySelector('#mainContainer')
 const categoryTitle = document.querySelector('#categoryTitle')
 //main element that Display class needs to access
 const cards = document.querySelector('.cards')
@@ -23,7 +22,6 @@ const choresDisplay = new Display(cards)
 const personalDisplay = new Display(cards)
 const studyDisplay = new Display(cards)
 const homeDisplay = new Display(cards)
-const loginDisplay = new Display(cards)
 //DOM chart appending to Home screen//
 
 
@@ -148,6 +146,7 @@ reset.addEventListener('click', (e) => {
       location.reload()
 })
 
+// eslint-disable-next-line no-unused-vars
 const dialogControl = (() => {
       //Dialog control Listeners
       
@@ -177,6 +176,7 @@ const dialogControl = (() => {
 
 
 
+// eslint-disable-next-line no-unused-vars
 const switchDisplay = (() => {
       //menu options on the left all have class of .newFlip
       const menuOptions = document.querySelectorAll('.newFlip')
@@ -211,7 +211,7 @@ const switchDisplay = (() => {
                         updateCompletedChart()
                   }
            });
-     };
+     }
 })();
 
 
@@ -233,7 +233,7 @@ const submitForm = () => {
             if(radio.checked === true){
                   radioValue = radio.value
             }
-      };
+      }
       
       let id;
 

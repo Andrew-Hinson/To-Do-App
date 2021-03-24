@@ -1,4 +1,3 @@
-import { Task } from './Tasks.js'
     
 const collectionList = () => {
  const select1 = document.createElement('select')

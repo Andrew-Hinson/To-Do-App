@@ -89,4 +89,4 @@ const dialog = () => {
     dialog.appendChild(form)
     return dialog;
 }
-export { dialog } 
+export { dialog }
