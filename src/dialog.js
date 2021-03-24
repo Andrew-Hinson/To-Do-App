@@ -1,4 +1,4 @@
-import { collectionList , checkBoxes } from './dropDowns.js';
+import { collectionList, checkBoxes } from './dropDowns.js'
 
 const dialog = () => {
     const dialog = document.createElement('dialog')
@@ -25,7 +25,7 @@ const dialog = () => {
             input.setAttribute('maxlength', '15')
             label.appendChild(input)
             li.appendChild(label)
-            return li;
+            return li
         }
 
         const li1 = () => {
@@ -33,7 +33,7 @@ const dialog = () => {
             li.classList.add('dialogLi')
             li.innerText = 'Category: '
             li.appendChild(collectionList())
-            return li;
+            return li
         }
 
         const li2 = () => {
@@ -43,7 +43,7 @@ const dialog = () => {
             li.classList.add('dialogLi')
             label.innerText = 'Notes: '
             label.setAttribute('for', 'notesInput')
-            
+
             li.classList.add('centerLabel')
             input.setAttribute('id', 'notesInput')
             input.setAttribute('rows', '4')
@@ -51,42 +51,41 @@ const dialog = () => {
             input.setAttribute('maxlength', '70')
             label.appendChild(input)
             li.appendChild(label)
-            return li;
-
+            return li
         }
 
         const li3 = () => {
             const li = document.createElement('li')
             li.classList.add('dialogLi')
             li.appendChild(checkBoxes())
-            return li;
+            return li
         }
 
         ul.appendChild(li0())
         ul.appendChild(li1())
         ul.appendChild(li2())
         ul.appendChild(li3())
-        return ul;
+        return ul
     }
-        
+
     const cancel = () => {
         const cancelBtn = document.createElement('button')
         cancelBtn.setAttribute('id', 'cancel')
         cancelBtn.innerText = 'Cancel'
-        return cancelBtn;
+        return cancelBtn
     }
-    
+
     const accept = () => {
         const acceptBtn = document.createElement('button')
         acceptBtn.setAttribute('id', 'accept')
         acceptBtn.innerText = 'Accept'
-        return acceptBtn;
+        return acceptBtn
     }
-        
+
     form.appendChild(ul())
     form.appendChild(cancel())
     form.appendChild(accept())
     dialog.appendChild(form)
-    return dialog;
+    return dialog
 }
 export { dialog }
